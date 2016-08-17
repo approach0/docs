@@ -1,4 +1,4 @@
-## Setting up WEB Demo
+## WEB Demo
 The source code contains a complete WEB demo (also is the one
 hosted on [our demo page](https://approach0.xyz/demo/)) that
 you can set up on your own machine.
@@ -101,3 +101,55 @@ $ tmux list-sessions
 $ tmux attach -t searchd_session
 ```
 and hit Ctrl-C.
+
+### Setup HTTPS (optional)
+Our demo page is a `https` URL, this section records how to setup
+https service (using [let’s encrypt](https://letsencrypt.org/)
+service) in Nginx for whoever needs to maintain our demo page.
+```
+$ git clone --depth=1 https://github.com/t-k-/letsencrypt-auto.git
+$ cd letsencrypt-auto
+$ vi letsencrypt.conf
+```
+change variable `DOMAIN_DIR` to `/var/www/html`.
+
+If `python` command is not found (does not link to python3), issue:
+```
+$ ln -s `which python3` /usr/bin/python
+```
+
+Run *let's encrypt* script:
+```
+$ ./letsencrypt.sh
+ ...
+$ ls
+account.key   domain.chained.crt  domain.csr  letsencrypt.conf  lets-encrypt-x3-cross-signed.pem
+acme_tiny.py  domain.crt          domain.key  letsencrypt.sh
+```
+
+Upon success, set nginx config file:
+```
+$ ln -s `pwd`/domain.chained.crt /var/www/html/
+$ ln -s `pwd`/domain.key /var/www/
+$ vi /etc/nginx/sites-enabled/default
+```
+
+Add
+```
+ ...
+    # SSL configuration
+
+    listen 443 ssl default_server;
+    listen [::]:443 ssl default_server;
+    ssl_certificate /var/www/html/domain.chained.crt;
+    ssl_certificate_key /var/www/html/domain.key;
+ ...
+```
+on server scope.
+
+Restart http server
+```
+$ systemctl restart nginx
+```
+
+At this point, https port is opened.
