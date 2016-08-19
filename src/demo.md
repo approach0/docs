@@ -119,6 +119,15 @@ To terminate command running with `respawn.sh` script:
 ```
 $ ./scripts/respawn.sh kill
 ```
+But the above command depends on log file `./respawn.pid.log`
+and `./respawn.cmd.log` to know which process to kill, if any of
+these files are lost, use `pstree -p | grep respawn.sh`
+or `ps aux | grep respawn.sh` to find out the PID of respawn.sh,
+then terminate command (assuming is searchd) by doing:
+```
+$ kill <PID of respawn.sh>
+$ killall --signal SIGINT searchd.out
+```
 
 ### Setup HTTPS (optional)
 Our demo page is a `https` URL, this section records how to setup
