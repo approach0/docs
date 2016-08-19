@@ -5,7 +5,7 @@ in the next stage.
 ### Top priority:
 * Demo provides a math symbol/function selection UI
 * Demo UI should remind user if they are inputting math in a non-math mode.
-* Github WEB hook, auto update demo on code changes
+* Github WEB hook, auto update demo on code changes (webhook for docs is done, but webhook for compile may need extra work such as using zmq/zeromq)
 * Search process timing and bottleneck analyze
 * math on-disk posting file compression
 * breadth-first dir-merge
