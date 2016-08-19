@@ -3,16 +3,15 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Top priority:
-* indicate TeX grammar error in search result returned by searchd.
+* Demo provides a math symbol/function selection UI
+* Demo UI should remind user if they are inputting math in a non-math mode.
+* Github WEB hook, auto update demo on code changes
+* Search process timing and bottleneck analyze
 * math on-disk posting file compression
-* math index on a filesystem that does not restrict number of inodes.
-* search earily termination (depends on how many items has been evaluated).
 * breadth-first dir-merge
-* score: frequency & [sub\_expr depth > score (mnc\_score / search\_depth) > n\_lr\_paths]
-* top level AND merge does not work
-* oprtr decompose (when no search result is found)
+* search earily termination (depends on how many items has been evaluated).
+* math index on a filesystem that does not restrict number of inodes.
 * malloc hook / valgrind check
-* Traffic stat / query log
 
 ### Want to implement
 * search: concept search (horse == Pony)
@@ -24,3 +23,7 @@ in the next stage.
 * faster math-index/subpath-set
 * in mnc\_score, compare father-to-root hash
 * efficient postmerge
+* top level AND merge does not work
+* write a script to extract traffic stat from query log
+* improve score schema, consider:
+	frequency & [sub\_expr depth > score (mnc\_score / search\_depth) > n\_lr\_paths]
