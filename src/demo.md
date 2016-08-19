@@ -89,7 +89,7 @@ Install tmux for keeping searchd running in a detached session
 ```
 $ sudo apt-get install tmux
 $ cd $PROJECT/searchd
-$ tmux new -d -s searchd_session './run/searchd.out -i ~/large-index'
+$ tmux new -d -s searchd_session './run/searchd.out -i ~/index'
 ```
 
 At this point, you should be able to get search results back after
