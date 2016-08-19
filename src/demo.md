@@ -84,6 +84,8 @@ rebuild searchd)
 
 ### Run searchd in background
 
+#### 1. Using Tmux
+
 Install tmux for keeping searchd running in a detached session
 (so that searchd can keep running even if we exit the shell).
 ```
@@ -101,6 +103,22 @@ $ tmux list-sessions
 $ tmux attach -t searchd_session
 ```
 and hit Ctrl-C.
+
+#### 2. Using respawn.sh
+A `respawn.sh` is provided as an alternative to keep a command
+running in background. And it will respawn this command when command
+exits with non-zero return (crash is one of the cases).
+
+Utilize this script to running searchd in background:
+```
+$ cd $PROJECT/searchd
+$ ./scripts/respawn.sh ./run/searchd.out -i ~/index &
+```
+
+To terminate command running with `respawn.sh` script:
+```
+$ ./scripts/respawn.sh kill
+```
 
 ### Setup HTTPS (optional)
 Our demo page is a `https` URL, this section records how to setup
