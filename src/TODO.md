@@ -16,6 +16,7 @@ in the next stage.
 * score schema test-case
 * distributive search
 * exact match matters, non-exact match does not contribute much even if they occur many times in a document.
+* tune \qvar
 
 ### Want to implement
 * search: concept search (horse == Pony)
