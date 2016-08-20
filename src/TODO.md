@@ -15,6 +15,7 @@ in the next stage.
 * malloc hook / valgrind check
 * score schema test-case
 * distributive search
+* exact match matters, non-exact match does not contribute much even if they occur many times in a document.
 
 ### Want to implement
 * search: concept search (horse == Pony)
