@@ -13,6 +13,8 @@ in the next stage.
 * search earily termination (depends on how many items has been evaluated).
 * math index on a filesystem that does not restrict number of inodes.
 * malloc hook / valgrind check
+* score schema test-case
+* distributive search
 
 ### Want to implement
 * search: concept search (horse == Pony)
