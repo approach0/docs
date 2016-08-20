@@ -25,13 +25,13 @@ source_suffix = ['.md', '.rst']
 master_doc = 'index'
 
 # project info
-project = 'Documentation'
+project = 'Approach0'
 copyright = '2016, Wei Zhong'
 author = 'Wei Zhong'
-version = 'latest version'
+version = ''
 release = ''
 language = None
-html_title = 'Documentation'
+html_title = 'Approach0 docs'
 
 # exclude directory
 exclude_patterns = ['_build']
