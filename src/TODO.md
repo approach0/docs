@@ -5,7 +5,6 @@ in the next stage.
 ### Top priority:
 * Demo provides a math symbol/function selection UI
 * Demo mobile user redirect to PC.
-* server PHP client IP log
 * Github WEB hook, auto update demo on code changes (webhook for docs is done, but webhook for compile may need extra work such as using zmq/zeromq)
 * Search process timing and bottleneck analyze
 * math on-disk posting file compression
