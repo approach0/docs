@@ -8,7 +8,6 @@ in the next stage.
 * math on-disk posting file compression
 * breadth-first dir-merge
 * search earily termination (depends on how many items has been evaluated).
-* math index on a filesystem that does not restrict number of inodes.
 * malloc hook / valgrind check
 * tune \qvar
 

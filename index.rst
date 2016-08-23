@@ -24,6 +24,7 @@ Documentation Index
    src/dependency
    src/build
    src/usage
+   src/vdisk
    src/demo
    src/internals
    src/TODO
