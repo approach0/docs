@@ -39,7 +39,7 @@ After you are done, unmount `./tmp`:
 $ sudo ./scripts/vdisk-umount.sh
 ```
 
-## notice
+### Some notices
 
 ### 1. Lacking kernel support for ReiserFS
 If you are running on Ubuntu 16.04, where kernel does not support ReiserFS, modify scripts above
