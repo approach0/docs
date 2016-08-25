@@ -7,8 +7,8 @@ in the next stage.
 * Search process timing and bottleneck analyze
 * math on-disk posting file compression
 * breadth-first dir-merge
+
 * search earily termination (depends on how many items has been evaluated).
-* malloc hook / valgrind check
 * tune \qvar
 
 ### Want to implement
