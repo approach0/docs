@@ -12,6 +12,7 @@ Anyway, it is reinventing the wheel. I know!
 math.stackexchange.com correctly.
 * Math commutative rules awareness.
 * Math symbol alpha-equivalence awareness.
+* Memory leakage checked, zero unfree.
 * BM25 Okapi scoring schema in fulltext part.
 * Proximity search using efficient "minDist" measurement.
 * Search results highlight.
