@@ -1,4 +1,4 @@
-## Indices in a File Image.
+## Indices in a File Image
 Since our math indexer creates a large amount of directories and
 files on disk proportionally to the number of expressions you are
 going to index.
@@ -37,4 +37,23 @@ normal directory.
 After you are done, unmount `./tmp`:
 ```sh
 $ sudo ./scripts/vdisk-umount.sh
+```
+
+## notice
+
+### 1. Lacking kernel support for ReiserFS
+If you are running on Ubuntu 16.04, where kernel does not support ReiserFS, modify scripts above
+and change file system to `btrfs` for similar performance.
+
+### 2. `dd` command reports exhausted memory
+When you experience `dd` command not being able to create certain size of image file:
+
+```sh
+dd: memory exhausted by input buffer of size 1073741824 bytes (1.0 GiB)
+```
+Try either reduce the `bs` argument number of `dd`, or use a disk swap file:
+```
+dd if=/dev/zero of=/swapspace bs=1M count=4000
+mkswap /swapspace
+swapon /swapspace
 ```
