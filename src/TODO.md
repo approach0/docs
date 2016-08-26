@@ -9,7 +9,6 @@ in the next stage.
 * breadth-first dir-merge
 
 * search earily termination (depends on how many items has been evaluated).
-* tune \qvar
 
 ### Want to implement
 * search: concept search (horse == Pony)
