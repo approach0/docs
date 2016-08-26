@@ -27,3 +27,4 @@ in the next stage.
 	frequency & [sub\_expr depth > score (mnc\_score / search\_depth) > n\_lr\_paths]
 * Demo UI should remind user if they are inputting math in a non-math mode.
 * Github WEB hook, auto update demo on code changes (webhook for docs is done, but webhook for compile may need extra work such as using zmq/zeromq)
+* KaTeX add \qvar support
