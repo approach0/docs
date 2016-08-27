@@ -11,6 +11,7 @@ in the next stage.
 * search earily termination (depends on how many items has been evaluated).
 
 ### Want to implement
+* query expansion, e.g. \left| a + b \right| +==> | a + b| 
 * search: concept search (horse == Pony)
 * spell checking & 3-gram input suggestion
 * query correction ("do you mean XXX")
