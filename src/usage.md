@@ -101,8 +101,8 @@ relevant documents and exits immediately.
 There are three single-query search programs available:
 
 * A transitional full-text searcher which only searches
-**terms** (i.e. non-math expressions), located at
-`search/run/test-term-search.out`.
+**terms** (i.e. regular text without math-expressions), 
+located at `search/run/test-term-search.out`.
 * A math-only searcher which only searches math expressions,
 located at `search/run/test-math-expr-search.out`
 * A mixed-query searcher which handles both math-expression
