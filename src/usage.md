@@ -79,11 +79,10 @@ $ ./run/indexer.out -p ../demo/crawler/tmp/ 2> error.log
 Again, the output (resulting index) is generated under
 `./tmp` directory.
 
-Be aware that for now, every time indexer runs will overwrite
-its previous index output. This stage, our indexer cannot
-simply add into existing index by several runs.
-This is another thing this project plans to improve in the
-future. (A small TODO of course!)
+Specify with `-o` option to overwrite previous index output.
+If you are using indexer to add new documents into existing
+index in multiple runs. You are need to ensure by yourself
+that the new documents are not previously indexed.
 
 If you are indexing a English-only corpus, use `-e` option when
 calling `indexer.out`. This will speed up indexing process
