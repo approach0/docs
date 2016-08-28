@@ -11,6 +11,7 @@ in the next stage.
 * Search process timing and bottleneck analyze
 * math on-disk posting file compression
 * breadth-first dir-merge
+* a helpful guide page about how to use, what is indexed, some typical malformed TeX (e.g. `_()` and `sin`), wildcard, and where to put feedback/contribute (quiz-list, edit guide page). Also tell user to follow twitter on updates.
 
 * search earily termination (depends on how many items has been evaluated).
 
