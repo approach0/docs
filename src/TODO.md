@@ -3,6 +3,8 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Top priority:
+* query GET URL
+* copy-paste TeX to query input box.
 * Demo provides a math symbol/function selection UI
 * Search process timing and bottleneck analyze
 * math on-disk posting file compression
