@@ -3,7 +3,6 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Top priority:
-* Fix crash on query "$P(w_n | w_1 \cdots w_(n-1))$"
 * query GET URL
 * copy-paste TeX to query input box.
 * Demo provides a math symbol/function selection UI
