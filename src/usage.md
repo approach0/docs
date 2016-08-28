@@ -81,7 +81,7 @@ Again, the output (resulting index) is generated under
 
 Specify with `-o` option to overwrite previous index output.
 If you are using indexer to add new documents into existing
-index in multiple runs. You are need to ensure by yourself
+index in multiple runs, you need to ensure it by yourself
 that the new documents are not previously indexed.
 
 If you are indexing a English-only corpus, use `-e` option when
