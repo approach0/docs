@@ -164,7 +164,7 @@ in searchd directory:
 
 ```
 $ cd ./scripts
-$ ./test-query.sh query-valid.json
+$ ./test-query.sh ./tests/query-valid.json
 ```
 
 To shutdown searchd, type command
