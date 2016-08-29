@@ -3,8 +3,6 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Top priority:
-* return informative msg on query TeX parse error
-* normalize math-score to similar number range of term-score.
 * Demo provides a math symbol/function selection UI
 * Search process timing and bottleneck analyze
 * math on-disk posting file compression
@@ -31,4 +29,5 @@ in the next stage.
 	frequency & [sub\_expr depth > score (mnc\_score / search\_depth) > n\_lr\_paths]
 * Demo UI should remind user if they are inputting math in a non-math mode.
 * Github WEB hook, auto update demo on code changes (webhook for docs is done, but webhook for compile may need extra work such as using zmq/zeromq)
-* KaTeX add \qvar support
+* Mathquill add \qvar support
+* return informative msg on query TeX parse error
