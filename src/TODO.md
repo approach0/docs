@@ -4,7 +4,6 @@ in the next stage.
 
 ### Top priority:
 * query GET URL
-* copy-paste TeX to query input box.
 * return informative msg on query TeX parse error
 * normalize math-score to similar number range of term-score.
 * Demo provides a math symbol/function selection UI
