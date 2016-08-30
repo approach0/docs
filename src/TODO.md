@@ -3,7 +3,6 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Top priority:
-* Demo provides a math symbol/function selection UI
 * Search process timing and bottleneck analyze
 * math on-disk posting file compression
 * breadth-first dir-merge
