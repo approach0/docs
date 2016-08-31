@@ -57,7 +57,8 @@ We do not need to build CppJieba since using the header files of this C++ projec
 ```sh
 $ cd ~
 $ wget 'https://github.com/yanyiwu/cppjieba/archive/v4.8.1.tar.gz' -O cppjieba.tar.gz
-$ tar -xzf cppjieba.tar.gz
+$ mkdir -p ~/cppjieba
+$ tar -xzf cppjieba.tar.gz -C ~/cppjieba --strip-components=1
 ```
 
 ### 3. Configure dependency path
