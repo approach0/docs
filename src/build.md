@@ -22,8 +22,7 @@ $ sudo apt-get install bison flex libz-dev libevent-dev
 ```
 ### 2. Download and build Indri
 This project currently relies on [Lemur/Indri](http://www.lemurproject.org/indri.php)
-library as dependency to provide full-text index functionality.
-(including index writer and reader)
+library as dependency to provide full-text index functionality (i.e. index writer and reader).
 Thus we avoid reinventing the wheel, and we can focus on math search implementation.
 To combine math and full-text search, we merge their results and weight them using
 a some combined score schema.
