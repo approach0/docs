@@ -71,7 +71,7 @@ $ cd $PROJECT
 $ ./configure
 ```
 
-Alternatively, if Lemur/Indri and CppJieba project are downloaded elsewhere, you have to manually specify their paths:
+If Lemur/Indri and CppJieba project are downloaded elsewhere, you have to manually specify their paths:
 
 ```
 $ cd $PROJECT
