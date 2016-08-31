@@ -47,8 +47,8 @@ If Indri reports `undefined reference to ...` when building/linking, install tha
 	
 > (see https://sourceforge.net/p/lemur/discussion/546028/thread/e67752b2)
 
-### 2. Download/Clone CppJieba
-CppJieba provides us Chinese term segmentation functionality.
+### 2. Download CppJieba
+[CppJieba](https://github.com/yanyiwu/cppjieba) provides us Chinese term segmentation functionality.
 Although we have option to choose whether or not to invoke this functionality when calling
 indexer/searcher programs, CppJieba is still required at compile time (at least for now) to
 successfully build this project.
