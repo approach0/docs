@@ -28,7 +28,7 @@ To combine math and full-text search, we merge the results from Indri index read
 from math search, weight them using some combined score schema. (Very high level idea)
 
 Lemur/Indri is not likely to be in your distribution's official software repository,
-so you may need to build and manually specify its library path:
+so you may need to build and manually specify its library path.
 
 Download and decompress Indri tarball (indri-5.9 for example), build its libraries:
 
@@ -47,6 +47,7 @@ If Indri reports `undefined reference to ...` when building/linking, install tha
 > (see https://sourceforge.net/p/lemur/discussion/546028/thread/e67752b2)
 
 ### 2. Download CppJieba
+Our indexer/searcher is able to handle English and Chinese document. Here
 [CppJieba](https://github.com/yanyiwu/cppjieba) provides us Chinese term segmentation functionality.
 Although we have option to choose whether or not to invoke this functionality when calling
 indexer/searcher programs, CppJieba is still required at compile time (at least for now) to
