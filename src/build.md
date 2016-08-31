@@ -46,7 +46,7 @@ If Indri reports `undefined reference to ...` when building/linking, install tha
 	
 > (see https://sourceforge.net/p/lemur/discussion/546028/thread/e67752b2)
 
-### 2. Download CppJieba
+### 3. Download CppJieba
 Our indexer/searcher is able to handle English and Chinese document. Here
 [CppJieba](https://github.com/yanyiwu/cppjieba) provides us Chinese term segmentation functionality.
 Although we have option to choose whether or not to invoke this functionality when calling
@@ -61,7 +61,7 @@ $ mkdir -p ~/cppjieba
 $ tar -xzf cppjieba.tar.gz -C ~/cppjieba --strip-components=1
 ```
 
-### 3. Configure dependency path
+### 4. Configure dependency path
 Our project uses `dep-*.mk` files to configure most C/C++ dependency paths (or CFLAGS and LDFLAGS). If you have installed above dependency libraries in your system environment, you can leave these `dep-*.mk` files untouched.
 
 If you followed the above instruction and downloaded (and compiled) Lemur/Indri and CppJieba project at `$HOME` address, just type:
@@ -80,5 +80,5 @@ $ ./configure --indri-path=~/indri-5.9 --jieba-path=~/cppjieba
 
 This `configure` script also checks necessary libraries for building. If `configure` outputs any library that can not be located by the linker, you may need to install the missing dependency before build.
 
-### 3. Build
+### 5. Build
 Type `make` at project top level (i.e. `$PROJECT`) will do the job.
