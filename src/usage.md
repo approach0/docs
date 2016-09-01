@@ -84,9 +84,11 @@ If you are using indexer to add new documents into existing
 index in multiple runs, you need to ensure it by yourself
 that the new documents are not previously indexed.
 
-If you are indexing a English-only corpus, use `-e` option when
-calling `indexer.out`. This will speed up indexing process
-quite a lot.
+If you are indexing a corpus with Chinese words, use `-d`
+option to specify CppJieba dictionary path when calling
+`indexer.out`. This will lower indexing process but it enables
+searcher/searchd to search Chinese terms later (also have to
+to specify `-d` in searcher/searchd).
 
 Note it is required to have typically at least 1 GB of memory
 for our indexer to successfully run through a non-trivial size
