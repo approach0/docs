@@ -109,7 +109,7 @@ located at `search/run/test-math-expr-search.out`
 * A mixed-query searcher which handles both math-expression
 and term queries, located at `search/run/test-search.out`
 
-For example, to run mixed-query searcher
+Given mixed-query searcher as an example, to run mixed-query searcher
 with a test query "function" and TeX "\\(f(x) = x^2 + 1\\)" on index
 `../indexer/tmp`, issue:
 
