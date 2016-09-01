@@ -86,7 +86,7 @@ that the new documents are not previously indexed.
 
 If you are indexing a corpus with Chinese words, use `-d`
 option to specify CppJieba dictionary path when calling
-`indexer.out`. This will lower indexing process but it enables
+`indexer.out`. This will slow down indexing but it enables
 searcher/searchd to search Chinese terms later (also have to
 to specify `-d` in searcher/searchd).
 
