@@ -26,5 +26,6 @@ Documentation Index
    src/usage
    src/vdisk
    src/demo
+   src/distr_crawl
    src/internals
    src/TODO
