@@ -109,17 +109,7 @@ located at `search/run/test-math-expr-search.out`
 * A mixed-query searcher which handles both math-expression
 and term queries, located at `search/run/test-search.out`
 
-To use any of them, including the `searchd` program to be
-introduced later, you have to "`cd`" to the directory of
-corresponding module.
-This is because we are currently hard-code the dictionary
-path of tokenizer that searcher will use
-to tokenize your query. The path is a relative path
-`../cppjieba/fork/dict/`. So the place you can run these
-commands are fixed. Certainly this is another TODO if you
-feel interested in fixing it.
-
-For example, to run mixed-query searcher
+Given mixed-query searcher as an example, to run mixed-query searcher
 with a test query "function" and TeX "\\(f(x) = x^2 + 1\\)" on index
 `../indexer/tmp`, issue:
 

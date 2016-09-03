@@ -27,8 +27,8 @@ disk image are simple as follows:
 
 ```sh
 $ cd $PROJECT/indexer
-$ ./scripts/vdisk-creat.sh
-$ sudo ./scripts/vdisk-mount.sh `whoami` ./tmp
+$ ./scripts/vdisk-creat.sh reiserfs
+$ sudo ./scripts/vdisk-mount.sh reiserfs
 ```
 A `vdisk.img` is created as our ReiserFS disk image, and is mounted to
 `./tmp` so we can just use indexer and searcher on `./tmp` like a
@@ -42,8 +42,8 @@ $ sudo ./scripts/vdisk-umount.sh
 ### Some notices
 
 ### 1. Lacking kernel support for ReiserFS
-If you are running on Ubuntu 16.04, where kernel does not support ReiserFS, modify scripts above
-and change file system to `btrfs` for similar performance.
+If you are running on Ubuntu 16.04, where kernel does not support ReiserFS, modify scripts 
+argument above and change file system to `btrfs` for similar performance.
 
 ### 2. `dd` command reports exhausted memory
 When you experience `dd` command not being able to create certain size of image file:
