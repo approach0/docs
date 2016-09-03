@@ -4,6 +4,8 @@ in the next stage.
 
 ### Top priority:
 * enlarge indices, pressure test (QPS)
+* record first-read posting list time-cost
+* return how many documents has been searched.
 * search earily termination (depends on how many items has been evaluated).
 * a helpful guide page about how to use, what is indexed, some typical malformed TeX (e.g. `_()`, `\int bound input` and `sin`) with animated gif, wildcard, and where to put feedback/contribute (quiz-list, edit guide page). Also tell user to follow twitter on updates.
 
