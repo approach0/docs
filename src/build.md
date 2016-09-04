@@ -30,13 +30,13 @@ from math search, weight them using some combined score schema. (Very high level
 Lemur/Indri is not likely to be in your distribution's official software repository,
 so you may need to build and manually specify its library path.
 
-Download and decompress Indri tarball (indri-5.9 for example), build its libraries:
+Download and decompress Indri tarball (indri-5.11 is recommended), build its libraries:
 
 ```sh
 $ cd ~
-$ wget 'https://sourceforge.net/projects/lemur/files/lemur/indri-5.9/indri-5.9.tar.gz/download' -O indri-5.9.tar.gz
-$ tar -xzf indri-5.9.tar.gz
-$ (cd indri-5.9 && chmod +x configure && ./configure && make)
+$ wget 'https://sourceforge.net/projects/lemur/files/lemur/indri-5.11/indri-5.11.tar.gz/download' -O indri.tar.gz
+$ tar -xzf indri.tar.gz
+$ (cd indri-5.11 && chmod +x configure && ./configure && make)
 ```
 
 If Indri reports `undefined reference to ...` when building/linking, install that library **and** rerun configure again:
@@ -75,7 +75,7 @@ If Lemur/Indri and CppJieba project are downloaded elsewhere, you have to manual
 
 ```
 $ cd $PROJECT
-$ ./configure --indri-path=~/indri-5.9 --jieba-path=~/cppjieba
+$ ./configure --indri-path=~/indri-5.11 --jieba-path=~/cppjieba
 ```
 
 This `configure` script also checks necessary libraries for building. If `configure` outputs any library that can not be located by the linker, you may need to install the missing dependency before build.
