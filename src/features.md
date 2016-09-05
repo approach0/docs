@@ -8,11 +8,11 @@ of design.
 * Fulltext index writer/reader is based on Indri project (C++), other
 parts are mostly written from scratch in C. Why? Fast, simple and downright.
 Anyway, it is reinventing the wheel. I know!
+* Memory leakage checked, searchd zero unfree.
 * Robust TeX parser, handles most user-created math content from
 math.stackexchange.com correctly.
 * Math commutative rules awareness.
 * Math symbol alpha-equivalence awareness.
-* Memory leakage checked, zero unfree.
 * BM25 Okapi scoring schema in fulltext part.
 * Proximity search using efficient "minDist" measurement.
 * Search results highlight.
