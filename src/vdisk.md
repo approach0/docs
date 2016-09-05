@@ -41,9 +41,15 @@ $ sudo ./scripts/vdisk-umount.sh
 
 ### Some notices
 
-### 1. Lacking kernel support for ReiserFS
-If you are running on Ubuntu 16.04, where kernel does not support ReiserFS, modify scripts 
+### 1. Lacking kernel support for ReiserFS support
+If you are running on kernel without ReiserFS support, modify scripts 
 argument above and change file system to `btrfs` for similar performance.
+
+For server distributions support ReiserFS, Debian 8.5 is recommended one.
+On Debian, install `reiserfsprogs` for userland ReiserFS supports (e.g. mkfs).
+```sh
+$ apt-get install reiserfsprogs
+```
 
 ### 2. `dd` command reports exhausted memory
 When you experience `dd` command not being able to create certain size of image file:
