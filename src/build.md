@@ -17,7 +17,7 @@ Other than commonly build-in libraries (pthread, libz, libm, libstdc++), ther ar
 For Ubuntu 16.04 LTS (xenial), type the following commands to install above dependencies (including essential programs):
 ```sh
 $ sudo apt-get update
-$ sudo apt-get g++ cmake
+$ sudo apt-get install g++ cmake
 $ sudo apt-get install bison flex libz-dev libevent-dev
 ```
 ### 2. Download and build Indri
