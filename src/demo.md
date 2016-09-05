@@ -65,8 +65,8 @@ HTTP root directory.
 $ cd /var/www/html/
 $ ln -s $PROJECT/demo/web ./demo
 ```
-
-Then you should be able to visit `http://127.0.0.1/demo` page.
+Make sure $PROJECT path is accessable by httpd (i.e. Nginx), then
+you should be able to visit `http://127.0.0.1/demo` page.
 
 ### Install php-curl
 The `search-relay.php` in web directory is using php-curl to relay
