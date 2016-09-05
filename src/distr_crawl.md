@@ -68,3 +68,12 @@ $ rsync -zauv --exclude='*.html' --progress corpus/ rsync://138.68.58.236:8990/c
 `-z` option compresses the transferring data, `-a` option forces recursive search on
 source directory, `-u` option does update only when local file is newer, and `-v` option
 verbalize this process.
+
+When using `crawler-math.stackexchange.com.py`
+crawler script, you can specify a "hook script" for automatically doing rsync.
+An example hook script for this purpose (i.e. `push-to-server.sh`) is located at
+`demo/crawler`, to use hook script:
+```sh
+$ cd $PROJECT/demo/crawler
+$ ./crawler-math.stackexchange.com.py -b <begin page> -e <end page> --hook-script ./push-to-server.sh
+```

@@ -129,6 +129,17 @@ $ kill <PID of respawn.sh>
 $ killall --signal SIGINT searchd.out
 ```
 
+### Security
+Configurations below are mainly security considerations.
+
+#### Drop external TCP traffic to searchd
+```sh
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -p tcp --dport 8921 -j DROP
+```
+The first rules give full access to *localhost*, otherwise the second
+rule blocks any packet sent to searchd port.
+
 ### Setup HTTPS (optional)
 Our demo page is a `https` URL, this section records how to setup
 https service (using [let’s encrypt](https://letsencrypt.org/)
