@@ -77,3 +77,4 @@ An example hook script for this purpose (i.e. `push-to-server.sh`) is located at
 $ cd $PROJECT/demo/crawler
 $ ./crawler-math.stackexchange.com.py -b <begin page> -e <end page> --hook-script ./push-to-server.sh
 ```
+(you may need to install `dnsutils` which contains `dig` command to be used in `push-to-server.sh`)
