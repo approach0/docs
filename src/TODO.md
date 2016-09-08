@@ -4,8 +4,6 @@ in the next stage.
 
 ### Top priority:
 * pressure test (QPS)
-* fix term query `\qvar{x} = \ln (1+X_t^2)+ \qvar{y}` crash
-* https://approach0.xyz/search/?q=all%20positive%20integers%2C%20%24i%5E5%20%2B%20j%5E6%20%3D%20k%5E7%24&p=5 crash
 
 ### Want to implement
 * query expansion, e.g. \left| a + b \right| +==> | a + b| 
