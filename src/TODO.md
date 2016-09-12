@@ -3,11 +3,8 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Top priority:
-* move to VPS that supports reiserfs
-* search loading page
-* enlarge indices, pressure test (QPS)
-* search earily termination (depends on how many items has been evaluated).
-* a helpful guide page about how to use, what is indexed, some typical malformed TeX (e.g. `_()`, `\int bound input` and `sin`) with animated gif, wildcard, and where to put feedback/contribute (quiz-list, edit guide page). Also tell user to follow twitter on updates.
+* math on-disk posting file compression
+* math posting cache into memory
 
 ### Want to implement
 * query expansion, e.g. \left| a + b \right| +==> | a + b| 
@@ -16,8 +13,6 @@ in the next stage.
 * query correction ("do you mean XXX")
 
 ### Do it when time is allowed
-* math on-disk posting file compression
-* math posting cache into memory
 * distributive search
 * faster Chinese tokenizer
 * faster math-index/subpath-set
