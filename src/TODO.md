@@ -5,7 +5,6 @@ in the next stage.
 ### Top priority:
 * math on-disk posting file compression
 * math posting cache into memory
-* add title in each search results
 
 ### Want to implement
 * query expansion, e.g. \left| a + b \right| +==> | a + b| 
