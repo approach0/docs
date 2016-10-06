@@ -11,8 +11,14 @@ methods are. You may find useful to read these resources first:
 4. [My graduate thesis](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/thesis-ref.pdf)
 
 Although Approach0 is a complete rewrite based on previous
-prototype (OPMES), the basic idea of searching math expression
-is remain unchanged.
+prototype (OPMES), the basic ideas of searching math expression
+remain unchanged in both systems. Approach0 mainly adds:
+
+1. Combine math-only search with fulltext search
+2. Adds some feature (e.g. math expression wildcards)
+3. Better code framework
+
+on top of OPMES.
 
 I will write more details on the internals of Approach0
 in the future, especially when somebody has requested.
