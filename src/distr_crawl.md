@@ -63,11 +63,11 @@ $ rsync rsync://138.68.58.236:8990/corpus
 Then use the following command to push local corpus files to remote server
 (this is incremental updates, so no worry it would delete any remote file)
 ```sh
-$ rsync -zauv --exclude='*.html' --progress corpus/ rsync://138.68.58.236:8990/corpus
+$ rsync -zauv --exclude='*.html' --progress corpus/ rsync://138.68.58.236:8990/corpus --bwlimit=600
 ```
 `-z` option compresses the transferring data, `-a` option forces recursive search on
-source directory, `-u` option does update only when local file is newer, and `-v` option
-verbalize this process.
+source directory, `-u` option does update only when local file is newer, `--bwlimit` specifies
+bandwidth maximum usage, and `-v` option verbalizes this process.
 
 When using `crawler-math.stackexchange.com.py`
 crawler script, you can specify a "hook script" for automatically doing rsync.
