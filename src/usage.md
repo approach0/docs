@@ -77,12 +77,14 @@ $ ./run/indexer.out -p ../demo/crawler/tmp/ 2> error.log
 ```
 
 Again, the output (resulting index) is generated under
-`./tmp` directory.
+`./tmp` directory except when you specify `-o` option to name
+a output directory.
 
-Specify with `-o` option to overwrite previous index output.
 If you are using indexer to add new documents into existing
-index in multiple runs, you need to ensure it by yourself
-that the new documents are not previously indexed.
+index in multiple runs, you need to ensure that the newly added
+documents are not previously indexed. Otherwise duplicate document
+may occur in search results. (Current indexer does not support index
+document update)
 
 If you are indexing a corpus with Chinese words, use `-d`
 option to specify CppJieba dictionary path when calling
