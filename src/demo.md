@@ -65,7 +65,7 @@ HTTP root directory.
 $ cd /var/www/html/
 $ ln -s $PROJECT/demo/web ./demo
 ```
-Make sure $PROJECT path is accessable by httpd (i.e. Nginx), then
+Make sure $PROJECT path is accessable by httpd (e.g. use `su www-data -s /bin/bash` to test permission), then
 you should be able to visit `http://127.0.0.1/demo` page.
 
 ### Install php-curl
