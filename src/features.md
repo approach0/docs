@@ -2,7 +2,8 @@
 * Math search with punning method, efficient for large scale corpus.
 * Posting lists can be configured to cache into memory (you can specify
 the size), using FOR delta-encode, and skip-list data structure.
-* Compact index, small indices size (557,881 or ~0.5 M documents cost 3 GB disk space, mounted as Reisfer file system image).
+* Compact index, small indices size (557,881 documents at the cost of only 3 GB
+disk space, mounted as Reisfer file system image).
 * Chinese tokeniser available, multi-bytes awareness from the beginning
 of design.
 * Fulltext index writer/reader is based on Indri project (C++), other
