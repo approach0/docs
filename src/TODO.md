@@ -5,6 +5,9 @@ in the next stage.
 ### Top priority:
 * math on-disk posting file compression
 * math posting cache into memory
+* AND / OR query
+* math query decompose
+* math query transform
 
 ### Want to implement
 * query expansion, e.g. \left| a + b \right| +==> | a + b| 
