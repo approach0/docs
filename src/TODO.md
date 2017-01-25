@@ -2,6 +2,13 @@
 Listed are plans/directions the project is going to do
 in the next stage.
 
+
+### Road map
+fast merge & merge tag
+memorized, compressed math posting
+cache lookup by (termID, math_posting_ID)
+multi-thread
+
 ### Top priority:
 * math on-disk posting file compression
 * math posting cache into memory
