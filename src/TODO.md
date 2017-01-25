@@ -4,10 +4,10 @@ in the next stage.
 
 
 ### Road map
-fast merge & merge tag
-memorized, compressed math posting
-cache lookup by (termID, math_posting_ID)
-multi-thread
+1. fast merge & merge tag
+2. memorized, compressed math posting
+3. cache lookup by (termID, math_posting_ID)
+4. multi-thread
 
 ### Top priority:
 * math on-disk posting file compression
