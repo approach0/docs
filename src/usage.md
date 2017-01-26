@@ -41,6 +41,11 @@ $ apt-get install python3-pip
 $ pip3 install BeautifulSoup4
 ```
 
+Debian users may also need to install pycurl:
+```
+$ apt-get install python3-pycurl
+```
+
 To crawl *math stackexchange* from page 1 to 3:
 ```
 $ cd $PROJECT/demo/crawler
