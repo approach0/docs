@@ -72,9 +72,11 @@ bandwidth maximum usage, and `-v` option verbalizes this process.
 When using `crawler-math.stackexchange.com.py`
 crawler script, you can specify a "hook script" for automatically doing rsync.
 An example hook script for this purpose (i.e. `push-to-server.sh`) is located at
-`demo/crawler`, to use hook script:
+`demo/crawler`.
+Also, you can specify `--patrol` to let crawler script also fetching most recently active posts.
+This is useful when are reguarly and repeated watching for updates of target Website:
 ```sh
 $ cd $PROJECT/demo/crawler
-$ ./crawler-math.stackexchange.com.py -b <begin page> -e <end page> --hook-script ./push-to-server.sh
+$ ./crawler-math.stackexchange.com.py -b <begin page> -e <end page> --hook-script ./push-to-server.sh --patrol
 ```
 (you may need to install `dnsutils` which contains `dig` command to be used in `push-to-server.sh`)
