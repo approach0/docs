@@ -73,8 +73,8 @@ When using `crawler-math.stackexchange.com.py`
 crawler script, you can specify a "hook script" for automatically doing rsync.
 An example hook script for this purpose (i.e. `push-to-server.sh`) is located at
 `demo/crawler`.
-Also, you can specify `--patrol` to enable crawler script also to fetch recently active posts.
-This is useful when are reguarly and repeatedly watching for updates of target Website:
+Also, you can specify `--patrol` to enable crawler script to also fetch recently active posts (besides most recently created).
+This is useful when we are reguarly and repeatedly watching for updates of target Website:
 ```sh
 $ cd $PROJECT/demo/crawler
 $ ./crawler-math.stackexchange.com.py -b <begin page> -e <end page> --hook-script ./push-to-server.sh --patrol
