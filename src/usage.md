@@ -162,8 +162,7 @@ You can then test searchd by running *curl* scripts existing
 in searchd directory:
 
 ```
-$ cd ./scripts
-$ ./test-query.sh ./tests/query-valid.json
+$ ./scripts/test-query.sh ./tests/query-valid.json
 ```
 
 To shutdown searchd, type command
