@@ -16,6 +16,8 @@ in the next stage.
 * binary search index for symbolic match such that 1/2016 will also find exact match (currently only frequent terms such as 1/24 can return exact matches)
 * math query decompose
 * math query transform
+* do not treat ONE and NUM differently at token level [found this important for NTCIR metrics]
+* provide stats and index size
 
 ### Want to implement
 * query expansion, e.g. \left| a + b \right| +==> | a + b| 
