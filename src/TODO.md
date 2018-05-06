@@ -2,40 +2,23 @@
 Listed are plans/directions the project is going to do
 in the next stage.
 
+### Major features for next big version
+* Clustering (using MPI?)
+* Compressed, cached math posting list
+* independent text search (Now we rely on Indri for text search, its code frequently breaks (in ArchLinux, crashes))
+* Fuzzy search model, state-of-the-art accuracy (match subexpression in doc with subexpression in query)
+* Being able to drop posting list (those prefix-paths who are too short) at merge runtime depeading on minheap value.
+* General path matching score (except symbol, further consider depth, operator HASH)
+* Special posting list for symbolic match such as "1/2016" and "\beta".
+* math query transform, query expansion (e.g., \left| a + b \right| +==> | a + b| )
+* Stats, query log
+* indexing automation
+* QAC, spelling correction, search suggestion. (Integrating text and math)
+* New interface (more intuitive to differentiate math and non-math mode input to users) and hand-written math pad.
+* Embedding and entity (e.g., pythagorean == x^2 + y^2 = z^2, horse == Pony)
+* Query language (do we really want?)
 
-### Road map
-1. fast merge & merge tag
-2. memorized, compressed math posting
-3. cache lookup by (termID, math_posting_ID)
-4. multi-thread
-
-### Top priority:
-* math on-disk posting file compression
-* math posting cache into memory
-* AND > OR: one math tex maps to only one top-level posting
-* binary search index for symbolic match such that 1/2016 will also find exact match (currently only frequent terms such as 1/24 can return exact matches)
-* math query decompose
-* math query transform
-* do not treat ONE and NUM differently at token level [found this important for NTCIR metrics]
-* provide stats and index size
-
-### Want to implement
-* query expansion, e.g. \left| a + b \right| +==> | a + b| 
-* search: concept search (horse == Pony)
-* spell checking & 3-gram input suggestion
-* query correction ("do you mean XXX")
-
-### Do it when time is allowed
-* distributive search
+### Others
 * faster Chinese tokenizer
-* faster math-index/subpath-set
-* in mnc\_score, compare father-to-root hash
-* efficient postmerge
-* top level AND merge does not work
-* write a script to extract traffic stat from query log
-* improve score schema, consider:
-	frequency & [sub\_expr depth > score (mnc\_score / search\_depth) > n\_lr\_paths]
-* Demo UI should remind user if they are inputting math in a non-math mode.
-* Github WEB hook, auto update demo on code changes (webhook for docs is done, but webhook for compile may need extra work such as using zmq/zeromq)
-* Mathquill add \qvar support
-* return informative msg on query TeX parse error
+* FIX: top level AND merge does not work
+* Return informative msg on query TeX parse error
