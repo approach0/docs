@@ -10,7 +10,7 @@ in the next stage.
 * Being able to drop posting list (those prefix-paths who are too short) at merge runtime depeading on minheap value.
 * General path matching score (except symbol, further consider depth, operator HASH)
 * Special posting list for symbolic match such as "1/2016" and "\beta".
-* math query transform, query expansion (e.g., \left| a + b \right| +==> | a + b| )
+* Query transform for math equivalence (e.g. 1+1/n = (1+n)/n ), query expansion (e.g., \left| a + b \right| += | a + b| )
 * Stats, query log
 * indexing automation
 * QAC, spelling correction, search suggestion. (Integrating text and math)
