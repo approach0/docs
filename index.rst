@@ -9,11 +9,12 @@ In short, a typical search engine plus math search.
 
 Current Status
 ===============
-This project is still under development,
-it is going to publish its first release recently.
-But the first goal of this project (combine both math-search
-and fulltext search) is already achieved. Next things to do
-is listed on our `project TODO lists <src/TODO.html>`_.
+This project is still being considered in prototype stage, however,
+some novel and experimental models are being evaluated in research branch. A new model have successfully
+outperformed other published systems (in NTCIR-12 math search contest) under bpref scores (cannot wait to publish a paper!).
+Recent direction is to apply the promising model to master branch and rewrite some modules (e.g., replace Indri with our own text-index) to make code more maintainable.
+
+Next things to do is listed in our `project TODO lists <src/TODO.html>`_.
 
 Documentation Index
 ====================
