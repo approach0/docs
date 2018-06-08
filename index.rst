@@ -10,8 +10,7 @@ In short, a typical search engine plus math search.
 Current Status
 ===============
 This project is still being considered in prototype stage, however,
-some novel and experimental models are being evaluated in research branch. A new model have successfully
-outperformed other published systems (in NTCIR-12 math search contest) under bpref scores (cannot wait to publish a paper!).
+some novel and experimental models are being evaluated in research branch.
 Recent direction is to apply the promising model to master branch and rewrite some modules (e.g., replace Indri with our own text-index) to make code more maintainable.
 
 Next things to do is listed in our `project TODO lists <src/TODO.html>`_.
