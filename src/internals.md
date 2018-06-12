@@ -32,7 +32,9 @@ The in-memory posting list item for terms is defined like below (each square bra
 The math posting list currently only has on-disk version, its posting list item looks like below:
 
 [expID, n_lr_paths, n_paths], [docID], [pathInfo pointer]
+
 where pathInfo points to another posting list that stores additional information array for that item:
+
 [leaf_id], [subr_id], [lf_symbol] ... (repeating `n_paths` times)
 
 ### Posting list compression
