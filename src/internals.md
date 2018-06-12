@@ -34,3 +34,6 @@ The math posting list currently only has on-disk version, its posting list item 
 [expID, n_lr_paths, n_paths], [docID], [pathInfo pointer]
 where pathInfo points to another posting list that stores additional information array for that item:
 [leaf_id], [subr_id], [lf_symbol] ... (repeating `n_paths` times)
+
+## Posting list compression
+Take in-memory term posting list as example. Limited to available consequtive memroy space, we first have to divide a posting list into many trunks. the different fields in a posting list item are extracted to put together and compress with other values from same fields of consecutive values.
