@@ -19,7 +19,7 @@ in the following aspects on top of OPMES:
 The data structure details of posting list are written in the next section,
 other technical details are not included in this document, but you are welcome to request in project issue page for more specific technical issues.
 
-## Posting list structure
+### Posting list structure
 There are two different posting lists, `math posting list` and `term posting list`. A `math posting list` is mapped from a path token from tree representation of a math expression, e.g. VAR/ADD/TIMES. A `term posting list` is mapped from a text word from dictionary. Both posting list is concatenation of posting list items.
 
 The data structure for term posting list item is divided into on-disk and in-memory (cached) posting list.
@@ -35,7 +35,7 @@ The math posting list currently only has on-disk version, its posting list item 
 where pathInfo points to another posting list that stores additional information array for that item:
 [leaf_id], [subr_id], [lf_symbol] ... (repeating `n_paths` times)
 
-## Posting list compression
+### Posting list compression
 Take in-memory term posting list as example. Limited to free continous memroy space, we first have to divide a posting list into many trunks. And to achieve good compression rate, we put the values from same field together and compress them. Because the same fields of consecutive values is a good input for delta compression.
 
 The compression takes place like this: First allocate several arrays to store corresponding field values, in term posting list case, there are docID_array, TF_array and pos_array. Assuming the number of items in a truck is *n*, then the compressed trunk structure looks like this:
