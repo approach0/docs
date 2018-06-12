@@ -16,7 +16,22 @@ in the following aspects on top of OPMES:
 2. Adds some feature (e.g. math expression wildcards)
 3. Better code framework
 
-There are a whole bunch of topics to be explained on the
-internals of this project.
-I will write more details on the internals of Approach0
-in the future, especially when somebody has requested.
+The data structure details of posting list are written in the next section,
+other technical details are not included in this document, but you are welcome to request in project issue page for more specific technical issues.
+
+## Posting list structure
+There are two different posting lists, `math posting list` and `term posting list`. A `math posting list` is mapped from a path token from tree representation of a math expression, e.g. VAR/ADD/TIMES. A `term posting list` is mapped from a text word from dictionary. Both posting list is concatenation of posting list items.
+
+The data structure for term posting list item is divided into on-disk and in-memory (cached) categrories.
+Indri takes care of on-disk term posting list and approach0 just calls Indri's API to get posting list items when needed.
+
+The in-memory posting list item for terms is defined like below (each square bracket is a 32-bit field):
+
+[expID, n_lr_paths, n_paths], [docID], [pathInfo pointer]
+where
+pathInfo points to another posting list that stores additional information array for that item:
+[leaf_id], [subr_id], [lf_symbol] ... (repeating `n_paths` times)
+
+The math posting list currently only has on-disk version, its posting list item looks like below:
+
+[docID][TF][pos_1][pos_2]...[pos_TF]
