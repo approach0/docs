@@ -36,4 +36,10 @@ where pathInfo points to another posting list that stores additional information
 [leaf_id], [subr_id], [lf_symbol] ... (repeating `n_paths` times)
 
 ## Posting list compression
-Take in-memory term posting list as example. Limited to available consequtive memroy space, we first have to divide a posting list into many trunks. the different fields in a posting list item are extracted to put together and compress with other values from same fields of consecutive values.
+Take in-memory term posting list as example. Limited to free continous memroy space, we first have to divide a posting list into many trunks. And to achieve good compression rate, we put the values from same field together and compress them. Because the same fields of consecutive values is a good input for delta compression.
+
+The compression takes place like this: First allocate several arrays to store corresponding field values, in term posting list case, there are docID_array, TF_array and pos_array. Assuming the number of items in a truck is *n*, then the compressed trunk structure looks like this:
+
+[n], compressed(docID_array), compressed(TF_array), compressed(pos_array).
+
+The head value (one byte) is required otherwise at decompression you do not know how many value to extract/decompress. And the number of pos_array values to extract/decompress is calucated by summing the TF values.
