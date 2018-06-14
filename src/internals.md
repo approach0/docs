@@ -45,3 +45,49 @@ The compression takes place like this: First allocate several arrays to store co
 [n], compressed(docID_array), compressed(TF_array), compressed(pos_array).
 
 The head value (one byte) is required otherwise at decompression you do not know how many value to extract/decompress. And the number of pos_array values to extract/decompress is calucated by summing the TF values.
+
+The pseudo code for compression and decompression is given below.
+```c
+struct doc {
+	field[0]
+	field[1]
+	...
+	field[k][...]
+};
+
+def: size(doc[i], j) = the size of field j of doc[i]
+
+alloc: codec buffers:
+arr[0] using codec method[0]
+arr[1] using codec method[1]
+...
+arr[k] using codec method[k]
+
+/*
+ * Compression
+ */
+input: buf[n docs]
+output: payload
+for i < n:
+	for j < k:
+		arr[j].pos += copy(arr[j][arr[j].pos], buf[i].j, len = size(buf[i], j))
+
+cur = 0
+payload[cur] = n
+for j < k:
+	cur += codec_compress_ints(method[j], in = arr[j], len = arr[j].len, out = payload + cur)
+
+/*
+ * Decompression
+ */
+input: payload
+output: buf[n docs]
+cur = 0
+n = payload[cur]
+for j < k:
+	cur += codec_decompress_ints(method[j], in = payload + cur, len = arr[j].len, out = arr[j])
+
+for i < n:
+	for j < k:
+		arr[j].pos += copy(buf[i].j, arr[j][arr[j].pos], len = size(buf[i], j))
+```
