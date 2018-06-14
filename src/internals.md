@@ -52,7 +52,7 @@ struct doc {
 	field[0]
 	field[1]
 	...
-	field[k][...]
+	field[k] --> [...] (some of the fields may be a pointer to a consequtive allocated space)
 };
 
 A set of callback functions:
@@ -77,12 +77,14 @@ for i < n:
 	struct doc *cur = field_ptr(doc + i, 0)
 	for j < field_num():
 		sz = field_size(cur, j)
+		/* need to make sure arr has enough free space here */
 		memcpy(arr[j] + arr[j].pos, field_ptr(doc + i, j), sz)
 		arr[j].pos += sz
 
 for j < field_num():
 	num = arr[j].size / sizeof(int)
 	posting[posting.pos ++] = num
+	/* need to make sure posting has enough free space here */
 	posting.pos += compress_ints(field_codec(j), posting + posting.pos, arr[j], num)
 
 /*
