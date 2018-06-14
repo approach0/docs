@@ -55,39 +55,50 @@ struct doc {
 	field[k][...]
 };
 
-def: size(doc[i], j) = the size of field j of doc[i]
+A set of callback functions:
+field_num() = the number of fields of doc structure
+field_ptr(struct_addr, j) = the pointer of field j
+field_size(doc[i], j) = the size of field j of doc[i]
+field_codec(j) = the code/decode method of field j
 
-alloc: codec buffers:
-arr[0] using codec method[0]
-arr[1] using codec method[1]
+allocate codec buffers (each has size/position inforamtion):
+arr[0]
+arr[1]
 ...
-arr[k] using codec method[k]
+arr[k]
 
 /*
- * Compression
- */
-input: buf[n docs]
-output: payload
-for i < n:
-	for j < k:
-		arr[j].pos += copy(arr[j][arr[j].pos], buf[i].j, len = size(buf[i], j))
+ *  * Compression
+ *   */
+input: structure buffer doc[n]
+output: posting buffer
 
-cur = 0
-payload[cur] = n
-for j < k:
-	cur += codec_compress_ints(method[j], in = arr[j], len = arr[j].len, out = payload + cur)
+for i < n:
+	struct doc *cur = field_ptr(doc + i, 0)
+	for j < field_num():
+		sz = field_size(cur, j)
+		memcpy(arr[j] + arr[j].pos, field_ptr(doc + i, j), sz)
+		arr[j].pos += sz
+
+for j < field_num():
+	num = arr[j].size / sizeof(int)
+	posting[posting.pos ++] = num
+	posting.pos += compress_ints(field_codec(j), posting + posting.pos, arr[j], num)
 
 /*
- * Decompression
- */
-input: payload
-output: buf[n docs]
-cur = 0
-n = payload[cur]
-for j < k:
-	cur += codec_decompress_ints(method[j], in = payload + cur, len = arr[j].len, out = arr[j])
+ *  * Decompression
+ *   */
+input: posting buffer
+output: structure buffer doc[n]
+
+for j < field_num():
+	num = posting[posting.pos ++]
+	posting.pos += decompress_ints(field_codec(j), arr[j], posting + posting.pos, num)
 
 for i < n:
-	for j < k:
-		arr[j].pos += copy(buf[i].j, arr[j][arr[j].pos], len = size(buf[i], j))
+	struct doc *cur = field_ptr(doc + i, 0)
+	for j < field_num():
+		sz = field_size(cur, j)
+		memcpy(field_ptr(doc + i, j), arr[j] + arr[j].pos, sz)
+		arr[j].pos += sz
 ```
