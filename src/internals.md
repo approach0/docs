@@ -68,8 +68,8 @@ arr[1]
 arr[k]
 
 /*
- *  * Compression
- *   */
+ * Compression
+ */
 input: structure buffer doc[n]
 output: posting buffer
 
@@ -86,8 +86,8 @@ for j < field_num():
 	posting.pos += compress_ints(field_codec(j), posting + posting.pos, arr[j], num)
 
 /*
- *  * Decompression
- *   */
+ * Decompression
+ */
 input: posting buffer
 output: structure buffer doc[n]
 
