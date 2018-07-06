@@ -13,6 +13,10 @@ in the next stage.
 * independent text search (Now we rely on Indri for text search, its code frequently breaks (in ArchLinux, crashes))
 * Operator/path latent space (sum, integral, factorial, fraction etc.) coverage.
 
+### Future structure direction
+* Clustering (using MPI?)
+* Field search.
+
 ### Interface and Human interaction
 * New interface (more intuitive to differentiate math and non-math mode input to users) and hand-written math pad.
 * QAC, spelling correction, search suggestion. (Integrating text and math)
@@ -26,4 +30,3 @@ in the next stage.
 * Special posting list for symbolic match such as "1/2016" and "\beta".
 * Query transform for math equivalence (e.g. 1+1/n = (1+n)/n ), query expansion (e.g., \left| a + b \right| += | a + b| )
 * Embedding and entity (e.g., pythagorean == x^2 + y^2 = z^2, horse == Pony)
-* Clustering (using MPI?)
