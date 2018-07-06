@@ -4,7 +4,10 @@ in the next stage.
 
 ### Demanding
 * Prefix model completeness: wildcard, multi-math, mixed-query support.
-* Prefix model efficiency: drop unimportant prefix paths, skip items dynamically depending on minheap value.
+* Prefix model efficiency: 
+    * drop unimportant prefix paths
+    * skip items dynamically depending on minheap value
+    * long posting lists uses AND, important posting lists use OR. (MinShouldMatch in Lucene)
 * Multi-threading
 * hightlight matches within expression.
 * Ad-hoc boolean query language support (must, should, must-not).
