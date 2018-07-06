@@ -11,7 +11,7 @@ in the next stage.
 * Multi-threading
 * Ad-hoc boolean query language support (must, should, must-not).
 * independent text search (Now we rely on Indri for text search, its code frequently breaks (in ArchLinux, crashes))
-* Operator/path embedding (sum, integral, factorial, fraction etc.) coverage.
+* Operator/path latent space (sum, integral, factorial, fraction etc.) coverage.
 
 ### Interface and Human interaction
 * New interface (more intuitive to differentiate math and non-math mode input to users) and hand-written math pad.
