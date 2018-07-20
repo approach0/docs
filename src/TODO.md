@@ -6,12 +6,12 @@ in the next stage.
 * Prefix model completeness: wildcard, multi-math, mixed-query support.
 * Prefix model efficiency: 
     * drop unimportant prefix paths
-    * skip items dynamically depending on minheap value
-    * long posting lists uses AND, important posting lists use OR. (MinShouldMatch in Lucene)
+    * MaxScore-like pruning.
 * Multi-threading
 * Ad-hoc boolean query language support (must, should, must-not).
 * independent text search (Now we rely on Indri for text search, its code frequently breaks (in ArchLinux, crashes))
 * Operator/path latent space (sum, integral, factorial, fraction etc.) coverage.
+* Operand match highlight.
 
 ### Future structure direction
 * Clustering (using MPI?)
