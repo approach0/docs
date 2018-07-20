@@ -3,15 +3,15 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* Prefix model completeness: wildcard, multi-math, mixed-query support.
+* Prefix model **completeness**: wildcard, multi-math, mixed-query support.
 * Prefix model efficiency: 
     * drop unimportant prefix paths
-    * MaxScore-like pruning.
+    * MaxScore-like **pruning**.
 * Multi-threading
-* Ad-hoc boolean query language support (must, should, must-not).
+* Ad-hoc **boolean** query language support (must, should, must-not).
 * independent text search (Now we rely on Indri for text search, its code frequently breaks (in ArchLinux, crashes))
-* Operator/path latent space (math topics) or type (sum, integral, factorial, fraction etc.) coverage.
-* Operand match highlight.
+* Operator/path latent space (math **topics**) or type (sum, integral, factorial, fraction etc.) coverage.
+* Operand match **highlight**.
 
 ### Future structure direction
 * Clustering (using MPI?)
