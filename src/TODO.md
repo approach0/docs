@@ -9,8 +9,9 @@ in the next stage.
     * MaxScore-like **pruning**.
 * Multi-threading
 * Ad-hoc **boolean** query language support (must, should, must-not).
-* independent text search (Now we rely on Indri for text search, its code frequently breaks (in ArchLinux, crashes))
+* **independent text search engine** (now Approach0 depends on Indri for text search, their code is overly complex and frequently breaks (in ArchLinux, crashes))
 * Operator/path latent space (math **topics**) or type (sum, integral, factorial, fraction etc.) coverage.
+* **Text entity** search.
 * Operand match **highlight**.
 
 ### Future structure direction
