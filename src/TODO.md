@@ -8,7 +8,7 @@ in the next stage.
 * Multi-threading
 * Ad-hoc **boolean** query language support (must, should, must-not).
 * **independent text search engine** (now Approach0 depends on Indri for text search, their code is overly complex and frequently breaks (in ArchLinux, crashes))
-* Operator/path latent space (math **topics**) or type (sum, integral, factorial, fraction etc.) coverage.
+* Operator/path latent space (math **topics**) or **operators** (sum, integral, factorial, fraction etc.) coverage.
 * **Text entity** search.
 * [✓] Operand match **highlight**.
 
