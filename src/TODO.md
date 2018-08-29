@@ -5,16 +5,18 @@ in the next stage.
 ### Demanding
 * Prefix model **completeness**: wildcard, multi-math, mixed-query support.
 * Prefix model efficiency: MaxScore-like **pruning**.
-* Multi-threading
+* Consider **path depth**, so in Dynamic Pruning, we have non-uniform unit S[i] score (currently is uniformly `1/|T_q|`) 
 * Ad-hoc **boolean** query language support (must, should, must-not).
 * **independent text search engine** (now Approach0 depends on Indri for text search, their code is overly complex and frequently breaks (in ArchLinux, crashes))
-* Operator/path latent space (math **topics**) or **operators** (sum, integral, factorial, fraction etc.) coverage.
-* **Text entity** search.
+* Semantics
+  * Operator/path latent space (math **topics**) or **operators** (sum, integral, factorial, fraction etc.) coverage.
+  * **Text entity** search.
 * [✓] Operand match **highlight**.
 
 ### Future structure direction
 * Clustering (using MPI?)
 * Field search.
+* Multi-threading
 
 ### Interface and Human interaction
 * [✓] New interface (more intuitive to differentiate math and non-math mode input to users) and hand-written math pad.
