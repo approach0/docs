@@ -28,4 +28,5 @@ Documentation Index
    src/demo
    src/distr_crawl
    src/internals
+   src/appendix_indri
    src/TODO

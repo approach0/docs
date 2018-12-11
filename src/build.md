@@ -44,7 +44,9 @@ If Indri reports `undefined reference to ...` when building/linking, install tha
 > After installing the zlib-devel package you must rerun configure
 > so that it correctly finds it and adds the library to the ld command.
 	
-> (see https://sourceforge.net/p/lemur/discussion/546028/thread/e67752b2)
+> (https://sourceforge.net/p/lemur/discussion/546028/thread/e67752b2)
+
+Also, if you build Indri with newer version of gcc, it may produce segmentation fault when doing text indexing. Please refer to [Appendix](appendix_indri.html#fix-segmentation-fault-in-newer-gcc-version) to resolve the issue.
 
 ### 3. Download CppJieba
 Our indexer/searcher is able to handle English and Chinese document. Here
