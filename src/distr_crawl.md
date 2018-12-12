@@ -80,3 +80,13 @@ $ cd $PROJECT/demo/crawler
 $ ./crawler-math.stackexchange.com.py -b <begin page> -e <end page> --hook-script ./push-to-server.sh --patrol
 ```
 (you may need to install `dnsutils` which contains `dig` command to be used in `push-to-server.sh`)
+
+### 3. Packup a corpus directory
+Corpus directory contains a lot of small files (MSE has 1,057,449 threads by the end of 2018), to move them between hard drives, you may also consider to use `tar` command to create a `tarball` for efficient seqential read/write:
+```sh
+$ find corpus-mse/ -name '*.json' -print0 | tar -cvf corpus-mse.tar --null -T -
+....
+$ du -h corpus-mse.tar 
+3.5G    corpus-mse.tar
+```
+Without compression, the tarball can be over 3.5 GB and take hours to packup for corupus with number of document at million level.
