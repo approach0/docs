@@ -4,8 +4,7 @@ in the next stage.
 
 ### Demanding
 * Prefix model **completeness**: wildcard, multi-math, mixed-query support.
-* Prefix model efficiency: MaxScore-like **pruning**.
-* Consider **path depth**, so in Dynamic Pruning, we have non-uniform unit S[i] score (currently is uniformly `1/|T_q|`) 
+* [✓] Prefix model efficiency: MaxScore-like **pruning**.
 * Ad-hoc **boolean** query language support (must, should, must-not).
 * **independent text search engine** (now Approach0 depends on Indri for text search, their code is overly complex and frequently breaks (in ArchLinux, crashes))
 * Semantics
