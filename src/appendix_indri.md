@@ -98,3 +98,22 @@ CXXFLAGS = -DPACKAGE_NAME=\"Indri\" ... (omitted many here) .... -fno-tree-vecto
 ...
 ```
 then issue `make clean` and `make` again.
+
+### Install LaTeXML
+If `TEX_PARSER_USE_LATEXML` is defined in `tex-parser/config.h`, you are required to install LaTeXML. LaTeXML helps Approach0 parser to handle LaTeX markups that are either ambiguous or unrecognized by built-in parser.
+
+To test if LaTeXML is available 
+```bash
+$ /usr/bin/latexmlmath
+-bash: /usr/bin/latexmlmath: No such file or directory
+```
+
+To install LaTeXML,
+```bash
+$ git clone --depth=1 https://github.com/brucemiller/LaTeXML
+$ cd LaTeXML
+$ perl Makefile.PL
+$ sudo cpanm .
+$ make
+$ sudo make install
+```
