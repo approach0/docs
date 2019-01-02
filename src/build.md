@@ -84,3 +84,6 @@ This `configure` script also checks necessary libraries for building. If `config
 
 ### 5. Build
 Type `make` at project top level (i.e. `$PROJECT`) will do the job.
+
+### 6. LaTeXML
+You may also need to install LaTeXML depending on your build configuration. Please refer to [Appendix](appendix_indri.html#install-latexml) for instructions.
