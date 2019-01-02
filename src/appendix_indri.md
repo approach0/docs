@@ -117,3 +117,9 @@ $ sudo cpanm .
 $ make
 $ sudo make install
 ```
+
+To generate representational and content mathML using LaTeXML,
+```bash
+echo 'a+b' | latexmlmath --presentationmathml=representation.xml -
+echo 'a+b' | latexmlmath --contentmathml=content.xml -"
+```
