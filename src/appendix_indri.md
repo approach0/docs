@@ -116,6 +116,7 @@ $ perl Makefile.PL
 $ sudo cpanm .
 $ make
 $ sudo make install
+$ sudo ln -s `which latexmlmath` /usr/bin/latexmlmath
 ```
 
 To generate representational and content mathML using LaTeXML,
