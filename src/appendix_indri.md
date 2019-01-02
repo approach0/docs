@@ -102,6 +102,9 @@ then issue `make clean` and `make` again.
 ### Install LaTeXML
 If `TEX_PARSER_USE_LATEXML` is defined in `tex-parser/config.h`, you are required to install LaTeXML. LaTeXML helps Approach0 parser to handle LaTeX markups that are either ambiguous or unrecognized by built-in parser.
 
+You may observe the following warning if LaTeXML is needed
+> I/O warning : failed to load external entity "math.xml.tmp"
+
 To test if LaTeXML is available 
 ```bash
 $ /usr/bin/latexmlmath
