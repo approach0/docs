@@ -97,7 +97,7 @@ CFLAGS = -DPACKAGE_NAME=\"Indri\" ... (omitted many here) .... -fno-tree-vectori
 CXXFLAGS = -DPACKAGE_NAME=\"Indri\" ... (omitted many here) .... -fno-tree-vectorize
 ...
 ```
-then issue `make clean` and `make` again.
+then issue `make clean` and `make` again. Do not forget to also re-build Approach0 afterwards.
 
 ### Install LaTeXML
 If `TEX_PARSER_USE_LATEXML` is defined in `tex-parser/config.h`, you are required to install LaTeXML. LaTeXML helps Approach0 parser to handle LaTeX markups that are either ambiguous or unrecognized by built-in parser.
