@@ -88,7 +88,7 @@ trick somehow causes trouble (see [this issue](https://jira.mongodb.org/browse/S
 > 
 > (extracted from that issue)
 
-To fix it, edit `MakeDefns` file (or `MakeDefns.in` file before running `./configure`) and add `-fno-tree-vectorize` to `CFLAGS` and `CXXFLAGS`:
+To fix it, edit `MakeDefns` file (after running `./configure`) and add `-fno-tree-vectorize` to `CFLAGS` and `CXXFLAGS`:
 ```makefile
 ...
 # C compiler and compiling options
