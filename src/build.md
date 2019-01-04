@@ -64,7 +64,7 @@ $ tar -xzf cppjieba.tar.gz -C ~/cppjieba --strip-components=1
 ```
 
 ### 4. Configure dependency path
-Our project uses `dep-*.mk` files to configure most C/C++ dependency paths (or CFLAGS and LDFLAGS). If you have installed above dependency libraries in your system environment, you can leave these `dep-*.mk` files untouched.
+Our project uses `dep-*.mk` files to configure most C/C++ dependency paths (or CFLAGS and LDFLAGS). If you have installed above dependency libraries in your system environment, you can leave these `dep-*.mk` files untouched. Otherwise if you compile and build dependencies locally, please modify `dep-*.mk` files to point to your locally built library locations.
 
 If you followed the above instruction and downloaded (and compiled) Lemur/Indri and CppJieba project at `$HOME` address, just type:
 
