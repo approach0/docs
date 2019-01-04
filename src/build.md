@@ -39,7 +39,7 @@ $ tar -xzf indri.tar.gz
 $ (cd indri-5.11 && chmod +x configure && ./configure && make)
 ```
 
-If Indri reports `undefined reference to ...` when building/linking, install that library **and** rerun configure again:
+If Indri reports `undefined reference to ...` when building/linking, install that library **and** run configure again:
 
 > After installing the zlib-devel package you must rerun configure
 > so that it correctly finds it and adds the library to the ld command.
