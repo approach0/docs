@@ -12,6 +12,7 @@ in the next stage.
   * **Text entity** search.
 * [✓] Operand match **highlight**.
 * Show last update of index at homepage.
+* Path operators hashing (POH) to distinguish operator symbols.
 
 ### Future structure direction
 * Clustering (using MPI?)
