@@ -11,6 +11,7 @@ in the next stage.
   * Operator/path latent space (math **topics**) or **operators** (sum, integral, factorial, fraction etc.) coverage.
   * **Text entity** search.
 * [✓] Operand match **highlight**.
+* Show last update of index at homepage.
 
 ### Future structure direction
 * Clustering (using MPI?)
