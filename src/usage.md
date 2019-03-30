@@ -15,19 +15,20 @@ Below is an example of parsing \\(\dfrac a b + c\\).
 ```
 $ ./tex-parser/run/test-tex-parser.out
 edit: \frac a b +c
-return code:0
+return string: no error (max path ID = 3).
+return code: 0
 Operator tree:
-     └──(plus) 2 son(s), token=ADD, path_id=2, ge_hash=1f17, fr_hash=c301.
-           │──(frac) 2 son(s), token=FRAC, path_id=1, ge_hash=a7f3, fr_hash=7203.
-           │     │──#1[`a'] token=VAR, path_id=1, ge_hash=c401, fr_hash=7303.
-           │     └──#2[`b'] token=VAR, path_id=2, ge_hash=c501, fr_hash=7403.
-           └──[`c'] token=VAR, path_id=3, ge_hash=c601, fr_hash=8903.
+     └──(plus) #5, token=ADD, subtr_hash=`33891', pos=[6, 12].
+           │──(frac) #4, token=FRAC, subtr_hash=`3275', pos=[6, 9].
+           │     │──#1[normal`a'] #1, token=VAR, subtr_hash=`a', pos=[6, 7].
+           │     └──#2[normal`b'] #2, token=VAR, subtr_hash=`b', pos=[8, 9].
+           └──[normal`c'] #3, token=VAR, subtr_hash=`c', pos=[11, 12].
 
-Subpaths (leaf-root paths/total subpaths = 3/4):
-* VAR(0)/rank1(1)/FRAC(2)/ADD(2)/[path_id=1: type=normal, leaf symbol=`a', fr_hash=7303]
-* FRAC(2)/ADD(2)/[path_id=1: type=gener, ge_hash=a7f3, fr_hash=7203]
-* VAR(0)/rank2(1)/FRAC(2)/ADD(2)/[path_id=2: type=normal, leaf symbol=`b', fr_hash=7403]
-* VAR(0)/ADD(2)/[path_id=3: type=normal, leaf symbol=`c', fr_hash=8903]
+Suffix paths (leaf-root paths/total = 3/4):
+- [path#1, leaf#1] normal`a': VAR(#1)/rank1(#0)/FRAC(#4)/ADD(#5) (fingerprint 0005) (conjugacy 1)
+* [path#1, leaf#4] 0f63: FRAC(#4)/ADD(#5) (fingerprint 0005) (conjugacy 0)
+- [path#2, leaf#2] normal`b': VAR(#2)/rank2(#0)/FRAC(#4)/ADD(#5) (fingerprint 0005) (conjugacy 0)
+- [path#3, leaf#3] normal`c': VAR(#3)/ADD(#5) (fingerprint 0005) (conjugacy 0)
 ```
 Type `\` followed by `Tab` to auto-complete some frequently used TeX commands
 
@@ -102,6 +103,31 @@ to specify `-d` in searcher/searchd).
 Note it is required to have typically at least 1 GB of memory
 for our indexer to successfully run through a non-trivial size
 of corpus without being killed by the OS.
+
+### Indexd
+`indexd` is the daemon version of indexer, example run commmand:
+```sh
+$ ./run/indexd.out -o ~/nvme0n1/mnt-mathtext.img/ > /dev/null 2> error.log
+```
+Like indexer, `-o` option specifies the output directory.
+
+Script `indexer/scripts/json-feeder.py` is provided to feed json files under
+some directory recursively to a running indexd. Show usage from `--help` option:
+```sh
+$ ./scripts/json-feeder.py --help 
+usage: json-feeder.py [-h] [--maxfiles MAXFILES] [--corpus-path CORPUS_PATH]
+                      [--indexd-url INDEXD_URL]
+
+Approach0 indexd json feeder.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --maxfiles MAXFILES   limit the max number of files to be indexed.
+  --corpus-path CORPUS_PATH
+                        corpus path.
+  --indexd-url INDEXD_URL
+                        indexd URL (optional).
+```
 
 ### Single query searcher
 To test and run a query on the index you have just created,
