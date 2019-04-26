@@ -10,27 +10,26 @@ in the next stage.
 * Show last update of index, and some visit statistics at homepage.
 * handwritten, picture input UI interface.
 * **faster indexer**
-* Semantics
-  * math equivalence awareness, e.g. 1+1/n = (1+n)/n.
-  * **Text synonym** awareness, e.g. horse = pony.
 * [✓] **Combined math and text search** under new model.
 * [✓] Operand match **highlight**.
 * [✓] **Wildcard** under new model.
 * [✓] Prefix model efficiency: MaxScore-like **pruning**.
 * [✓] Path **operators hashing** to distinguish operator symbols.
 
-### Future structure direction
+### Future direction
 * Scalability (using MPI?)
 * Field search.
 * QAC, spelling correction, search suggestion.
 
-### Others
+### Misc
 * faster Chinese tokenizer
 * Return informative msg on query TeX parse error.
 * indexing automation.
 * Special posting list for big number exact match, e.g., "1/2016".
-* math path query expansion (e.g., \left| a + b \right| += | a + b| )
-* Embedding, topic, entity (e.g., pythagorean == x^2 + y^2 = z^2)
+* Semantics
+  * math equivalence awareness, e.g. 1+1/n = (1+n)/n.
+  * **Text synonym** awareness, e.g. horse = pony.
+  * Embedding of both text and math, e.g. pythagorean == x^2 + y^2 = z^2
 
 ### Consider additional indexing sources
 * artofproblemsolving.com
