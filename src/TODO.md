@@ -13,11 +13,11 @@ in the next stage.
 * Semantics
   * math equivalence awareness, e.g. 1+1/n = (1+n)/n.
   * **Text synonym** awareness, e.g. horse = pony.
-* [✓] **Text keyword(s)** support under new model.
+* [✓] **Combined math and text search** under new model.
 * [✓] Operand match **highlight**.
-* [✓] Wildcard under new model.
+* [✓] **Wildcard** under new model.
 * [✓] Prefix model efficiency: MaxScore-like **pruning**.
-* [✓] Path operators hashing (POH) to distinguish operator symbols.
+* [✓] Path **operators hashing** to distinguish operator symbols.
 
 ### Future structure direction
 * Scalability (using MPI?)
