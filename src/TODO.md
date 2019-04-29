@@ -4,6 +4,7 @@ in the next stage.
 
 ### Demanding
 * **Multi-math keywords** support under new model (re-entrant posting list iterators).
+* Increase cache postlist hit chance by caching only long posting lists.
 * **boolean** query language support (must, should, must-not).
 * tag field index? (index and search MSE tag for example)
 * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals.
