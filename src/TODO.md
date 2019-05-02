@@ -3,7 +3,7 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* **Multi-math keywords** support under new model (re-entrant posting list iterators).
+* Safe guard the number of subpaths.
 * Increase cache postlist hit chance by caching only long posting lists.
 * **boolean** query language support (must, should, must-not).
 * tag field index? (index and search MSE tag for example)
@@ -11,6 +11,7 @@ in the next stage.
 * Show last update of index, and some visit statistics at homepage.
 * handwritten, picture input UI interface.
 * **faster indexer**
+* [✓] re-entrant posting list iterators and MNC scoring.
 * [✓] **Combined math and text search** under new model.
 * [✓] Operand match **highlight**.
 * [✓] **Wildcard** under new model.
