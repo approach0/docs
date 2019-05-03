@@ -3,7 +3,6 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* Safe guard the number of subpaths.
 * Increase cache postlist hit chance by caching only long posting lists.
 * **boolean** query language support (must, should, must-not).
 * tag field index? (index and search MSE tag for example)
