@@ -22,7 +22,7 @@ $ sudo apt-get install bison flex libz-dev libevent-dev
 ```
 
 On Debian 9 for example, you may also need to install
-```
+```sh
 # apt install libxml2-dev
 ```
 
