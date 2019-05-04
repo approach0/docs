@@ -20,6 +20,12 @@ $ sudo apt-get update
 $ sudo apt-get install g++ cmake
 $ sudo apt-get install bison flex libz-dev libevent-dev
 ```
+
+On Debian 9 for example, you may also need to install
+```
+# apt install libxml2-dev
+```
+
 ### 2. Download and build Indri
 This project currently relies on [Lemur/Indri](http://www.lemurproject.org/indri.php)
 library as dependency to provide full-text index functionality (i.e. index writer and reader),
