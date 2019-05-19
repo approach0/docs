@@ -201,8 +201,12 @@ $ kill -INT <pid>
 ### Search daemon cluster
 Search deamon can scale to multiple nodes across multiple cores or machines.
 This functionality is implemented using OpenMPI. To run two instances on single
-machine, you need to copy index images to avoid index corruption. Also, as each
-instance produces its own log files, it is highly recommanded to run binaries in
+machine, you need to copy index images to avoid index corruption. The search
+results from all nodes are merged and returned from master node. Scaling can be
+used to reduce search latency by searching on multiple smaller segments of
+original indices.
+
+Also, as each instance produces its own log files, it is highly recommanded to run binaries in
 different folders, one can do this by simply creating two folders and symbolic
 binaries in each of them.
 
