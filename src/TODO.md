@@ -3,13 +3,13 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* **Increase cache postlist hit chance** by caching only long posting lists.
 * **boolean** query language support (must, should, must-not).
 * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals.
 * Show last update of index, and some visit statistics at homepage.
 * **handwritten, picture input UI interface**.
 * Field search (index many sources and search MSE tag for example).
 * faster indexer
+* [✓] **Increase cache postlist hit chance** by caching only long posting lists.
 * [✓] scalability: Multiple nodes on each core or different machines (using MPI)
 * [✓] re-entrant posting list iterators and MNC scoring.
 * [✓] **Combined math and text search** under new model.
