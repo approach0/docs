@@ -3,13 +3,14 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* Increase cache postlist hit chance by caching only long posting lists.
+* **Increase cache postlist hit chance** by caching only long posting lists.
 * **boolean** query language support (must, should, must-not).
-* tag field index? (index and search MSE tag for example)
 * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals.
 * Show last update of index, and some visit statistics at homepage.
-* handwritten, picture input UI interface.
-* **faster indexer**
+* **handwritten, picture input UI interface**.
+* Field search (index many sources and search MSE tag for example).
+* faster indexer
+* [✓] scalability: Multiple nodes on each core or different machines (using MPI)
 * [✓] re-entrant posting list iterators and MNC scoring.
 * [✓] **Combined math and text search** under new model.
 * [✓] Operand match **highlight**.
@@ -17,12 +18,8 @@ in the next stage.
 * [✓] Prefix model efficiency: MaxScore-like **pruning**.
 * [✓] Path **operators hashing** to distinguish operator symbols.
 
-### Future direction
-* Scalability (using MPI?)
-* Field search.
-* QAC, spelling correction, search suggestion.
-
 ### Misc
+* QAC, spelling correction, search suggestion.
 * faster Chinese tokenizer
 * Return informative msg on query TeX parse error.
 * indexing automation.
