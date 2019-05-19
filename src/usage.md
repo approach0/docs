@@ -203,10 +203,10 @@ Search deamon can scale to multiple nodes across multiple cores or machines.
 This functionality is implemented using OpenMPI. To run two instances on single
 machine, you need to copy index images to avoid index corruption. Also, as each
 instance produces its own log files, it is highly recommanded to run binaries in
-different folders, one can do this by simply create two folder and creat symbolic
-binary in each of them.
+different folders, one can do this by simply creating two folders and symbolic
+binaries in each of them.
 
-For two nodes on single machine, use command below to run cluster:
+To run two nodes on a single machine, use command below:
 ```
 $ mpirun -n 1 -wdir ./run1 searchd.out -i ~/nvme0n1/mnt-demo.img/ : \
          -n 1 -wdir ./run2 searchd.out -j ~/nvme0n1/mnt-demo-copy.img/
