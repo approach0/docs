@@ -197,3 +197,21 @@ To shutdown searchd, type command
 ```
 $ kill -INT <pid>
 ```
+
+### Search daemon cluster
+Search deamon can scale to multiple nodes across multiple cores or machines.
+This functionality is implemented using OpenMPI. To run two instances on single
+machine, you need to copy index images to avoid index corruption. Also, as each
+instance produces its own log files, it is highly recommanded to run binaries in
+different folders, one can do this by simply create two folder and creat symbolic
+binary in each of them.
+
+For two nodes on single machine, use command below to run cluster:
+```
+$ mpirun -n 1 -wdir ./run1 searchd.out -c 0 -i ~/nvme0n1/mnt-demo.img/ : -n 1 -wdir ./run2 searchd.out -j ~/nvme0n1/mnt-demo-copy.img/
+```
+
+To stop all nodes in a cluster gracefully:
+```
+$ killall -USR1 searchd.out
+```
