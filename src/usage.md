@@ -208,7 +208,8 @@ binary in each of them.
 
 For two nodes on single machine, use command below to run cluster:
 ```
-$ mpirun -n 1 -wdir ./run1 searchd.out -c 0 -i ~/nvme0n1/mnt-demo.img/ : -n 1 -wdir ./run2 searchd.out -j ~/nvme0n1/mnt-demo-copy.img/
+$ mpirun -n 1 -wdir ./run1 searchd.out -i ~/nvme0n1/mnt-demo.img/ : \
+         -n 1 -wdir ./run2 searchd.out -j ~/nvme0n1/mnt-demo-copy.img/
 ```
 
 To stop all nodes in a cluster gracefully:
