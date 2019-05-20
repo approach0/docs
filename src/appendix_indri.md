@@ -128,3 +128,10 @@ echo 'a+b' | latexmlmath --presentationmathml=representation.xml -
 echo 'a+b' | latexmlmath --contentmathml=content.xml -
 ```
 Corresponding xml file will be generated under current directory.
+
+### MPI mechanism
+> Unless you are running under a (supported) resource manager (such as Slurm, PBS or other), the plm/rsh component will be used to start the MPI app.
+> Long story short, Open MPI uses a distributed virtual machine (DVM) to launch the MPI tasks. The first step is to have one daemon per node. The initial "daemon" is mpirun, and then one orted daemon have to be remotely spawned on each other node, and this is where plm/rsh uses SSH.
+> By default, if you are running on less than 64 nodes, then mpirun will SSH to all the other nodes. But if you are running on a larger number of nodes, then mpirun will use a tree spawn algorithm, in which other nodes might ssh to other nodes. Bottom line, if you are using ssh with Open MPI, and unless you are running on a small cluster with default settings, all nodes should be able to ssh passwordless to all nodes.
+
+reference: [https://stackoverflow.com/questions/48893146](https://stackoverflow.com/questions/48893146)
