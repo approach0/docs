@@ -210,11 +210,22 @@ Also, as each instance produces its own log files, it is highly recommanded to r
 different folders, one can do this by simply creating two folders and symbolic
 binaries in each of them.
 
-To run two nodes on a single machine, use command below:
+One example command to run 3 instances over two single machines, with local machine runing 2
+instances and a remote host runing 1 instance:
 ```
-$ mpirun -n 1 -wdir ./run1 searchd.out -i ~/nvme0n1/mnt-demo.img/ : \
-         -n 1 -wdir ./run2 searchd.out -j ~/nvme0n1/mnt-demo-copy.img/
+$ mpirun --host localhost,localhost,192.168.210.5 \
+     -n 1 --wdir ./run1 searchd.out -i ../mnt-demo.img/ -c 0 : \
+     -n 1 --wdir ./run2 searchd.out -i ../mnt-demo2.img/ -c 0 : \
+     -n 1 --wdir /root ./searchd.out -i ./mnt-demo3.img/ -c 0
 ```
+
+If you are using a different SSH port for remote host, remember to edit `/etc/ssh/ssh_config` and configure ssh client:
+```
+Host 192.168.210.5
+        Port 8985
+```
+
+And to prevent remote host prompting for password, copy `~/.ssh/id_rsa.pub` of localhost and append to `~/.ssh/authorized_keys` in remote host.
 
 To stop all nodes in a cluster gracefully:
 ```
