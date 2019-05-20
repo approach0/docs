@@ -25,10 +25,10 @@ Operator tree:
            └──[normal`c'] #3, token=VAR, subtr_hash=`c', pos=[11, 12].
 
 Suffix paths (leaf-root paths/total = 3/4):
-- [path#1, leaf#1] normal`a': VAR(#1)/rank1(#0)/FRAC(#4)/ADD(#5) (fingerprint 0005) (conjugacy 1)
-* [path#1, leaf#4] 0f63: FRAC(#4)/ADD(#5) (fingerprint 0005) (conjugacy 0)
-- [path#2, leaf#2] normal`b': VAR(#2)/rank2(#0)/FRAC(#4)/ADD(#5) (fingerprint 0005) (conjugacy 0)
-- [path#3, leaf#3] normal`c': VAR(#3)/ADD(#5) (fingerprint 0005) (conjugacy 0)
+- [path#1, leaf#1] normal`a': VAR(#1)/rank1(#0)/FRAC(#4)/ADD(#5)
+* [path#1, leaf#4] 0f63: FRAC(#4)/ADD(#5) 
+- [path#2, leaf#2] normal`b': VAR(#2)/rank2(#0)/FRAC(#4)/ADD(#5)
+- [path#3, leaf#3] normal`c': VAR(#3)/ADD(#5) (fingerprint 0005)
 ```
 Type `\` followed by `Tab` to auto-complete some frequently used TeX commands
 
@@ -214,9 +214,9 @@ One example command to run 3 instances over two single machines, with local mach
 instances and a remote host runing 1 instance:
 ```
 $ mpirun --host localhost,localhost,192.168.210.5 \
-     -n 1 --wdir ./run1 searchd.out -i ../mnt-demo.img/ -c 0 : \
-     -n 1 --wdir ./run2 searchd.out -i ../mnt-demo2.img/ -c 0 : \
-     -n 1 --wdir /root ./searchd.out -i ./mnt-demo3.img/ -c 0
+     -n 1 --wdir ./run1 searchd.out -i ../mnt-demo.img/ -c 800 : \
+     -n 1 --wdir ./run2 searchd.out -i ../mnt-demo2.img/ -c 800 : \
+     -n 1 --wdir /root ./searchd.out -i ./mnt-demo3.img/ -c 1024
 ```
 
 If you are using a different SSH port for remote host, remember to edit `/etc/ssh/ssh_config` and configure ssh client:
