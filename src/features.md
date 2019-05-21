@@ -15,4 +15,4 @@ of design.
 
 Special thanks to people who have contributed to this project:
 * [yzhan018](https://github.com/yzhan018) who submitted the initial FOR-delta implementation.
-* [Sil](https://github.com/TheSil) who helped to create the cralwer script for AoPS website.
+* [Sil](https://github.com/TheSil) who helped to create the cralwer script for AoPS website and fixed many issues regarding to query input and TeX rendering.
