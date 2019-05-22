@@ -6,7 +6,7 @@
 of design.
 * Fulltext search is based on Indri project (C++), mature and fast.
 * Memory leakage checked, searchd zero unfree.
-* Robust TeX parser, handles most user-created math content.
+* Robust TeX parser, handles most user created math content.
 * Math commutative rules awareness.
 * Math symbol alpha-equivalence awareness.
 * Proximity search.
