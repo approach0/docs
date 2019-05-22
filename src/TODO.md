@@ -7,6 +7,7 @@ in the next stage.
 * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals.
 * Show last update of index, and some visit statistics at homepage.
 * **handwritten, picture input UI interface**.
+* faster TeX rendering using mathjax v3.
 * Field search (index many sources and search MSE tag for example).
 * faster indexer
 * [✓] **Increase cache postlist hit chance** by caching only long posting lists.
