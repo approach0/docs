@@ -7,7 +7,7 @@ expressions and return those documents that you may find
 relevant to your input.
 In short, a typical search engine plus math search.
 
-Current Status
+Current State
 ===============
 As for now, all basic functionalities are already implemented (see [features](src/features.html)) and
 it is ready for using on large data. In fact, it searches over 1 million posts on Math StackExchange in
