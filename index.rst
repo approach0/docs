@@ -9,11 +9,13 @@ In short, a typical search engine plus math search.
 
 Current Status
 ===============
-This project is still being considered in prototype stage, however,
-some novel and experimental models are being evaluated in research branch.
-Recent direction is to apply the promising model to master branch and rewrite some modules (e.g., replace Indri with our own text-index) to make code more maintainable.
+As for now, all basic functionalities are already implemented (see [features](src/features.html)) and
+it is ready for using on large data. In fact, it searches over 1 million posts on Math StackExchange in
+pretty much real time with only two low-end servers hosting 3 search instances.
 
-Next things to do is listed in our `project TODO lists <src/TODO.html>`_.
+However, this project is still considered a ``side project'', you
+may not use it for production for many reasons.
+
 
 Documentation Index
 ====================
