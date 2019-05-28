@@ -13,12 +13,13 @@ Other than commonly build-in libraries (pthread, libz, libm, libstdc++), ther ar
 * [flex and libfl](http://sourceforge.net/projects/flex/files/flex-2.5.39.tar.xz/download)
 * [libz](http://zlib.net/zlib-1.2.8.tar.gz)
 * [libevent](https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz)
+* [openmpi](https://download.open-mpi.org/release/open-mpi/v2.0/openmpi-2.0.2.tar.bz2)
 
 For Ubuntu 16.04 LTS (xenial), type the following commands to install above dependencies (including essential programs):
 ```sh
 $ sudo apt-get update
 $ sudo apt-get install g++ cmake
-$ sudo apt-get install bison flex libz-dev libevent-dev
+$ sudo apt-get install bison flex libz-dev libevent-dev libopenmpi-dev
 ```
 
 On Debian 9 for example, you may also need to install
