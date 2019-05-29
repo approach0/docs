@@ -41,7 +41,7 @@ Build Indri:
 ```sh
 $ cd ~
 $ git clone https://github.com/approach0/fork-indri.git ./indri
-$ (cd fork-indri && ./configure && make)
+$ (cd indri && ./configure && make)
 ```
 
 If Indri reports `undefined reference to ...` when building/linking, install that library **and** run configure again:
