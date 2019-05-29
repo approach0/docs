@@ -37,13 +37,11 @@ from math search, weight them using some combined score schema. (Very high level
 Lemur/Indri is not likely to be in your distribution's official software repository,
 so you may need to build and manually specify its library path.
 
-Download and decompress Indri tarball (indri-5.11 is recommended), build its libraries:
-
+Build Indri:
 ```sh
 $ cd ~
-$ wget 'https://sourceforge.net/projects/lemur/files/lemur/indri-5.11/indri-5.11.tar.gz/download' -O indri.tar.gz
-$ tar -xzf indri.tar.gz
-$ (cd indri-5.11 && chmod +x configure && ./configure && make)
+$ git clone https://github.com/approach0/fork-indri.git ./indri
+$ (cd fork-indri && ./configure && make)
 ```
 
 If Indri reports `undefined reference to ...` when building/linking, install that library **and** run configure again:
@@ -73,18 +71,10 @@ $ tar -xzf cppjieba.tar.gz -C ~/cppjieba --strip-components=1
 ### 4. Configure dependency path
 Our project uses `dep-*.mk` files to configure most C/C++ dependency paths (or CFLAGS and LDFLAGS). If you have installed above dependency libraries in your system environment, you can leave these `dep-*.mk` files untouched. Otherwise if you compile and build dependencies locally, please modify `dep-*.mk` files to point to your locally built library locations.
 
-If you followed the above instruction and downloaded (and compiled) Lemur/Indri and CppJieba project at `$HOME` address, just type:
-
+Before building, you need to invoke `./configure` to locate all external dependencies:
 ```
 $ cd $PROJECT
-$ ./configure
-```
-
-If Lemur/Indri and CppJieba project are downloaded to paths other than the `$HOME` path used above, you have to manually specify them:
-
-```
-$ cd $PROJECT
-$ ./configure --indri-path=~/indri-5.11 --jieba-path=~/cppjieba
+$ ./configure --indri-path=~/indri --jieba-path=~/cppjieba
 ```
 
 This `configure` script also checks necessary libraries for building. If `configure` outputs any library that can not be located by the linker, you may need to install the missing dependency before build.
