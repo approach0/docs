@@ -9,6 +9,7 @@ in the next stage.
 * **handwritten, picture input UI interface**.
 * Field search (index many sources and search MSE tag for example).
 * faster indexer
+* put some large resources on CDN (jsdelivr.com)
 * [✓] faster TeX rendering using mathjax v3.
 * [✓] **Increase cache postlist hit chance** by caching only long posting lists.
 * [✓] scalability: Multiple nodes on each core or different machines (using MPI)
