@@ -5,12 +5,10 @@ in the next stage.
 ### Demanding
 * **boolean** query language support (must, should, must-not).
 * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals.
-* **handwritten, picture input UI interface**.
 * Field search (index many sources and search MSE tag for example).
 * faster indexer
-* Show last update of index
-* put some large resources on CDN (jsdelivr.com)
-* [✓] and some visit statistics at homepage.
+* [✓] put some large resources on CDN (jsdelivr.com)
+* [✓] Show last update of index and some visit statistics at homepage.
 * [✓] faster TeX rendering using mathjax v3.
 * [✓] **Increase cache postlist hit chance** by caching only long posting lists.
 * [✓] scalability: Multiple nodes on each core or different machines (using MPI)
@@ -22,6 +20,7 @@ in the next stage.
 * [✓] Path **operators hashing** to distinguish operator symbols.
 
 ### Misc
+* picture input UI interface on mobile platform.
 * QAC, spelling correction, search suggestion.
 * faster Chinese tokenizer
 * Return informative msg on query TeX parse error.
