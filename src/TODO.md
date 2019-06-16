@@ -37,3 +37,9 @@ in the next stage.
 * MathOverflow
 * CrossValidated
 * physics stackexchange
+* Wolfram MathWorld
+* Wikipedia (English version)
+* Socratic
+* NIST DLMF
+* PlanetMath
+* [Proof wiki](https://proofwiki.org/wiki/Main_Page)
