@@ -1,6 +1,6 @@
 About
 ======
-`Approach0</>`_ is a math-aware search engine.
+`Approach0`_ is a math-aware search engine.
 "Math-aware" means you can add math expression(s) as some of
 your keywords to have search engine help you find similar
 expressions and return those documents that you may find
@@ -32,3 +32,5 @@ Documentation Index
    src/internals
    src/appendix_indri
    src/TODO
+
+.. _Approach0: /
