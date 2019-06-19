@@ -6,7 +6,7 @@ in the next stage.
 * **boolean** query language support (must, should, must-not).
 * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. And also prime variable, e.g., x and x'.
 * Field search (index many sources and search MSE tag for example).
-* faster indexer
+* on-disk math index compression, faster indexer
 * [✓] put some large resources on CDN (jsdelivr.com)
 * [✓] Show last update of index and some visit statistics at homepage.
 * [✓] faster TeX rendering using mathjax v3.
