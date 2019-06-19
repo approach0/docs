@@ -3,10 +3,16 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* **boolean** query language support (must, should, must-not).
-* eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. And also prime variable, e.g., x and x'.
-* Field search (index many sources and search MSE tag for example).
+* Model improvements:
+  1. transformation.
+  2. tokenization.
+  3. faster search model.
+* merge CONST and VAR tokens.
+* different symbol weight: Math token $>$ math variable $>$ sub/sup-script.
 * on-disk math index compression, faster indexer
+* eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. And also prime variable, e.g., x and x'. [thought: to use an entity operator on top of SUB/SUP, treating PRIME as variable]
+* **boolean** query language support (must, should, must-not).
+* Field search (index many sources and search MSE tag for example).
 * [✓] put some large resources on CDN (jsdelivr.com)
 * [✓] Show last update of index and some visit statistics at homepage.
 * [✓] faster TeX rendering using mathjax v3.
