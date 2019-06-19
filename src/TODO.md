@@ -9,7 +9,7 @@ in the next stage.
   3. faster search model.
 * merge CONST and VAR tokens.
 * different symbol weight: Math token > math variable > sub/sup-script.
-* on-disk math index compression, faster indexer
+* on-disk math index compression, faster indexer, index-stage init threshold.
 * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. And also prime variable, e.g., x and x'. [thought: to use an property operand at the bottom of the main node, adding SUB/SUP, treating PRIME as variable, assigning a BRACE if it is enclosed by braces]
 * **boolean** query language support (must, should, must-not).
 * Field search (index many sources and search MSE tag for example).
