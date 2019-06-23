@@ -56,6 +56,3 @@ $$
 * NIST DLMF
 * PlanetMath
 * [Proof wiki](https://proofwiki.org/wiki/Main_Page)
-
-
-:math:`a^2 + b^2 = c^2`
