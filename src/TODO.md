@@ -8,9 +8,16 @@ in the next stage.
   2. tokenization.
   3. faster search model.
 * merge CONST and VAR tokens.
-* different symbol weight: Math token > math variable > sub/sup-script.
+* different symbol weight: Math token > math variable > sub/sup-script. (IDF)
+struct TF-IDF
+$$
+\sum_q \max_{m \in T(q), n \in D} \sum_{t \in \mathfrak{T}(m)}
+\big( 
+\min(|t|, \text{TF}_{t,D}) \times \text{IDF}_t
+\big)
+$$
 * on-disk math index compression, faster indexer, index-stage init threshold.
-* eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. And also prime variable, e.g., x and x'. [thought: to use an property operand at the bottom of the main node, adding SUB/SUP, treating PRIME as variable, assigning a BRACE if it is enclosed by braces]
+* eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. And also prime variable, e.g., x and x'. (i.e., \sum lifted to operator, leaving a `base` to match variable, hanging there with sub/sup-scriptions)
 * **boolean** query language support (must, should, must-not).
 * Field search (index many sources and search MSE tag for example).
 * [✓] put some large resources on CDN (jsdelivr.com)
