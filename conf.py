@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 # enable MathJax
-mathjax_path="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 extensions = [
     'sphinx.ext.mathjax'
 ]
@@ -15,12 +14,16 @@ html_static_path = ['img']
 
 # import markdown parser 
 from recommonmark.parser import CommonMarkParser
+from recommonmark.transform import AutoStructify
 
 source_parsers = {
 	'.md': CommonMarkParser,
 }
 
 source_suffix = ['.md', '.rst']
+
+def setup(app):
+    app.add_transform(AutoStructify)
 
 # specify index file name
 master_doc = 'index'
