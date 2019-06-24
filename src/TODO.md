@@ -17,7 +17,11 @@ $$
 \big)
 $$
 * on-disk math index compression, faster indexer, index-stage init threshold.
-* eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. And also prime variable, e.g., x and x'. (i.e., \sum lifted to operator, leaving a `base` to match variable, hanging there with sub/sup-scriptions)
+* Re-design representation:
+  * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. 
+  * And also prime variable, e.g., x and x'. 
+  * being able to differentiate `$\sum_{i=0}^n x_i = x$` and `$\sum_{i=0} x_i^n = x$`. 
+  * Solution: e.g., \sum lifted to operator, leaving a `base` to match variable, hanging there with sub/sup-scriptions.
 * **boolean** query language support (must, should, must-not).
 * Field search (index many sources and search MSE tag for example).
 * [✓] put some large resources on CDN (jsdelivr.com)
