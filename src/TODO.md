@@ -3,10 +3,6 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* Model improvements:
-  1. transformation.
-  2. tokenization.
-  3. faster search model.
 * merge CONST and VAR tokens.
 * different symbol weight: Math token > math variable > sub/sup-script. (IDF)
 struct TF-IDF
