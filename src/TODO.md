@@ -54,5 +54,6 @@ $$
 * Wikipedia (English version)
 * Socratic
 * NIST DLMF
+* https://brilliant.org/
 * PlanetMath
 * [Proof wiki](https://proofwiki.org/wiki/Main_Page)
