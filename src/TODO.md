@@ -3,6 +3,7 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
+* lower search granularity to sector tree.
 * merge CONST and VAR tokens.
 * different symbol weight: Math token > math variable > sub/sup-script. (IDF)
 struct TF-IDF
