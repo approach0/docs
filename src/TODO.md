@@ -7,9 +7,8 @@ in the next stage.
 * merge CONST and VAR tokens.
 * different symbol weight: Math token > math variable > sub/sup-script.
  * Achieved by SF-IDF:
+
 $$
-\begin{equation}
-\left\{
 \begin{array}{ll}
 \text{Score}    &= \sum_t \text{sf}_{t,d} \cdot \text{idf}_{t,d} \\
 &\\
@@ -17,9 +16,8 @@ $$
 &\\
 \text{idf}_{t,d}    &= \sum_{p \in \mathfrak{T}( M(t, d) )} \log \frac{N}{\text{df}_p} 
 \end{array}
-\right.
-\end{equation}
 $$
+
 * on-disk math index compression, faster indexer, index-stage init threshold.
 * Re-design representation:
   * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. 
