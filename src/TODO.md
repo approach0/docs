@@ -5,13 +5,20 @@ in the next stage.
 ### Demanding
 * lower search granularity to sector tree.
 * merge CONST and VAR tokens.
-* different symbol weight: Math token > math variable > sub/sup-script. (IDF)
-struct TF-IDF
+* different symbol weight: Math token > math variable > sub/sup-script.
+ * Achieved by SF-IDF:
 $$
-\sum_q \max_{m \in T(q), n \in D} \sum_{t \in \mathfrak{T}(m)}
-\big( 
-\min(|t|, \text{TF}_{t,D}) \times \text{IDF}_t
-\big)
+\begin{equation}
+\left\{
+\begin{array}{ll}
+\text{Score}    &= \sum_t \text{sf}_{t,d} \cdot \text{idf}_{t,d} \\
+&\\
+\text{sf}_{t,d} &= S_{\text{sy}} \left( (1- \theta)  + \theta \frac 1 {\log(1 + \operatorname{leaves}(T_d))} \right) \\
+&\\
+\text{idf}_{t,d}    &= \sum_{p \in \mathfrak{T}( M(t, d) )} \log \frac{N}{\text{df}_p} 
+\end{array}
+\right.
+\end{equation}
 $$
 * on-disk math index compression, faster indexer, index-stage init threshold.
 * Re-design representation:
