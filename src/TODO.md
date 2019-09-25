@@ -7,13 +7,13 @@ in the next stage.
 * merge CONST and VAR tokens.
 * different symbol weight: Math token > math variable > sub/sup-script.
 
-``
+```
 $$
 \text{Score} = \sum_t \text{sf}_{t,d} \cdot \text{idf}_{t,d}  \\
 \text{sf}_{t,d} = S{\text{sy}} \left( (1- \theta) + \theta \frac 1 {\log(1 + \operatorname{leaves}(T_d))} \right)  \\
 \text{idf}_{t,d} = \sum{p \in \mathfrak{T}( M(t, d) )} \log \frac{N}{\text{df}_p}
 $$
-``
+```
 
 * on-disk math index compression, faster indexer, index-stage init threshold.
 * Re-design representation:
