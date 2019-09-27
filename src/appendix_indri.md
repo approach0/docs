@@ -129,6 +129,12 @@ echo 'a+b' | latexmlmath --contentmathml=content.xml -
 ```
 Corresponding xml file will be generated under current directory.
 
+If you get the following error, try to downgrade your perl to version 5.28. (My brucemiller/LaTeXML version is `22db863d7358d56e197a3845375775714577cc82`)
+```bash
+LibXML.c: loadable library and perl binaries are mismatched (got handshake key 0xce00080, need
+ed 0xcd00080)
+```
+
 ### MPI mechanism
 > Unless you are running under a (supported) resource manager (such as Slurm, PBS or other), the plm/rsh component will be used to start the MPI app.
 > Long story short, Open MPI uses a distributed virtual machine (DVM) to launch the MPI tasks. The first step is to have one daemon per node. The initial "daemon" is mpirun, and then one orted daemon have to be remotely spawned on each other node, and this is where plm/rsh uses SSH.
