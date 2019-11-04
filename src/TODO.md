@@ -29,7 +29,8 @@ $`
   * being able to differentiate `$\sum_{i=0}^n x_i = x$` and `$\sum_{i=0} x_i^n = x$`. 
   * Solution: e.g., \sum lifted to operator, leaving a `base` to match variable, hanging there with sub/sup-scriptions.
 * **boolean** query language support (must, should, must-not).
-* Field search (index many sources and search MSE tag for example).
+* query string no need to have comma separated, it can recognize tex surrounded by dollar signs.
+* Field search (e.g., search MSE tag).
 * [✓] put some large resources on CDN (jsdelivr.com)
 * [✓] Show last update of index and some visit statistics at homepage.
 * [✓] faster TeX rendering using mathjax v3.
