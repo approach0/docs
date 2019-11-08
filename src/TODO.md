@@ -26,6 +26,7 @@ $`
 * Re-design representation:
   * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. 
   * And also prime variable, e.g., x and x'. 
+  * Awaring of the similarity between `$\frac{b+5}2$` and `$\frac{(b+5)}2$`.
   * being able to differentiate `$\sum_{i=0}^n x_i = x$` and `$\sum_{i=0} x_i^n = x$`. 
   * Solution: e.g., \sum lifted to operator, leaving a `base` to match variable, hanging there with sub/sup-scriptions.
 * **boolean** query language support (must, should, must-not).
