@@ -3,26 +3,10 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* lower search granularity to sector tree.
+* [✓] lower search granularity to sector tree.
 * merge CONST and VAR tokens.
-* different symbol weight: Math token > math variable > sub/sup-script.
-
-`$
-\begin{equation}
-\left\{
-\label{eq154}
-\begin{array}{ll}
-\text{Score}    &= \sum_t \text{sf}_{t,d} \cdot \text{idf}_{t,d} \\
-&\\
-\text{sf}_{t,d} &= S_{\text{sy}} \left( (1- \theta)  + \theta \frac 1 {\log(1 + \operatorname{leaves}(T_d))} \right) \\
-&\\
-\text{idf}_{t,d}    &= \sum_{p \in \mathfrak{T}( M(t, d) )} \log \frac{N}{\text{df}_p} 
-\end{array}
-\right.
-\end{equation}
-$`
-
-* on-disk math index compression, faster indexer, index-stage init threshold.
+* [✓] different symbol weight: Math token > math variable > sub/sup-script.
+* [✓] on-disk math index compression, faster indexer, index-stage init threshold.
 * Re-design representation:
   * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. 
   * And also prime variable, e.g., x and x'. 
