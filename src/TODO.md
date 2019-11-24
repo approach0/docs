@@ -3,19 +3,19 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
+* query string no need to have comma separated, it can recognize tex surrounded by dollar signs.
+* v3 wildcards support?
+* **boolean** query language support (must, should, must-not).
+* Show informative msg on query TeX parse error.
+* Field search (e.g., search MSE tag).
 * [✓] lower search granularity to sector tree.
-* merge CONST and VAR tokens.
+* [✓] merge CONST and VAR tokens.
 * [✓] different symbol weight: Math token > math variable > sub/sup-script.
 * [✓] on-disk math index compression, faster indexer, index-stage init threshold.
-* Re-design representation:
-  * eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. 
-  * And also prime variable, e.g., x and x'. 
-  * Awaring of the similarity between `$\frac{b+5}2$` and `$\frac{(b+5)}2$`.
-  * being able to differentiate `$\sum_{i=0}^n x_i = x$` and `$\sum_{i=0} x_i^n = x$`. 
-  * Solution: e.g., \sum lifted to operator, leaving a `base` to match variable, hanging there with sub/sup-scriptions.
-* **boolean** query language support (must, should, must-not).
-* query string no need to have comma separated, it can recognize tex surrounded by dollar signs.
-* Field search (e.g., search MSE tag).
+* [✓] Re-design representation:
+  * [✓] eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. 
+  * [✓] And also prime variable, e.g., x and x'.
+  * [✓] being able to differentiate `$\sum_{i=0}^n x_i = x$` and `$\sum_{i=0} x_i^n = x$`. 
 * [✓] put some large resources on CDN (jsdelivr.com)
 * [✓] Show last update of index and some visit statistics at homepage.
 * [✓] faster TeX rendering using mathjax v3.
@@ -29,12 +29,9 @@ in the next stage.
 * [✓] Path **operators hashing** to distinguish operator symbols.
 
 ### Misc
-* picture input UI interface on mobile platform, handwritten input on PC.
-* QAC, spelling correction, search suggestion.
+* picture input UI interface on mobile platform, picture input.
 * faster Chinese tokenizer
-* Return informative msg on query TeX parse error.
-* indexing automation.
-* Special posting list for big number exact match, e.g., "1/2016".
+* QAC, spelling correction, search suggestion.
 * Semantics
   * math equivalence awareness, e.g. 1+1/n = (1+n)/n.
   * **Text synonym** awareness, e.g. horse = pony.
