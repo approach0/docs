@@ -3,6 +3,7 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
+* v3 security inspection.
 * query string no need to have comma separated, it can recognize tex surrounded by dollar signs.
 * v3 wildcards support?
 * **boolean** query language support (must, should, must-not).
