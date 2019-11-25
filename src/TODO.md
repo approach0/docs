@@ -4,12 +4,12 @@ in the next stage.
 
 ### Demanding
 * v3 **security** inspection.
-* query string no need to have **comma separated**, it can recognize tex surrounded by dollar signs.
 * Add **AoPS**
 * v3 **wildcards** support?
 * **boolean** query language support (must, should, must-not).
 * Show informative msg on query **TeX parse error**.
 * **Field search** (e.g., search MSE tag).
+* [✓] query string no need to have **comma separated**, it can recognize tex surrounded by dollar signs.
 * [✓] lower search granularity to sector tree.
 * [✓] merge CONST and VAR tokens.
 * [✓] different symbol weight: Math token > math variable > sub/sup-script.
