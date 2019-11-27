@@ -3,8 +3,6 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* v3 **security** inspection.
-* Add **AoPS**
 * v3 **wildcards** support?
 * **boolean** query language support (must, should, must-not).
 * Show informative msg on query **TeX parse error**.
@@ -40,15 +38,16 @@ in the next stage.
   * Embedding of both text and math, e.g. pythagorean == x^2 + y^2 = z^2
 
 ### Consider additional indexing sources
-* artofproblemsolving.com
-* matheducators.stackexchange.com
-* MathOverflow
+* [✓] Math StackExchange
+* [✓] artofproblemsolving.com
+* [Proof wiki](https://proofwiki.org/wiki/Main_Page)
+* https://brilliant.org/
+* PlanetMath
 * CrossValidated
 * physics stackexchange
+* matheducators.stackexchange.com
+* MathOverflow
 * Wolfram MathWorld
 * Wikipedia (English version)
 * Socratic
 * NIST DLMF
-* https://brilliant.org/
-* PlanetMath
-* [Proof wiki](https://proofwiki.org/wiki/Main_Page)
