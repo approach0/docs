@@ -1,17 +1,17 @@
 ## Features
 * Fast and effective math search, built on top of [a state-of-the-art formula retrieval model](http://ecir2019.org/best-paper-awards).
-* Being able to cache specified indicies into memory, with good compression and skip-list to boost search performance.
-* Support wildcards query.
-* Chinese tokeniser available, multi-bytes awareness from the beginning
-of design.
+* Being able to cache on-disk index and specify the memory usage limit.
+* Compressed and compact on-disk math index. Both in-memory and on-disk indices use specially designed compression schema and apply skip-list to boost search performance.
+* Spceialized dynamic pruning strategy for amazing math-aware structural search efficency.
+* Chinese tokeniser available, multi-bytes awareness from the beginning of design.
 * Fulltext search is based on Indri project (C++), mature and fast.
-* Memory leakage checked, searchd zero unfree.
-* Robust TeX parser, handles most user created math content.
+* Memory leakage checked, search daemon has zero unfree.
+* Robust TeX parser to convert user created math content to search-optimized representation.
 * Math commutative rules awareness.
 * Math symbol alpha-equivalence awareness.
-* Proximity search.
+* Term proximity awareness.
 * Search results highlight.
-* Being able to scale to multiple nodes across many machines.
+* Scalable to multiple nodes across many machines.
 
 Special thanks to people who have contributed to this project:
 * [yzhan018](https://github.com/yzhan018) who submitted the initial FOR-delta implementation.
