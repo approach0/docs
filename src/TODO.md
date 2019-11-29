@@ -3,6 +3,7 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
+* initial threshold, update documentation.
 * v3 **wildcards** support?
 * **boolean** query language support (must, should, must-not).
 * Show informative msg on query **TeX parse error**.
