@@ -1,6 +1,6 @@
 ## Dependency
 
-![dependency](https://github.com/approach0/search-engine-docs-eng/raw/master/img/dep.png)
+![](https://github.com/approach0/search-engine-docs-eng/raw/master/img/dep.png)
 
 (Boxes are external dependencies, circles are internal modules)
 
