@@ -63,3 +63,23 @@ dd if=/dev/zero of=/swapspace bs=1M count=4000
 mkswap /swapspace
 swapon /swapspace
 ```
+
+### 3. TRIM in SSD
+If you are doing indexing on an SSD drive (which is recommended because it is often more than 4 times faster than hard disk in terms of random write performance), it is highly suggested to enable SSD TRIM whenever it is supported, due to SSD Write Amplification (WA) effect. Without TRIM, the intensive writing onto SSD drive can cause very slow indexing performance and reduce SSD life span.
+
+TRIM can be invoked either continuously by mounting your SSD drive with `discard` option
+```sh
+sudo mount -o discard,noatime /dev/nvme0n1 ./mount‑point
+```
+where `noatime` option stops to record the timestamp of accessing files (and directories) to further reduce the number of writing operations performed on SSD.
+
+Or, by periodically run `fstrim` command:
+```sh
+$ sudo fstrim -v ./nvme0n1/
+```
+alternatively, The util‑linux package provides `fstrim.service` and `fstrim.timer` systemd unit files. Enabling the timer will activate the service weekly:
+```sh
+$ sudo systemctl enable fstrim.timer
+$ sudo systemctl start fstrim.timer
+$ journalctl ‑‑unit fstrim.timer # show logs
+```
