@@ -6,7 +6,7 @@ in the next stage.
 * Show informative msg on query **TeX parse error**.
 * **boolean** query language support (must, should, must-not).
 * **Field search** (e.g., search MSE tag).
-* ~~v3 **wildcards** support?~~
+* <del>v3 **wildcards** support?</del>
 * [✓] initial threshold, update documentation.
 * [✓] recognize query string when no **comma separated**.
 * [✓] lower search granularity to sector tree.
