@@ -10,8 +10,9 @@ In short, a typical search engine plus math search.
 Current State
 ===============
 As for now, all basic functionalities are already implemented (see `features`) and
-it is ready for using on large data. In fact, it searches over 1 million posts on Math StackExchange in
-pretty much real time with only two low-end servers hosting 3 search instances.
+it is ready for using on large data. In fact, the current demo searches Mathematics StackExchange
+and ArtOfProblemSolving containing over one million posts/topics and tens of millions of math formulas.
+It has achieved pretty much real time with only four low-end VPS nodes, costing 20$ per month in total.
 
 However, this project is still considered a `side project`, you
 may not use it for production for many reasons.
