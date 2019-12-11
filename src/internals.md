@@ -5,17 +5,9 @@ methods are. You may find useful to read these resources first:
 1. [ECIR16 Slides](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/ECIR16-OPMES-slides-handouts.pdf)
 2. [ECIR16 Poster](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/ECIR16-Wei-Poster-publish.pdf)
 3. [ECIR16 Demo](https://github.com/tkhost/tkhost.github.io/blob/master/opmes/ecir2016.pdf)
-4. [My graduate thesis](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/thesis-ref.pdf)
+4. [Master thesis](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/thesis-ref.pdf)
 5. [ECIR19 Paper - Structure search model](https://ecir2019.org/accepted-papers/)
-
-Although Approach0 is a complete rewrite based on previous
-prototype (OPMES), the basic ideas of searching math expression
-remain unchanged in both systems. Approach0 mainly makes an advance
-in the following aspects on top of OPMES:
-
-1. Combine math-only search with fulltext search
-2. Adds some feature (e.g. math expression wildcards)
-3. Better code framework
+6. [ECIR20 Paper - Formula query efficiency](https://drive.google.com/open?id=1QjKVpgsTAIMLqrIDhdDOHvDa7sLvoxq7)
 
 ### Math posting list structure
 ```c
