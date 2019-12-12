@@ -3,16 +3,17 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
-* Show informative msg on query **TeX parse error**.
+* initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
 * **boolean** query language support (must, should, must-not).
 * **Field search** (e.g., search MSE tag).
-* <del>v3 **wildcards** support?</del>
+* <del>v3 wildcards support?</del>
+* <del>Show informative msg on query TeX parse error.</del>
 * [✓] initial threshold, update documentation.
 * [✓] recognize query string when no **comma separated**.
 * [✓] lower search granularity to sector tree.
 * [✓] merge CONST and VAR tokens.
 * [✓] different symbol weight: Math token > math variable > sub/sup-script.
-* [✓] on-disk math index compression, faster indexer, index-stage init threshold.
+* [✓] on-disk math index compression, faster indexer.
 * [✓] Re-design representation:
   * [✓] eliminate the impact of sup/subscripts in some cases, e.g., definite and indefinite integrals. 
   * [✓] And also prime variable, e.g., x and x'.
