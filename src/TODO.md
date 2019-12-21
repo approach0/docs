@@ -6,6 +6,7 @@ in the next stage.
 * initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
 * **boolean** query language support (must, should, must-not).
 * **Field search** (e.g., search MSE tag).
+* phrase search (specified by quotes)
 * <del>v3 wildcards support?</del>
 * <del>Show informative msg on query TeX parse error.</del>
 * [✓] initial threshold, update documentation.
