@@ -4,7 +4,7 @@ And a lot of commands are named `test-*.out` (such as `blob-index/run/test-blob-
 Other commands are utility or exporting commands to be used by search engine users (e.g. `searchd/run/searchd.out`).
 
 Here we only list a few commands that are considered important
-commands and accomplish certain useful functionality.
+commands and they offer useful functionalities.
 
 In general, you can issue `command -h` in most important commands to see its command line options and usage description.
 
