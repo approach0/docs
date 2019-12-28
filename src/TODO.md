@@ -54,3 +54,5 @@ in the next stage.
 * Wikipedia (English version)
 * Socratic
 * NIST DLMF
+* 悠闲数学娱乐论坛
+* 知乎
