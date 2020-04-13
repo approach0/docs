@@ -3,6 +3,7 @@ Listed are plans/directions the project is going to do
 in the next stage.
 
 ### Demanding
+* add `\wp` token
 * initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
 * **boolean** query language support (must, should, must-not).
 * **Field search** (e.g., search MSE tag).
