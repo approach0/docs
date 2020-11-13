@@ -1,0 +1,26 @@
+# EDIT this workflow name
+name: Webhook
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  Webhook:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+    # Runs a single command using the runners shell
+    - name: Webhook
+      run: |
+        # EDIT this URL
+        URL="https://xitizu.com/docs/webhook"
+
+        SECRET=$(echo "${{ secrets.WEBHOOKSECRET }}")
+        curl --request POST --data \
+        "{\"repository\": \"${{ github.event.repository.full_name }}\", \"secret\": \"$SECRET\"}" \
+        $URL
