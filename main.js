@@ -45,7 +45,7 @@ if (option === 'serve') {
     console.log('[ request from ]', data.repository)
 
     if (data.secret === secret) {
-      //await fetch_and_update()
+      fetch_and_update()
       res.send('OK')
     } else {
       res.send('Wrong secret')

@@ -2,9 +2,8 @@
 name: Webhook
 
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the master branch
-  pull_request:
+  # Trigger the workflow on push or pull request merge to the master branch
+  push:
     branches: [ master ]
 
 jobs:
@@ -13,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Runs a single command using the runners shell
     - name: Webhook
       run: |
         # EDIT this URL
