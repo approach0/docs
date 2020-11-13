@@ -60,7 +60,7 @@ The output of crawler for each post will have two files, one is `*.json` corpus 
 
 As an option, you can skip the time-consuming crawling
 process by directly
-[downloading a small size corpus](/download/math-corpus-small.tar.bz2) (around 7 MB) to play around later using indexer.
+[downloading a small size corpus](https://www.cs.rit.edu/~dprl/data/mse-corpus.tar.gz) (~ 930 MB) to play around later using indexer.
 This small corpus contains 1000 pages we previously
 crawled from *math stackexchange*.
 

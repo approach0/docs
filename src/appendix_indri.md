@@ -14,7 +14,7 @@ $ cd indri-5.13 && ./configure && make
 ```
 
 Create a parameters.xml at project directory:
-```txt
+```
 <parameters>
         <memory>1024M</memory>
         <index>/path/to/new_indri_index</index>
@@ -73,7 +73,7 @@ kstem_add_table_entry: Duplicate word emeritus will be ignored.
 -7.8206 /home/tk/wuhao_search/corpus/ohsumed/0016765    0       271
 ```
 where `test-query.xml` is a query file (you should create it) specifying a single query keyword `dog`:
-```txt
+```
 <parameters>
         <query>dog</query>
 </parameters>
@@ -89,7 +89,7 @@ trick somehow causes trouble (see [this issue](https://jira.mongodb.org/browse/S
 > (extracted from that issue)
 
 To fix it, edit `MakeDefns` file (after running `./configure`) and add `-fno-tree-vectorize` to `CFLAGS` and `CXXFLAGS`:
-```makefile
+```sh
 ...
 # C compiler and compiling options
 # C++ compiler and compiling/linking options
