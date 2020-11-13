@@ -9,7 +9,7 @@ $ xdg-open ./_build/html/index.html
 
 You may also need to edit Github Actions files under `.github` directory.
 
-## Content Edit
+## How to edit content?
 Documentation content source files are all located at `content` directory.
 
 This is an open source documentation, feel free to open a pull request.
