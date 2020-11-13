@@ -9,8 +9,7 @@ on:
 
 jobs:
 
-  Webhook:
-    # The type of runner that the job will run on
+  trigger_hook:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +18,7 @@ jobs:
       run: |
         # EDIT this URL
         URL="https://xitizu.com/docs/webhook"
-
+        echo "Webhook sending to $URL ..."
         SECRET=$(echo "${{ secrets.WEBHOOKSECRET }}")
         curl --request POST --data \
         "{\"repository\": \"${{ github.event.repository.full_name }}\", \"secret\": \"$SECRET\"}" \
