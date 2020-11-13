@@ -21,17 +21,17 @@ may not use it for production for many reasons.
 Documentation Index
 ====================
 .. toctree::
-   src/usecase
-   src/links
-   src/features
-   src/dependency
-   src/build
-   src/usage
-   src/vdisk
-   src/demo
-   src/distr_crawl
-   src/internals
-   src/appendix_indri
-   src/TODO
+   usecase
+   links
+   features
+   dependency
+   build
+   usage
+   vdisk
+   demo
+   distr_crawl
+   internals
+   appendix_indri
+   TODO
 
 .. _Approach0: /

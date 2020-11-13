@@ -8,7 +8,7 @@ a demo is hosted on
 
 Preview in a GIF:
 
-![](https://github.com/approach0/search-engine-docs-eng/raw/master/img/clip.gif)
+![](../static/clip.gif)
 
 ### Code
 We have an old codebase hosted on GitHub, under MIT license:
