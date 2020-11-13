@@ -16,8 +16,9 @@ jobs:
       run: |
         # EDIT this URL
         URL="https://xitizu.com/docs/webhook"
-        echo "Webhook sending to $URL ..."
+
         SECRET=$(echo "${{ secrets.WEBHOOKSECRET }}")
-        curl --request POST --data \
+        echo "Webhook: Sending HTTP-POST to $URL ..."
+        curl --request POST -H "Content-Type: application/json" --data \
         "{\"repository\": \"${{ github.event.repository.full_name }}\", \"secret\": \"$SECRET\"}" \
-        $URL
+        $URL 2> /dev/null | grep OK
