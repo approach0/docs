@@ -30,12 +30,15 @@ exclude_patterns = ['_build', 'node_modules']
 def setup(app):
     app.add_transform(AutoStructify)
 
+def convert_npm_name(name):
+    return name.upper().replace('_', ' ')
+
 # project info
 import json
 fh = open('./package.json')
 manifest = json.load(fh)
-project = manifest['name']
-html_title = manifest['name']
+project = convert_npm_name(manifest['name'])
+html_title = convert_npm_name(manifest['name'])
 copyright = manifest['author']
 author = manifest['author']
 version = ''
