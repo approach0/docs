@@ -105,7 +105,7 @@ for our indexer to successfully run through a non-trivial size
 of corpus without being killed by the OS.
 
 ### Indexd
-`indexd` is the daemon version of indexer, example run commmand:
+`indexd` is the daemon version of indexer, example commmand:
 ```sh
 $ ./run/indexd.out -o ~/nvme0n1/mnt-mathtext.img/ > /dev/null 2> error.log
 ```
