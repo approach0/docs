@@ -15,6 +15,13 @@ html_logo = 'content/static/logo.png'
 html_favicon = 'content/static/favicon.ico'
 html_show_copyright = False
 
+html_context = {
+    'display_github': True,
+    'github_user': 'approach0',
+    'github_repo': 'docs',
+    'github_version': 'master/',
+}
+
 # import markdown parser
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify

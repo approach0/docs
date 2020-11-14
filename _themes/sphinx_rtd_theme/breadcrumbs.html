@@ -1,8 +1,8 @@
 {# Support for Sphinx 1.3+ page_source_suffix, but don't break old builds. #}
-{% set github_user = 'approach0' %}
-{% set github_repo = 'docs' %}
-{% set github_version = 'master/' %}
-{% set display_github = 1 %}
+{# set github_user = 't-k-' #}
+{# set github_repo = 'repo' #}
+{# set github_version = 'master/' #}
+{# set display_github = 1 #}
 
 {% if page_source_suffix %} 
 {% set suffix = page_source_suffix %}
@@ -20,7 +20,7 @@
       <li class="wy-breadcrumbs-aside">
         {% if pagename != "search" %}
           {% if display_github %}
-            <a href="https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}" class="fa fa-pencil"> &nbsp; Edit this page on Github</a>
           {% elif display_bitbucket %}
             <a href="https://bitbucket.org/{{ bitbucket_user }}/{{ bitbucket_repo }}/src/{{ bitbucket_version}}{{ conf_py_path }}{{ pagename }}{{ suffix }}" class="fa fa-bitbucket"> Edit on Bitbucket</a>
           {% elif show_source and source_url_prefix %}

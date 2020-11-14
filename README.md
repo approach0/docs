@@ -1,5 +1,9 @@
 ## Setup
-Configure `package.json` file with `name` and `author`, then run:
+Configure `package.json` file with `name` and `author`,
+and change the `html_context` in conf.py so that the
+top-right **Edit this page** link is correctly pointing to your repository.
+
+Then run the following commands to generate pages:
 ```
 $ sudo pip install sphinx
 $ sudo pip install recommonmark # for Markdown Editing
