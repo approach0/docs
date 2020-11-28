@@ -33,12 +33,25 @@ with your own credentials/passwords and change the `domain_name` entry in `envir
 $ node ./jobd/jobd.js --config ./config.toml --no-looptask
 ```
 
+Make sure cloud provider CLI image exists:
+```sh
+$ docker pull approach0/linode-cli
+# Alternatively,
+$ docker tag other-registry/username/linode-cli approach0/linode-cli
+```
+
 Use a node with at least 25 GB disk space (here Linode config-1) as the first node to bootstrap the cluster:
 ```sh
 $ node cli/cli.js -j 'swarm:bootstrap?node_usage=persistent&iaascfg=linode_config_1'
 ```
 
 After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/calabash` (served by `gateway_bootstrap` service)
+
+At any time, you can login to the shell of a node using SSH or `mosh`:
+```sh
+$ mosh -ssh 'ssh -p 8982' <IP>
+```
+mosh is using UDP over SSH protocol, it is sometimes essential for fast global remote access.
 
 Also, after bootstrap, when you need to change `config.toml` and update remote configurations, or update Calabash, just edit `config.toml` and run
 ```sh
