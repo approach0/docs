@@ -109,7 +109,11 @@ However, the order of the services to boot up is important. Here is a recommende
     ```
     swarm:service-create?service=searchd_mpirun&target_serv=green&word_cache=100&math_cache=500
     ```
-    After this point you may want to test yet-to-be-routed search service before completely switching to it by creating `relay` service in the following step
+    After this point you may want to test yet-to-be-routed search service before completely switching to it (by creating `relay` service).
+    We can test this search instance locally by
+    ```sh
+    $ docker run approach0/a0 test-query.sh http://<IP-of-shard-1-searchd>:8921/search /tmp/test-query.json
+    ```
 13. Finally, create `relay` service to accept routed request from gateway and proxy them to search daemons (and also stats service APIs)
 
 Those rsync services are deployed to enable upload/backup files using rsync remotely, one can issue the following commands to test rsync daemon:
