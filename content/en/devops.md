@@ -5,7 +5,7 @@ on top of these to bootstrap on IaaS services, deploy and inspect logs.
 
 ### CI/CD
 Github Actions is used for Approach Zero CI/CD, usually each [Approach Zero code repository](https://github.com/organizations/approach0) has a `deploy` branch
-which you can push to and trigger Github workflows to, for example, invoke webhooks, build and push Docker images to different Docker registry providers.
+which you can push to and trigger Github workflows, for example, to invoke webhooks, build and push Docker images to different Docker registry providers.
 
 Those workflows are defined in `.github/workflows` directory of each repository.
 
