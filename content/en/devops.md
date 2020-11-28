@@ -101,7 +101,10 @@ However, the order of the services to boot up is important. Here is a recommende
 11. Create `searchd:green` services as SSH-exposed search instances responsible for different index sharding,
     the one running on the first shard will establish and listen at port 8921.
     (to support MPI replicas, we name the service "green" so that later we can add parallel search services, e.g., "blue" for load-balancing or [blue/green deployment](https://bing.com/search?q=blue%2Fgreen+deployment))
-12. `searchd_mpirun` for running those search instances using MPI protocol.
+12. `searchd_mpirun` for running those search instances using MPI protocol. To target the "blue" search instances, run job:
+    ```
+    swarm:service-create?service=searchd_mpirun&target_serv=green
+    ```
     After this point you may want to test yet-to-be-routed search service before completely switching to it
 13. Finally, create `relay` service to accept routed request from gateway and proxy them to search daemons (and also stats service APIs)
 
