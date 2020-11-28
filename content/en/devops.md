@@ -91,7 +91,7 @@ However, the order of the services to boot up is important. Here is a recommende
    webhooks to update their static HTML content. For webhooks to work, remember to modify the domain name to your own in their Github workflow files
 5. `stats` service for search engine query logs and statistics webpage
 6. Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4
-7. Deploy `corpus_syncd` and `crawler` services for corpus rsync (on port 873) and crawlers,
+7. Deploy `corpus_syncd` and `crawler` services for corpus rsync (on port 873 of shard-1) and crawlers,
    `corpus_syncd` will also regularly output current corpus size and number of files.
    Once they are deployed, you may want to use rsync to restore your previous backup corpus files
 8. `indexer` and `index_syncd` for indexers and transmitting indices to new search nodes
