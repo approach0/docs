@@ -94,7 +94,8 @@ However, the order of the services to boot up is important. Here is a recommende
 7. Deploy `corpus_syncd` and `crawler` services for corpus rsync (on port 873 of shard-1) and crawlers,
    `corpus_syncd` will also regularly output current corpus size and number of files.
    Once they are deployed, you may want to use rsync to restore your previous backup corpus files
-8. `indexer` and `index_syncd` for indexers and transmitting indices to new search nodes
+8. `indexer` and `index_syncd` for indexers and transmitting indices to new search nodes 
+   (you can watch `index_syncd` logs for the most recently created index image whose name contains its creation timestamp)
 9. Then create `feeder` service to start feeding current corpus files to indexers
 10. Create 4 "searchd" nodes for search daemons, label each node a shard number from 1 to 4
 11. `searchd` services are SSH-exposed search instances responsible for different index sharding, the first shard listens at port 8921
