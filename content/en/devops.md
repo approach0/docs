@@ -105,7 +105,7 @@ However, the order of the services to boot up is important. Here is a recommende
     ```
     swarm:service-create?service=searchd_mpirun&target_serv=green
     ```
-    After this point you may want to test yet-to-be-routed search service before completely switching to it
+    After this point you may want to test yet-to-be-routed search service before completely switching to it by creating `relay` service in the following step
 13. Finally, create `relay` service to accept routed request from gateway and proxy them to search daemons (and also stats service APIs)
 
 Those rsync services are deployed to enable upload/backup files using rsync remotely, one can issue the following commands to test rsync daemon:
