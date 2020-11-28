@@ -105,6 +105,10 @@ However, the order of the services to boot up is important. Here is a recommende
     ```
     swarm:service-create?service=searchd_mpirun&target_serv=green
     ```
+    By default, search daemons do not cache disk index into memory, this makes the daemon startup really fast, but the disadvantage is obvious, it hurts performance. To enable cache, one can run job with parameters like the following:
+    ```
+    swarm:service-create?service=searchd_mpirun&target_serv=green&word_cache=100&math_cache=500
+    ```
     After this point you may want to test yet-to-be-routed search service before completely switching to it by creating `relay` service in the following step
 13. Finally, create `relay` service to accept routed request from gateway and proxy them to search daemons (and also stats service APIs)
 
