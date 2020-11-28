@@ -57,7 +57,7 @@ Also, after bootstrap, when you need to update remote configurations, or update 
 ```sh
 $ node cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash'
 ```
-Similarly, when you want to update any other "core" services that Calabash depends on (so that you cannot simply control Calabash to update remotely),
+Similarly, when you want to update any other "core" services that Calabash depends on (so that you cannot simply control Calabash to update them remotely),
 just pass comma-separated list of service(s) you want to update like below
 ```sh
 $ node cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash,gateway'
