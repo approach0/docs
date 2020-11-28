@@ -45,7 +45,7 @@ Use a node with at least 25 GB disk space (here Linode config-1) as the first no
 $ node cli/cli.js -j 'swarm:bootstrap?node_usage=persistent&iaascfg=linode_config_1'
 ```
 
-After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/calabash` (served by `gateway_bootstrap` service)
+After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/backend` (served by `gateway_bootstrap` service)
 
 At any time, you can login to the shell of a node using SSH or `mosh`:
 ```sh
@@ -53,7 +53,7 @@ $ mosh -ssh 'ssh -p 8982' <IP>
 ```
 mosh is using UDP over SSH protocol, it is sometimes essential for fast global remote access.
 
-Also, after bootstrap, when you need to change `config.toml` and update remote configurations, or update Calabash, just edit `config.toml` and run
+Also, after bootstrap, when you need to update remote configurations, or update Calabash service, just edit `config.toml` and run
 ```sh
 $ node cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash'
 ```
@@ -68,7 +68,7 @@ In Calabash panel, label the node `dns_pin=true` and set your domain name DNS to
 
 Once your DNS record is propagated (you can verify it using `ping command`), create service `gateway`.
 
-After `gateway` is deployed, you can test and visit `https://<your_domain_name>/calabash` to see if `gateway` service is working as expected.
+After `gateway` is deployed, you can test and visit `https://<your_domain_name>` to see if `gateway` service is working as expected.
 If it all looks good, you may want to remove `gateway_bootstrap` service because it is no longer necessary. `gateway` service will automatically update
 HTTPS certificates and take care of everything related to Let's Encrypt services.
 
@@ -78,8 +78,8 @@ Approach Zero cluster can automatically refresh its index and switch to new indi
 
 However, the order of the services to boot up is important. Here is a recommended order to set up other services:
 
-1. `ui_login` service for JWT login (otherwise since there is no login Webpage service available, you may have to visit
-   `/auth/login` from `lattice` service test page for obtaining a JWT token)
+0. Visit `/auth/login` from `lattice` service test page to obtain an initial JWT token (check Long-live cookie radio box)
+1. Create `ui_login` service for later JWT login
 2. `monitor` and `grafana` services to start monitoring and import Grafana configurations from JSON files (at `configs` directory)
 3. `usersdb_syncd` for database rsync service listening on port 8873
    (this service has to be on the same node with `usersdb` because they bind to the same on-disk volume)
