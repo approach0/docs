@@ -4,12 +4,12 @@ In particular, its DevOps uses a wrapper tool called [Calabash](https://github.c
 on top of these to bootstrap on IaaS services, deploy and inspect logs.
 
 ### CI/CD
-Github Actions is used for Approach Zero CI/CD, usually each [Approach Zero code repository](https://github.com/organizations/approach0) has a `deploy` branch
+Github Actions is used for Approach Zero CI/CD, usually each code repository of the project has a `deploy` branch
 which you can push to and trigger Github workflows, for example, to invoke webhooks, build and push Docker images to different Docker registry providers.
 
 Those workflows are defined in `.github/workflows` directory of each repository.
 
-On Github, across the Github organization, we have created several [secrets](https://github.com/organizations/approach0/settings/secrets/actions) necessary for CI/CD jobs, including
+On Github, across the [approach0 organization](https://github.com/organizations/approach0), we have created several [secrets](https://github.com/organizations/approach0/settings/secrets/actions) necessary for CI/CD jobs, including
 
 * `DOCKERHUBPASSWORD`: Password for DockerHub registry
 * `UCLOUDUSERNAME` and `UCLOUDPASSWORD`: Credentials for UHub registry
