@@ -89,7 +89,7 @@ However, the order of the services to boot up is important. Here is a recommende
    (this service has to be on the same node with `usersdb` because they bind to the same on-disk volume)
 4. `guide` and `docs` services for Approach Zero user guide and developer documentation page. These two services contain Github workflows to trigger
    webhooks to update their static HTML content. For webhooks to work, remember to modify the domain name to your own in their Github workflow files
-5. `stats` service for search engine query logs and statistics webpage
+5. `stats` and `ui_search` services for search engine query logs/statistics page and search page UI
 6. Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4
 7. Deploy `corpus_syncd` and `crawler` services for corpus rsync (on port 873 of shard-1) and crawlers,
    `corpus_syncd` will also regularly output current corpus size and number of files.
