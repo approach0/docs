@@ -101,5 +101,5 @@ However, the order of the services to boot up is important. Here is a recommende
 Those rsync services are deployed to enable upload/backup files using rsync remotely, one can issue the following commands to test rsync daemon:
 ```sh
 $ export RSYNC_PASSWORD=<your_rsync_password>
-$ rsync rsync://<your_IP>:<rsync_port>/root/
+$ rsync rsync://rsyncclient@<your_IP>:<rsync_port>/
 ```
