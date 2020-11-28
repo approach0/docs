@@ -73,7 +73,7 @@ If it all looks good, you may want to remove `gateway_bootstrap` service because
 HTTPS certificates and take care of everything related to Let's Encrypt services.
 
 ### Setting Up
-The rest of it is just clicking buttons, create new node, label them and setup new services until
+The rest of it is just clicking buttons, create new nodes, label them and setup new services until
 Approach Zero cluster can automatically refresh its index and switch to new indices regularly.
 
 However, the order of the services to boot up is important. Here is a recommended order to set up other services:
