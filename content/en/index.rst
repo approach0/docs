@@ -30,6 +30,7 @@ Documentation Index
    vdisk
    demo
    distr_crawl
+   devops
    internals
    appendix_indri
    TODO
