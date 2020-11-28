@@ -35,7 +35,7 @@ $ node ./jobd/jobd.js --config ./config.toml --no-looptask
 
 Use a node with at least 25 GB disk space (here Linode config-1) as the first node to bootstrap the cluster:
 ```sh
-$ node cli.js -j 'swarm:bootstrap?node_usage=persistent&iaascfg=linode_config_1'
+$ node cli/cli.js -j 'swarm:bootstrap?node_usage=persistent&iaascfg=linode_config_1'
 ```
 
 After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/calabash` (served by `gateway_bootstrap` service)
