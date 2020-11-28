@@ -98,7 +98,8 @@ However, the order of the services to boot up is important. Here is a recommende
    (you can watch `index_syncd` logs for the most recently created index image whose name contains its creation timestamp)
 9. Then create `feeder` service to start feeding current corpus files to indexers
 10. Create 4 "searchd" nodes for search daemons, label each node a shard number from 1 to 4
-11. Create `searchd:green` services as SSH-exposed search instances responsible for different index sharding, the first shard listens at port 8921.
+11. Create `searchd:green` services as SSH-exposed search instances responsible for different index sharding,
+    the one running on the first shard will establish and listen at port 8921.
     (to support MPI replicas, we name the service "green" so that later we can add parallel search services, e.g., "blue" for load-balancing or [blue/green deployment](https://bing.com/search?q=blue%2Fgreen+deployment))
 12. `searchd_mpirun` for running those search instances using MPI protocol.
     After this point you may want to test yet-to-be-routed search service before completely switching to it
