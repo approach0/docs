@@ -63,6 +63,11 @@ just pass comma-separated list of service(s) you want to update like below
 $ node cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash,gateway'
 ```
 
+#### Bootstrap login
+
+With Calabash panel, you can manipulate Docker Swarm easily and excute tasks written in shell scripts.
+Before one can run any calabash "job", one have to login to obtain a JWT token. You can do so by visiting `/auth/login` from `lattice` service test page to obtain an initial JWT token (with Long-live cookie radio box checked).
+
 #### Bootstrap HTTPS gateway
 In Calabash panel, label the node `dns_pin=true` and set your domain name DNS to point to this node IP address.
 
@@ -78,25 +83,24 @@ Approach Zero cluster can automatically refresh its index and switch to new indi
 
 However, the order of the services to boot up is important. Here is a recommended order to set up other services:
 
-1. Visit `/auth/login` from `lattice` service test page to obtain an initial JWT token (check Long-live cookie radio box)
-2. Create `ui_login` service for later JWT login
-3. `monitor` and `grafana` services to start monitoring and import Grafana configurations from JSON files (at `configs` directory)
-4. `usersdb_syncd` for database rsync service listening on port 8873
+1. Create `ui_login` service for later JWT login
+2. `monitor` and `grafana` services to start monitoring and import Grafana configurations from JSON files (at `configs` directory)
+3. `usersdb_syncd` for database rsync service listening on port 8873
    (this service has to be on the same node with `usersdb` because they bind to the same on-disk volume)
-5. `guide` and `docs` services for Approach Zero user guide and developer documentation page. These two services contain Github workflows to trigger
+4. `guide` and `docs` services for Approach Zero user guide and developer documentation page. These two services contain Github workflows to trigger
    webhooks to update their static HTML content. For webhooks to work, remember to modify the domain name to your own in their Github workflow files
-6. `stats` service for search engine query logs and statistics webpage
-7. Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4
-8. Deploy `corpus_syncd` and `crawler` services for corpus rsync (on port 873) and crawlers,
+5. `stats` service for search engine query logs and statistics webpage
+6. Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4
+7. Deploy `corpus_syncd` and `crawler` services for corpus rsync (on port 873) and crawlers,
    `corpus_syncd` will also regularly output current corpus size and number of files.
    Once they are deployed, you may want to use rsync to restore your previous backup corpus files
-9. `indexer` and `index_syncd` for indexers and transmitting indices to new search nodes
-10. `feeder` for start feeding current corpus files to indexers
-11. Create 5 "searchd" nodes for search daemons, label each node a shard number from 1 to 4
-12. `searchd` services are SSH-exposed search instances responsible for different index sharding, the first shard listens at port 8921
-13. `searchd_mpirun` for running those search instances using MPI protocol.
+8. `indexer` and `index_syncd` for indexers and transmitting indices to new search nodes
+9. `feeder` for start feeding current corpus files to indexers
+10. Create 5 "searchd" nodes for search daemons, label each node a shard number from 1 to 4
+11. `searchd` services are SSH-exposed search instances responsible for different index sharding, the first shard listens at port 8921
+12. `searchd_mpirun` for running those search instances using MPI protocol.
     After this point you may want to test yet-to-be-routed search service before completely switching to it
-14. Finally, create `relay` service to accept routed request from gateway and proxy them to search daemons (and also stats service APIs)
+13. Finally, create `relay` service to accept routed request from gateway and proxy them to search daemons (and also stats service APIs)
 
 Those rsync services are deployed to enable upload/backup files using rsync remotely, one can issue the following commands to test rsync daemon:
 ```sh
