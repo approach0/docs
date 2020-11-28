@@ -96,7 +96,7 @@ However, the order of the services to boot up is important. Here is a recommende
    Once they are deployed, you may want to use rsync to restore your previous backup corpus files
 8. `indexer` and `index_syncd` for indexers and transmitting indices to new search nodes
 9. Then create `feeder` service to start feeding current corpus files to indexers
-10. Create 5 "searchd" nodes for search daemons, label each node a shard number from 1 to 4
+10. Create 4 "searchd" nodes for search daemons, label each node a shard number from 1 to 4
 11. `searchd` services are SSH-exposed search instances responsible for different index sharding, the first shard listens at port 8921
 12. `searchd_mpirun` for running those search instances using MPI protocol.
     After this point you may want to test yet-to-be-routed search service before completely switching to it
