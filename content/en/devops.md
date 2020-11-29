@@ -117,8 +117,8 @@ However, the order of the services to boot up is important. Here is a recommende
 13. Create `relay` service to accept routed request from gateway and proxy them to search daemons (and also stats service APIs).
     One can test `relay` service by visiting `/search-relay/?q=hello`
 
-14. Finally, create `ui_search` service to setup search webpage. This service stands on `searchd` hosts, you may want to scale up it to match the number
-    of search hosts you have in order to handle similar amount of traffic `searchd` can handle.
+14. Finally, create `ui_search` service for search webpage UI. This service runs on `searchd` hosts, you may want to scale up it to match the number
+    of hosts you have in order to handle similar amount of traffic `searchd` can handle.
 
 Those rsync services are deployed to enable upload/backup files using rsync remotely, one can issue the following commands to test rsync daemon:
 ```sh
