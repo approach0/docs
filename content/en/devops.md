@@ -98,10 +98,10 @@ However, the order of the services to boot up is important. Here is a recommende
    (you can watch `index_syncd` logs for the most recently created index image whose name contains its creation timestamp)
 9. Then create `feeder` service to start feeding current corpus files to indexers
 10. Create 4 "searchd" nodes for search daemons, label each node a shard number from 1 to 4
-11. Create `searchd:green` services as SSH-exposed search instances responsible for different index sharding,
+11. Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
     the one running on the first shard will establish and listen at port 8921.
-    (to support MPI replicas, we name the service "green" so that later we can add parallel search services, e.g., "blue" for load-balancing or [blue/green deployment](https://bing.com/search?q=blue%2Fgreen+deployment))
-12. `searchd_mpirun` for running those search instances using MPI protocol. To target the "blue" search instances, run job:
+    (to support MPI replicas, we rename the service to "green" or "blue" for parallel search services, load-balancing or [blue/green deployment](https://bing.com/search?q=blue%2Fgreen+deployment))
+12. `searchd_mpirun` for running those search instances using MPI protocol. To target the "blue" search instances, run job (take "green" for example):
     ```
     swarm:service-create?service=searchd_mpirun&target_serv=green
     ```
@@ -114,8 +114,8 @@ However, the order of the services to boot up is important. Here is a recommende
     ```sh
     $ docker run approach0/a0 test-query.sh http://<IP-of-shard-1-searchd>:8921/search /tmp/test-query.json
     ```
-13. Create `relay` service to accept routed request from gateway and proxy them to search daemons (and also stats service APIs).
-    One can test `relay` service by visiting `/search-relay/?q=hello`
+13. Create `relay-blue` or `relay-green` service to accept routed request from gateway and proxy them to corresponding search service (and also stats service APIs).
+    One can test `relay-*` service by visiting `/search-relay/?q=hello`
 
 14. Finally, create `ui_search` service for search webpage UI. This service runs on `searchd` hosts, you may want to scale up it to match the number
     of hosts you have in order to handle similar amount of traffic `searchd` can handle.
