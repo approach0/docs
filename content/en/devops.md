@@ -40,9 +40,9 @@ $ docker pull approach0/linode-cli
 $ docker tag other-registry/username/linode-cli approach0/linode-cli
 ```
 
-Use a node with at least 25 GB disk space (here Linode config-1) as the first node to bootstrap the cluster:
+Use a node with at least 50 GB disk space (here Linode config-1) as the first node to bootstrap the cluster:
 ```sh
-$ node cli/cli.js -j 'swarm:bootstrap?node_usage=persistent&iaascfg=linode_config_1'
+$ node cli/cli.js -j 'swarm:bootstrap?node_usage=persistent&iaascfg=linode_config_2'
 ```
 
 After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/backend` (served by `gateway_bootstrap` service)
