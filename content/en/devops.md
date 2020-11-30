@@ -101,7 +101,7 @@ However, the order of the services to boot up is important. Here is a recommende
 11. Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
     the one running on the first shard will establish and listen at port 8921.
     (to support MPI replicas, we rename the service to "green" or "blue" for parallel search services, load-balancing or [blue/green deployment](https://bing.com/search?q=blue%2Fgreen+deployment))
-12. `searchd_mpirun` for running those search instances using MPI protocol. To target the "blue" search instances, run job (take "green" for example):
+12. `searchd_mpirun` for running those search instances using MPI protocol. For example, to target the "green" search instances, we can run job:
     ```
     swarm:service-create?service=searchd_mpirun&target_serv=green
     ```
