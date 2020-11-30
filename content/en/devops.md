@@ -3,7 +3,7 @@ Approach Zero operates based on containerized micro-services and Docker Swarm.
 In particular, its DevOps uses a wrapper tool called [Calabash](https://github.com/approach0/calabash)
 on top of these to bootstrap on IaaS services, deploy and inspect logs.
 
-### CI/CD
+### 1. CI/CD
 Github Actions is used for Approach Zero CI/CD, usually each code repository of the project has a `deploy` branch
 which you can push to and trigger Github workflows, for example, to invoke webhooks, build and push Docker images to different Docker registry providers.
 
@@ -19,7 +19,7 @@ On Github, across the [approach0 organization](https://github.com/organizations/
 A completely independent cluster can be deployed for integration test.
 Instead of automatically update service on code changes, we currently need to manually update service.
 
-### Bootstrap
+### 2. Bootstrap
 
 #### Bootstrap core services
 To bootstrap a new cluster, fetch Calabash code
@@ -77,7 +77,7 @@ After `gateway` is deployed, you can test and visit `https://<your_domain_name>`
 If it all looks good, you may want to remove `gateway_bootstrap` service because it is no longer necessary. `gateway` service will automatically update
 HTTPS certificates and take care of everything related to Let's Encrypt services.
 
-### Setting Up
+### 3. Setting Up
 The rest of it is just clicking buttons, create new nodes, label them and setup new services until
 Approach Zero cluster can automatically refresh its index and switch to new indices regularly.
 
@@ -125,3 +125,8 @@ Those rsync services are deployed to enable upload/backup files using rsync remo
 $ export RSYNC_PASSWORD=<your_rsync_password>
 $ rsync rsync://rsyncclient@<your_IP>:<rsync_port>/
 ```
+
+### 4. Maintenance
+
+#### Update a service
+A normal update has `--update-order=start-first` passed to Docker Swarm in Calabash, which means it will start a parallel service and switch to the new one (stop the old) once it is ready. Doing this also means an update on service will fail if the existing old instance has already filled the only replacement slot, in this case, you can choose to create a same service (instead of updating the service) because creating service in Calabash will also remove the old one.
