@@ -45,6 +45,12 @@ Use a node with at least 50 GB disk space (here Linode config-1) as the first no
 $ node cli/cli.js -j 'swarm:bootstrap?node_usage=persistent&iaascfg=linode_config_2'
 ```
 
+Notice that sometimes it is helpful to test service locally before deployment, in these cases, run
+```sh
+$ node cli/cli.js -j 'swarm:bootstrap_localmock?node_usage=searchd&services=nil' # just to add additional node labels
+$ node cli/cli.js -j 'swarm:bootstrap_localmock?node_usage=host_persistent&services=gateway_bootstrap,ui_search'
+```
+
 After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/backend` (served by `gateway_bootstrap` service)
 
 At any time, you can login to the shell of a node using SSH or `mosh`:
