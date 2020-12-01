@@ -51,7 +51,7 @@ $ node cli/cli.js -j 'swarm:bootstrap_localmock?node_usage=searchd&services=nil'
 $ node cli/cli.js -j 'swarm:bootstrap_localmock?node_usage=host_persistent&services=gateway_bootstrap,ui_search'
 ```
 
-After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/backend` (served by `gateway_bootstrap` service)
+After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/backend` (served by `gateway_bootstrap` service with port is **8080**).
 
 At any time, you can login to the shell of a node using SSH or `mosh`:
 ```sh
@@ -61,12 +61,12 @@ mosh is using UDP over SSH protocol, it is sometimes essential for fast global r
 
 Also, after bootstrap, when you need to update remote configurations, or update Calabash service, just edit `config.toml` and run
 ```sh
-$ node cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash'
+$ node cli/cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash'
 ```
 Similarly, when you want to update any other "core" services that Calabash depends on (so that you cannot simply control Calabash to update them remotely),
 just pass comma-separated list of service(s) you want to update like below
 ```sh
-$ node cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash,gateway'
+$ node cli/cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash,gateway'
 ```
 
 #### Bootstrap login
@@ -83,31 +83,58 @@ After `gateway` is deployed, you can test and visit `https://<your_domain_name>`
 If it all looks good, you may want to remove `gateway_bootstrap` service because it is no longer necessary. `gateway` service will automatically update
 HTTPS certificates and take care of everything related to Let's Encrypt services.
 
+If you hit [the rate limit](https://letsencrypt.org/docs/rate-limits/) of Let's Encrypt, go to [https://crt.sh/](https://crt.sh/) to find out your past issue history of that domain and estimate when you can get a new certificate again.
+
 ### 3. Setting Up
 The rest of it is just clicking buttons, create new nodes, label them and setup new services until
 Approach Zero cluster can automatically refresh its index and switch to new indices regularly.
 
 However, the order of the services to boot up is important. Here is a recommended order to set up other services:
 
-1. Create `ui_login` service for later JWT login
-2. `monitor` and `grafana` services to start monitoring and import Grafana configurations from JSON files (at `configs` directory)
-3. `usersdb_syncd` for database rsync service listening on port 8873
-   (this service has to be on the same node with `usersdb` because they bind to the same on-disk volume)
-4. `guide` and `docs` services for Approach Zero user guide and developer documentation page. These two services contain Github workflows to trigger
-   webhooks to update their static HTML content. For webhooks to work, remember to modify the domain name to your own in their Github workflow files
-5. `stats` and `ui_search` services for search engine query logs/statistics page and search page UI
-6. Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4
-7. Deploy `corpus_syncd` and `crawler` services for corpus rsync (on port 873 of shard-1) and crawlers,
-   `corpus_syncd` will also regularly output current corpus size and number of files.
-   Once they are deployed, you may want to use rsync to restore your previous backup corpus files
-8. `indexer` and `index_syncd` for indexers and transmitting indices to new search nodes 
-   (you can watch `index_syncd` logs for the most recently created index image whose name contains its creation timestamp)
-9. Then create `feeder` service to start feeding current corpus files to indexers
-10. Create 4 "searchd" nodes for search daemons, label each node a shard number from 1 to 4
-11. Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
+1. For the bootstrap node (namely `persistent` node), create:
+
+  1. `ui_login` for JWT login later
+
+  2. `ui_404` for 404 page redirection
+
+  3. `monitor` and `grafana` to start monitoring.
+      Import Grafana configurations from JSON files (at `configs` directory)
+
+  4.  `usersdb_syncd` for database rsync backup, listening on port `8873`.
+      This service has to be on the same node with `usersdb` because they bind to the same on-disk volume
+
+  5. `corpus_syncd` for accepting coprus harvest from crawlers (listening on port `873`)
+     `corpus_syncd` will also regularly output current corpus size and number of files,
+     once it is deployed, you may want to use rsync to restore your previous backup corpus files.
+
+  6. `guide` and `docs` services for Approach Zero user guide and developer documentation page.
+      These two services contain Github workflows to trigger webhooks to update their static HTML content.
+      For webhooks to work, remember to modify the domain name to your own in their Github workflow files
+
+  7. `stats` for search engine query logs/statistics page
+
+  8. `feeder` service to start feeding current corpus files to indexers (if any)
+
+2.  Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4, then create:
+
+  1. `indexer` for indexers
+
+  2. and `index_syncd` for transmitting indices to new search nodes going to be created later.
+     Watch `index_syncd` logs for the most recently created index image whose name contains its creation timestamp.
+
+3. Create 4 "searchd" nodes for search daemons, label each node a shard number from 1 to 4, then create:
+
+  1. `crawler_sync` for sending crawler coprus harvest to `corpus_syncd`.
+
+  2. `crawler` for deploying crawlers
+
+  3. `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
+
+  4. Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
     the one running on the first shard will establish and listen at port 8921.
     (to support MPI replicas, we rename the service to "green" or "blue" for parallel search services, load-balancing or [blue/green deployment](https://bing.com/search?q=blue%2Fgreen+deployment))
-12. `searchd_mpirun` for running those search instances using MPI protocol. For example, to target the "green" search instances, we can run job:
+
+  5. `searchd_mpirun` for running those search instances using MPI protocol. For example, to target the "green" search instances, we can run job:
     ```
     swarm:service-create?service=searchd_mpirun&target_serv=green
     ```
@@ -120,19 +147,22 @@ However, the order of the services to boot up is important. Here is a recommende
     ```sh
     $ docker run approach0/a0 test-query.sh http://<IP-of-shard-1-searchd>:8921/search /tmp/test-query.json
     ```
-13. Create `relay-blue` or `relay-green` service to accept routed request from gateway and proxy them to corresponding search service (and also stats service APIs).
+  6. Create `relay-blue` or `relay-green` service to accept routed request from gateway and proxy them to corresponding search service (and also stats service APIs).
     One can test `relay-*` service by visiting `/search-relay/?q=hello`
 
-14. Finally, create `ui_search` service for search webpage UI. This service runs on `searchd` hosts, you may want to scale up it to match the number
-    of hosts you have in order to handle similar amount of traffic `searchd` can handle.
+  7. (Optional) `ss` for HTTP(s) proxy service
 
+
+### 4. Maintenance
+
+#### Update a service
+A normal update has `--update-order=start-first` passed to Docker Swarm in Calabash, which means it will start a parallel service and switch to the new one (stop the old) once it is ready. Doing this also means an update on service will fail if the existing old instance has already filled the only replacement slot, in this case, you can choose to create a same service (instead of updating the service) because creating service in Calabash will also remove the old one.
+
+### Rsync
 Those rsync services are deployed to enable upload/backup files using rsync remotely, one can issue the following commands to test rsync daemon:
 ```sh
 $ export RSYNC_PASSWORD=<your_rsync_password>
 $ rsync rsync://rsyncclient@<your_IP>:<rsync_port>/
 ```
 
-### 4. Maintenance
-
-#### Update a service
-A normal update has `--update-order=start-first` passed to Docker Swarm in Calabash, which means it will start a parallel service and switch to the new one (stop the old) once it is ready. Doing this also means an update on service will fail if the existing old instance has already filled the only replacement slot, in this case, you can choose to create a same service (instead of updating the service) because creating service in Calabash will also remove the old one.
+Use rsync from local host to backup/restore data accordingly.
