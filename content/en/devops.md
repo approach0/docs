@@ -149,8 +149,12 @@ However, the order of the services to boot up is important. Here is a recommende
     $ docker run approach0/a0 test-query.sh http://<IP-of-shard-1-searchd>:8921/search /tmp/test-query.json
     ```
 
-    7. Create `relay-blue` or `relay-green` service to accept routed request from gateway and proxy them to corresponding search service (and also stats service APIs).
-      One can test `relay-*` service by visiting `/search-relay/?q=hello`
+    7. Create `relay` service to accept routed request from gateway and direct them to targeted search service (and also stats service APIs).
+
+    ```sh
+    swarm:service-create?service=relay:relay-green&relay_target=green
+    ```
+    One can test `relay-*` service by visiting `/search-relay/?q=hello`
 
     8. (Optional) `ss` for HTTP(s) proxy service
 
