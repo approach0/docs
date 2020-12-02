@@ -170,7 +170,12 @@ $ export RSYNC_PASSWORD=<your_rsync_password>
 $ rsync rsync://rsyncclient@<your_IP>:<rsync_port>/
 ```
 
-Use rsync from local host to backup/restore data accordingly, be aware to add `--ignore-existing` to skip updating files that exist on receiver, for example:
+When restoring corpus data, be aware to add `--ignore-existing` to skip updating files that exist on receiver, for example:
 ```sh
 $ rsync --ignore-existing -ravz ./corpus-2020/ rsync://rsyncclient@172.104.159.193/data/tmp/
+```
+
+For backup corpus data, add `--update` option:
+```sh
+$ rsync --update -ravz rsync://rsyncclient@172.104.159.193/data/tmp/ ./corpus-2020/
 ```
