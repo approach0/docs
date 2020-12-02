@@ -93,48 +93,48 @@ However, the order of the services to boot up is important. Here is a recommende
 
 1. For the bootstrap node (namely `persistent` node), create:
 
-    1. `ui_login` for JWT login later
+    * `ui_login` for JWT login later
 
-    2. `ui_404` for 404 page redirection
+    * `ui_404` for 404 page redirection
 
-    3. `monitor` and `grafana` to start monitoring.
+    * `monitor` and `grafana` to start monitoring.
       Import Grafana configurations from JSON files (at `configs` directory)
 
-    4. `usersdb_syncd` for database rsync backup, listening on port `8873`.
+    * `usersdb_syncd` for database rsync backup, listening on port `8873`.
       This service has to be on the same node with `usersdb` because they bind to the same on-disk volume
 
-    5. `corpus_syncd` for accepting coprus harvest from crawlers (listening on port `873`)
+    * `corpus_syncd` for accepting coprus harvest from crawlers (listening on port `873`)
        `corpus_syncd` will also regularly output current corpus size and number of files,
        once it is deployed, you may want to use rsync to restore your previous backup corpus files.
 
-    6. `guide` and `docs` services for Approach Zero user guide and developer documentation page.
+    * `guide` and `docs` services for Approach Zero user guide and developer documentation page.
         These two services contain Github workflows to trigger webhooks to update their static HTML content.
         For webhooks to work, remember to modify the domain name to your own in their Github workflow files
 
-    7. `stats` for search engine query logs/statistics page
+    * `stats` for search engine query logs/statistics page
 
 2.  Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4, then create:
 
-    1. `indexer` for indexers
+    * `indexer` for indexers
 
-    2. and `index_syncd` for transmitting indices to new search nodes going to be created later.
+    * and `index_syncd` for transmitting indices to new search nodes going to be created later.
        Watch `index_syncd` logs for the most recently created index image whose name contains its creation timestamp.
 
 3. Create 4 "searchd" nodes for search daemons, label each node a shard number from 1 to 4, then create:
 
-    1. `crawler_sync` for sending crawler coprus harvest to `corpus_syncd`.
+    * `crawler_sync` for sending crawler coprus harvest to `corpus_syncd`.
 
-    2. `crawler` for deploying crawlers
+    * `crawler` for deploying crawlers
 
-    3. `feeder` service to start feeding current corpus files to indexers (if any)
+    * `feeder` service to start feeding current corpus files to indexers (if any)
 
-    4. `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
+    * `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
 
-    5. Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
+    * Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
       the one running on the first shard will establish and listen at port 8921.
       (to support MPI replicas, we rename the service to "green" or "blue" for parallel search services, load-balancing or [blue/green deployment](https://bing.com/search?q=blue%2Fgreen+deployment))
 
-    6. `searchd_mpirun` for running those search instances using MPI protocol. For example, to target the "green" search instances, we can run job:
+    * `searchd_mpirun` for running those search instances using MPI protocol. For example, to target the "green" search instances, we can run job:
 
     ```
     swarm:service-create?service=searchd_mpirun&target_serv=green
@@ -149,14 +149,14 @@ However, the order of the services to boot up is important. Here is a recommende
     $ docker run approach0/a0 test-query.sh http://<IP-of-shard-1-searchd>:8921/search /tmp/test-query.json
     ```
 
-    7. Create `relay` service to accept routed request from gateway and direct them to targeted search service (and also stats service APIs).
+    * Create `relay` service to accept routed request from gateway and direct them to targeted search service (and also stats service APIs).
 
     ```sh
     swarm:service-create?service=relay:relay-green&relay_target=green
     ```
     One can test `relay-*` service by visiting `/search-relay/?q=hello`
 
-    8. (Optional) `ss` for HTTP(s) proxy service
+    * (Optional) `ss` for HTTP(s) proxy service
 
 ### 4. Maintenance
 
