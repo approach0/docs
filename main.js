@@ -52,8 +52,8 @@ if (option === 'serve') {
     }
   })
 
-} else if (option === 'init') {
-  /* run one-time script to update content */
+} else if (option === 'update') {
+  /* run one-time script to manually update content */
   (async function () {
     await fetch_and_update()
     process.exit()
