@@ -113,8 +113,6 @@ However, the order of the services to boot up is important. Here is a recommende
 
     7. `stats` for search engine query logs/statistics page
 
-    8. `feeder` service to start feeding current corpus files to indexers (if any)
-
 2.  Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4, then create:
 
     1. `indexer` for indexers
@@ -128,13 +126,15 @@ However, the order of the services to boot up is important. Here is a recommende
 
     2. `crawler` for deploying crawlers
 
-    3. `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
+    3. `feeder` service to start feeding current corpus files to indexers (if any)
 
-    4. Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
+    4. `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
+
+    5. Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
       the one running on the first shard will establish and listen at port 8921.
       (to support MPI replicas, we rename the service to "green" or "blue" for parallel search services, load-balancing or [blue/green deployment](https://bing.com/search?q=blue%2Fgreen+deployment))
 
-    5. `searchd_mpirun` for running those search instances using MPI protocol. For example, to target the "green" search instances, we can run job:
+    6. `searchd_mpirun` for running those search instances using MPI protocol. For example, to target the "green" search instances, we can run job:
 
     ```
     swarm:service-create?service=searchd_mpirun&target_serv=green
@@ -149,10 +149,10 @@ However, the order of the services to boot up is important. Here is a recommende
     $ docker run approach0/a0 test-query.sh http://<IP-of-shard-1-searchd>:8921/search /tmp/test-query.json
     ```
 
-    6. Create `relay-blue` or `relay-green` service to accept routed request from gateway and proxy them to corresponding search service (and also stats service APIs).
+    7. Create `relay-blue` or `relay-green` service to accept routed request from gateway and proxy them to corresponding search service (and also stats service APIs).
       One can test `relay-*` service by visiting `/search-relay/?q=hello`
 
-    7. (Optional) `ss` for HTTP(s) proxy service
+    8. (Optional) `ss` for HTTP(s) proxy service
 
 ### 4. Maintenance
 
