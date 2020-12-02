@@ -163,11 +163,14 @@ However, the order of the services to boot up is important. Here is a recommende
 #### Update a service
 A normal update has `--update-order=start-first` passed to Docker Swarm in Calabash, which means it will start a parallel service and switch to the new one (stop the old) once it is ready. Doing this also means an update on service will fail if existing old instance has already filled the only placement slot(s). In this case, you can choose to create a same service (instead of updating the service) because creating service in Calabash will also remove the old one.
 
-### Rsync
-Those rsync services are deployed to enable upload/backup files using rsync remotely, one can issue the following commands to test rsync daemon:
+#### Restore and backup
+Those rsync services are deployed to enable restore/backup files using rsync remotely, one can issue the following commands to test rsync daemon:
 ```sh
 $ export RSYNC_PASSWORD=<your_rsync_password>
 $ rsync rsync://rsyncclient@<your_IP>:<rsync_port>/
 ```
 
-Use rsync from local host to backup/restore data accordingly.
+Use rsync from local host to backup/restore data accordingly, be aware to add `--ignore-existing` to skip updating files that exist on receiver, for example:
+```sh
+$ rsync --ignore-existing -ravz ./corpus-2020/ rsync://rsyncclient@172.104.159.193/data/tmp/
+```
