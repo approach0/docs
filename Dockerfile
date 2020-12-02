@@ -20,7 +20,7 @@ RUN git clone --depth=1 $GITSRC /code
 WORKDIR /code
 RUN pip3 install --trusted-host=pypi.douban.com -i http://pypi.douban.com/simple/ -r requirements.txt
 RUN npm install
-RUN node main.js init
+RUN node main.js update
 
 # setup webhook http daemon
 CMD node main.js serve
