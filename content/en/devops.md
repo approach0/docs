@@ -152,9 +152,9 @@ However, the order of the services to boot up is important. Here is a recommende
     * Create `relay` service to accept routed request from gateway and direct them to targeted search service (and also stats service APIs).
 
     ```
-    swarm:service-create?service=relay:relay-green&relay_target=green
+    swarm:service-create?service=relay:green_relay&relay_target=green
     ```
-    One can test `relay-*` service by visiting `/search-relay/?q=hello`
+    One can test relay service by visiting `/search-relay/?q=hello`
 
     * (Optional) `ss` for HTTP(s) proxy service
 
