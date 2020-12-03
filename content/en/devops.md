@@ -137,11 +137,11 @@ However, the order of the services to boot up is important. Here is a recommende
     * `searchd_mpirun` for running those search instances using MPI protocol. For example, to target the "green" search instances, we can run job:
 
     ```
-    swarm:service-create?service=searchd_mpirun&target_serv=green
+    swarm:service-create?service=searchd_mpirun:green_mpirun&target_serv=green
     ```
     By default, search daemons do not cache disk index into memory, this makes the daemon startup really fast, but the disadvantage is obvious, it hurts performance. To enable cache, one can run job with parameters like (numbers are in MB):
     ```
-    swarm:service-create?service=searchd_mpirun&target_serv=green&word_cache=100&math_cache=500
+    swarm:service-create?service=searchd_mpirun:green_mpirun&target_serv=green&word_cache=100&math_cache=500
     ```
     After this point you may want to test yet-to-be-routed search service before completely switching to it (by creating `relay` service).
     We can test this search instance locally by
