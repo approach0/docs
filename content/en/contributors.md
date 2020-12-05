@@ -1,6 +1,8 @@
-Listed are contributors of this project:
-* [Richard Zanibbi](https://www.cs.rit.edu/~rlaz/) PhD. advisor.
-* [Hui Fang](https://www.eecis.udel.edu/~hfang/) MS. advisor.
+## Contributors
+
+Listed are some of contributors to this project:
+* [Richard Zanibbi](https://www.cs.rit.edu/~rlaz/) who is my PhD. advisor.
+* [Hui Fang](https://www.eecis.udel.edu/~hfang/) who is my MS. advisor.
 * [Li Xiaoming](https://www.eecis.udel.edu/~xli/) whose course inspired the current Approach0 TeX parser front-end.
 * [Yan Yihao](https://github.com/yzhan018) who submitted the initial FOR-delta implementation.
 * [Sil](https://github.com/TheSil) who helped to create the crawler script for AoPS website and fixed many issues regarding to query input and TeX rendering.
