@@ -22,16 +22,15 @@ Documentation Index
 ====================
 .. toctree::
    usecase
-   links
    features
    dependency
    build
    usage
    vdisk
    demo
-   distr_crawl
    devops
    internals
+   contributors
    appendix_indri
    TODO
 
