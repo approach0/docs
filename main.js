@@ -9,6 +9,7 @@ async function fetch_and_update() {
   git fetch origin ${BRANCH}
   git reset --hard HEAD
   git checkout origin/${BRANCH}
+  rm -rf _build
   sphinx-build -b html -d _build/doctrees . _build/html
   `
   try {
