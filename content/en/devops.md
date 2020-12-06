@@ -120,13 +120,13 @@ However, the order of the services to boot up is important. Here is a recommende
     * and `index_syncd` for transmitting indices to new search nodes going to be created later.
        Watch `index_syncd` logs for the most recently created index image whose name contains its creation timestamp.
 
+    * `feeder` service to start feeding current corpus files to indexers (if any)
+
 3. Create 4 "searchd" nodes for search daemons, label each node a shard number from 1 to 4, then create:
 
     * `crawler_sync` for sending crawler coprus harvest to `corpus_syncd`.
 
     * `crawler` for deploying crawlers
-
-    * `feeder` service to start feeding current corpus files to indexers (if any)
 
     * `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
 
@@ -162,6 +162,12 @@ However, the order of the services to boot up is important. Here is a recommende
 
 #### Update a service
 A normal update has `--update-order=start-first` passed to Docker Swarm in Calabash, which means it will start a parallel service and switch to the new one (stop the old) once it is ready. Doing this also means an update on service will fail if existing old instance has already filled the only placement slot(s). In this case, you can choose to create a same service (instead of updating the service) because creating service in Calabash will also remove the old one.
+
+#### Switch to a newer index
+Switching to a newer index (usually when indices are updated) is essentially to repeat step 3 in above section. Except that
+* You will need to remove old search related services before deleting out-dated search nodes
+* Non-search related services (such as `crawler` etc.) will be re-distributed after deleting out-dated search nodes, so no need to remove them
+* One may also want to re-create `index_syncd` service to refresh mount point in container (so that `df -h` will print newly mounted loop device)
 
 #### Restore and backup
 Those rsync services are deployed to enable restore/backup files using rsync remotely, one can issue the following commands to test rsync daemon:
