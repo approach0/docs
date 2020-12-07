@@ -181,7 +181,17 @@ When restoring corpus data, be aware to add `--ignore-existing` to skip updating
 $ rsync --ignore-existing -ravz ./corpus-2020/ rsync://rsyncclient@172.104.159.193/data/tmp/
 ```
 
-For backup corpus data, add `--update` option:
+To backup corpus data, add `--update` option:
 ```sh
 $ rsync --update -ravz rsync://rsyncclient@172.104.159.193/data/tmp/ ./corpus-2020/
 ```
+
+To backup/restore database data, use port `8873`. For example
+```sh
+$ rsync -v ./postgres-2020-12-07.dump rsync://rsyncclient@172.104.159.193:8873/data/
+```
+and when restoring, you will also need to login to the server, `exec` into the `usersdb` container and run
+```
+# ./entrypoint.sh clean_and_restore postgres-2020-12-07.dump
+```
+to reset database content to the uploaded dump.
