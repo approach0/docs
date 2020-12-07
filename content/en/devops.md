@@ -192,7 +192,7 @@ $ rsync -v ./postgres-2020-12-07.dump rsync://rsyncclient@172.104.159.193:8873/d
 ```
 and when restoring, you will also need to login to the server, `exec` into the `usersdb` container and run
 ```
-# ./entrypoint.sh clean_and_restore postgres-2020-12-07.dump
+$ ./entrypoint.sh clean_and_restore postgres-2020-12-07.dump
 ```
 to reset database content to the uploaded dump.
 
