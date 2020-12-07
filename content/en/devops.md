@@ -195,3 +195,9 @@ and when restoring, you will also need to login to the server, `exec` into the `
 # ./entrypoint.sh clean_and_restore postgres-2020-12-07.dump
 ```
 to reset database content to the uploaded dump.
+
+#### Switch to a new domain name
+Before change the A record at your DNS provider, remove the data volumes related to gateway (e.g., `gateway_keys_vol`) and then replace `gateway` service.
+This will force gateway to install and setup certificates for the new domain name.
+
+You may also want to ensure `gateway_bootstrap` service is up and manipulate through the bootstrap gateway version to avoid interupt during gateway switching.
