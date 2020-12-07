@@ -201,3 +201,31 @@ Before change the A record at your DNS provider, remove the data volumes related
 This will force gateway to install and setup certificates for the new domain name.
 
 You may also want to ensure `gateway_bootstrap` service is up and manipulate through the bootstrap gateway version to avoid interupt during gateway switching.
+
+Use some DNS lookup utility to test DNS refresh:
+```
+$ drill approach0.xyz
+
+;; ->>HEADER<<- opcode: QUERY, rcode: NOERROR, id: 7165
+;; flags: qr rd ra ; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 4 
+;; QUESTION SECTION:
+;; approach0.xyz.       IN      A
+
+;; ANSWER SECTION:
+approach0.xyz.  600     IN      A       172.104.159.193
+
+;; AUTHORITY SECTION:
+approach0.xyz.  1800    IN      NS      dns2.registrar-servers.com.
+approach0.xyz.  1800    IN      NS      dns1.registrar-servers.com.
+
+;; ADDITIONAL SECTION:
+dns1.registrar-servers.com.     1151    IN      A       156.154.132.200
+dns2.registrar-servers.com.     1052    IN      A       156.154.133.200
+dns1.registrar-servers.com.     310     IN      AAAA    2610:a1:1024::200
+dns2.registrar-servers.com.     1520    IN      AAAA    2610:a1:1025::200
+
+;; Query time: 2228 msec
+;; SERVER: 202.96.128.166
+;; WHEN: Mon Dec  7 12:03:25 2020
+;; MSG SIZE  rcvd: 194
+```
