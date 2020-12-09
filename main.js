@@ -32,12 +32,17 @@ if (option === 'serve') {
   app.use(bodyParser.json())
   app.use('/', express.static('./_build/html'))
   app.listen(8080)
-  console.log('Webhook httpd ready.')
+  console.log('httpd ready (at port 8080).')
 
   process.on('SIGINT', function() {
     console.log('')
     console.log('Bye bye.')
     process.exit()
+  })
+
+  /* route root to default TOC page */
+  app.get('/', function(req, res) {
+    res.status(404).redirect('content/en/index.html')
   })
 
   app.post('/webhook', async function (req, res) {
