@@ -113,6 +113,8 @@ However, the order of the services to boot up is important. Here is a recommende
 
     * `stats` for search engine query logs/statistics page
 
+    * `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
+
 2.  Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4, then create:
 
     * `indexer` for indexers
@@ -127,8 +129,6 @@ However, the order of the services to boot up is important. Here is a recommende
     * `crawler_sync` for sending crawler coprus harvest to `corpus_syncd`.
 
     * `crawler` for deploying crawlers
-
-    * `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
 
     * Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
       the one running on the first shard will establish and listen at port 8921.
