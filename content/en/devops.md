@@ -166,7 +166,7 @@ A normal update has `--update-order=start-first` passed to Docker Swarm in Calab
 
 #### Switch to a newer index
 Switching to a newer index (usually when indices are updated) is essentially to repeat step 3 in above section. Except that
-* You will need to remove old search related services before deleting out-dated search nodes
+* You will need to remove old search related services (better to remove the `relay` service first for maximum availability) before deleting out-dated search nodes
 * Non-search related services (such as `crawler` etc.) will be re-distributed after deleting out-dated search nodes, so no need to remove them
 * One may also want to re-create `index_syncd` service to refresh mount point in container (so that `df -h` will print newly mounted loop device)
 
