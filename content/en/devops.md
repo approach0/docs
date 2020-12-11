@@ -53,13 +53,7 @@ $ node cli/cli.js -j 'swarm:bootstrap_localmock?node_usage=host_persistent&servi
 
 After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/backend` (served by `gateway_bootstrap` service with port is **8080**).
 
-At any time, you can login to the shell of a node using SSH or `mosh`:
-```sh
-$ mosh -ssh 'ssh -p 8982' <IP>
-```
-mosh is using UDP over SSH protocol, it is sometimes essential for fast global remote access.
-
-Also, after bootstrap, when you need to update remote configurations, or update Calabash service, just edit `config.toml` and run
+When you need to update remote configurations, or update Calabash service, just edit `config.toml` and run
 ```sh
 $ node cli/cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash'
 ```
@@ -229,4 +223,16 @@ dns2.registrar-servers.com.     1520    IN      AAAA    2610:a1:1025::200
 ;; SERVER: 202.96.128.166
 ;; WHEN: Mon Dec  7 12:03:25 2020
 ;; MSG SIZE  rcvd: 194
+```
+
+#### Shell Login
+At any time, you can login to the shell of a node using SSH or `mosh`:
+```sh
+$ mosh -ssh 'ssh -p 8982' <IP>
+```
+mosh is using UDP over SSH protocol, it is sometimes essential for fast global remote access.
+
+To ask ssh daemon remember your local host, use `ssh-copy-id`:
+```sh
+$ ssh-copy-id -p 8982 root@<IP>
 ```
