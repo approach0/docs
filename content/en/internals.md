@@ -44,3 +44,5 @@ struct symbinfo {
 	struct symbsplt split[MAX_INDEX_EXP_SYMBOL_SPLITS];
 };
 ```
+
+(more to be written here...)

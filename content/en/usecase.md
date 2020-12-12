@@ -1,2 +1,0 @@
-## Use Case
-Math search can be helpful in Q&A websites: Assume you are fighting a tough question in your homework, spending so much time on it without any clue. Yes, you do not simply want an answer, but all you need is some hints. And spending a lot of time on it without any progress is absolutely a desperate experience. It would be very helpful if you can search for similar or identical questions that have been answered on the Q&A websites.

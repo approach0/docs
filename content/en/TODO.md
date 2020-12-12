@@ -1,6 +1,5 @@
 ## TODO
-Listed are plans/directions the project is going to do
-in the next stage.
+Listed are todo items of this project.
 
 ### Demanding
 * initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
