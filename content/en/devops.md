@@ -53,13 +53,7 @@ $ node cli/cli.js -j 'swarm:bootstrap_localmock?node_usage=host_persistent&servi
 
 After bootstrap, you should be able to visit the Calabash panel via `http://<whatever_IP_assigned>:8080/backend` (served by `gateway_bootstrap` service with port is **8080**).
 
-At any time, you can login to the shell of a node using SSH or `mosh`:
-```sh
-$ mosh -ssh 'ssh -p 8982' <IP>
-```
-mosh is using UDP over SSH protocol, it is sometimes essential for fast global remote access.
-
-Also, after bootstrap, when you need to update remote configurations, or update Calabash service, just edit `config.toml` and run
+When you need to update remote configurations, or update Calabash service, just edit `config.toml` and run
 ```sh
 $ node cli/cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&port=<your_bootstrap_node_SSH_port>&services=calabash'
 ```
@@ -113,6 +107,8 @@ However, the order of the services to boot up is important. Here is a recommende
 
     * `stats` for search engine query logs/statistics page
 
+    * `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
+
 2.  Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4, then create:
 
     * `indexer` for indexers
@@ -128,8 +124,6 @@ However, the order of the services to boot up is important. Here is a recommende
 
     * `crawler` for deploying crawlers
 
-    * `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
-
     * Create `searchd:green` or `searchd:blue` services as SSH-exposed search instances responsible for different index sharding,
       the one running on the first shard will establish and listen at port 8921.
       (to support MPI replicas, we rename the service to "green" or "blue" for parallel search services, load-balancing or [blue/green deployment](https://bing.com/search?q=blue%2Fgreen+deployment))
@@ -142,7 +136,7 @@ However, the order of the services to boot up is important. Here is a recommende
     By default, search daemons do not cache disk index into memory, this makes the daemon startup really fast, but the disadvantage is obvious, it hurts performance. To enable cache, one can run job with parameters like (numbers are in MB):
     ```
     swarm:service-create?service=searchd_mpirun:green_mpirun&target_serv=green&word_cache=100&math_cache=500 # for old nano-linode w/o container
-    swarm:service-create?service=searchd_mpirun:green_mpirun&target_serv=green&word_cache=100&math_cache=300 # for new nano-linode w/ container
+    swarm:service-create?service=searchd_mpirun:green_mpirun&target_serv=green&word_cache=0&math_cache=200 # for new nano-linode w/ container
     ```
     After this point you may want to test yet-to-be-routed search service before completely switching to it (by creating `relay` service).
     We can test this search instance locally by
@@ -166,7 +160,7 @@ A normal update has `--update-order=start-first` passed to Docker Swarm in Calab
 
 #### Switch to a newer index
 Switching to a newer index (usually when indices are updated) is essentially to repeat step 3 in above section. Except that
-* You will need to remove old search related services before deleting out-dated search nodes
+* You will need to remove old search related services (better to remove the `relay` service first for maximum availability) before deleting out-dated search nodes
 * Non-search related services (such as `crawler` etc.) will be re-distributed after deleting out-dated search nodes, so no need to remove them
 * One may also want to re-create `index_syncd` service to refresh mount point in container (so that `df -h` will print newly mounted loop device)
 
@@ -229,4 +223,16 @@ dns2.registrar-servers.com.     1520    IN      AAAA    2610:a1:1025::200
 ;; SERVER: 202.96.128.166
 ;; WHEN: Mon Dec  7 12:03:25 2020
 ;; MSG SIZE  rcvd: 194
+```
+
+#### Shell Login
+At any time, you can login to the shell of a node using SSH or `mosh`:
+```sh
+$ mosh -ssh 'ssh -p 8982' <IP>
+```
+mosh is using UDP over SSH protocol, it is sometimes essential for fast global remote access.
+
+To ask ssh daemon remember your local host, use `ssh-copy-id`:
+```sh
+$ ssh-copy-id -p 8982 root@<IP>
 ```
