@@ -1,7 +1,7 @@
 ## DevOps
 Approach Zero operates based on containerized micro-services and Docker Swarm.
 In particular, its DevOps uses a wrapper tool called [Calabash](https://github.com/approach0/calabash)
-on top of these to bootstrap on IaaS services, deploy and inspect logs.
+on top, to bootstrap on IaaS services, deploy and inspect logs.
 
 ### 1. CI/CD
 Github Actions is used for Approach Zero CI/CD, usually each code repository of the project has a `deploy` branch
