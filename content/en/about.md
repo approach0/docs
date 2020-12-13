@@ -6,6 +6,11 @@
 ### Use Case
 Math search can be helpful in Q&A websites: Assume that you are trying to solve a tough question in your homework, spending so much time on it without any clue. Yes, you do not simply want an answer, but all you need is some hints. However, spending a lot of time on it without any progress is absolutely a desperate experience, it would be very helpful if you can search for similar or identical questions that have been already answered somewhere.
 
+### Online Demo
+Visit https://approach0.xyz
+
+![](https://cdn.jsdelivr.net/gh/approach0/docs@master/content/static/clip.gif)
+
 ### Current State
 As for now, all basic functionalities are already implemented (see [features](features.html)) and
 it is ready for using on a big dataset. However, this project is still considered a "hobby project", you may not use it for production for many reasons.
@@ -33,8 +38,3 @@ In 2019, the new model has brought me [my first research full paper](http://ecir
 In May 2019, the new model has been put online, it has indexed over 1 million posts and there are only 3 search instances running on two low-cost Linode servers.
 
 In early 2020, a paper focusing on efficiency has just been accepted at [ECIR 2020](https://link.springer.com/chapter/10.1007/978-3-030-45439-5_47) conference, this paper shows our system is the first one to produce very effective math search results with realtime query runtimes in a single thread.
-
-### Online Demo
-Visit https://approach0.xyz
-
-![](https://cdn.jsdelivr.net/gh/approach0/docs@master/content/static/clip.gif)
