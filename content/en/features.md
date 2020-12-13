@@ -11,4 +11,4 @@
 * Math symbol alpha-equivalence awareness.
 * Term proximity awareness.
 * Search results highlight.
-* Scalable to multiple nodes across many machines.
+* Easily scale out to multiple shardings using MPI.

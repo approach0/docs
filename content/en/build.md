@@ -15,7 +15,7 @@ Other than commonly build-in libraries (pthread, libz, libm, libstdc++), ther ar
 * [libevent](https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz)
 * [openmpi](https://download.open-mpi.org/release/open-mpi/v2.0/openmpi-2.0.2.tar.bz2)
 
-For Ubuntu 16.04 LTS (xenial), type the following commands to install above dependencies (including essential programs):
+For Ubuntu 16.04 LTS (xenial), issue the following commands to install above dependencies:
 ```sh
 $ sudo apt-get update
 $ sudo apt-get install g++ cmake
@@ -29,10 +29,9 @@ $ sudo apt install libxml2-dev
 
 ### 2. Download and build Indri
 This project currently relies on [Lemur/Indri](http://www.lemurproject.org/indri.php)
-library as dependency to provide full-text index functionality (i.e. index writer and reader),
-this helps us focus on math search implementation.
+library to provide full-text index functionality (i.e. index writer and reader).
 To combine math and full-text search, we merge the results from Indri index reader and those
-from math search, weight them using some combined score schema. (Very high level idea)
+from our math search, weight them using some combined score schema.
 
 Lemur/Indri is not likely to be in your distribution's official software repository,
 so you may need to build and manually specify its library path.
@@ -55,12 +54,12 @@ Also, if you build Indri with newer version of gcc, it may produce segmentation 
 
 ### 3. Download CppJieba
 Our indexer/searcher is able to handle English and Chinese document. Here
-[CppJieba](https://github.com/yanyiwu/cppjieba) provides us Chinese term segmentation functionality.
+[CppJieba](https://github.com/yanyiwu/cppjieba) dependency enables Chinese term segmentation.
 Although we have option to choose whether or not to invoke this functionality when calling
 indexer/searcher programs, CppJieba is still required at compile time (at least for now) to
 successfully build this project.
 
-We do not need to build CppJieba since using the header files of this C++ project is sufficient.
+However, there is no need to build CppJieba source code, only its C++ header files are required.
 ```sh
 $ cd ~
 $ wget 'https://github.com/yanyiwu/cppjieba/archive/v4.8.1.tar.gz' -O cppjieba.tar.gz
@@ -69,7 +68,7 @@ $ tar -xzf cppjieba.tar.gz -C ~/cppjieba --strip-components=1
 ```
 
 ### 4. Configure dependency path
-Our project uses `dep-*.mk` files to configure most C/C++ dependency paths (or CFLAGS and LDFLAGS). If you have installed above dependency libraries in your system environment, you can leave these `dep-*.mk` files untouched. Otherwise if you compile and build dependencies locally, please modify `dep-*.mk` files to point to your locally built library locations.
+Our project uses `dep-*.mk` files to configure most C/C++ dependency paths (such as CFLAGS and LDFLAGS). If you have installed above dependency libraries in your system environment, you can leave these `dep-*.mk` files untouched. Otherwise if you compile and build dependencies locally, please modify `dep-*.mk` files to point to your locally built library locations.
 
 Before building, you need to invoke `./configure` to locate all external dependencies:
 ```
@@ -82,5 +81,5 @@ This `configure` script also checks necessary libraries for building. If `config
 ### 5. Build
 Type `make` at project top level (i.e. `$PROJECT`) will do the job.
 
-### 6. LaTeXML
+### 6. LaTeXML (optional)
 You may also need to install LaTeXML depending on your build configuration. Please refer to [Appendix](appendix_indri.html#install-latexml) for instructions.
