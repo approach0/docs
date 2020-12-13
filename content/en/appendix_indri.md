@@ -1,8 +1,8 @@
 ## Appendix
 
 ### Indri usage
-The [Lemur/Indri](http://www.lemurproject.org/indri.php) project is a dependency of Approach0 and it is responsible for text search parts (math index and text index are separate, and they can be merged together by using a posting list interface on top of them).
-We choose Indri because it is written in C++ and it can be easily integrated with Approach0 which is written in C.
+The [Lemur/Indri](http://www.lemurproject.org/indri.php) project is a dependency of Approach Zero and it is responsible for text search functionality (math index and text index are separate, and they can be merged together by using a posting list interface on top of them).
+We choose Indri because it is written in C++ and it can be easily integrated with Approach Zero which is written in C.
 Unfortunately, Indri codebase is quite large and its documentation is very limited.
 
 Here we use a newer version Indri to show how to do indexing and run query in a very minimal way.
@@ -40,7 +40,7 @@ previously healthy patient and the need for careful management of dog bite
 wounds, even if initially very small, is emphasized.
 ``` 
 
-Make specified index output directory
+Create specified index output directory
 ```sh
 $ mkdir ./new_indri_index
 ```
@@ -72,7 +72,7 @@ kstem_add_table_entry: Duplicate word emeritus will be ignored.
 -7.76151        /home/tk/wuhao_search/corpus/ohsumed/0017950    0       112
 -7.8206 /home/tk/wuhao_search/corpus/ohsumed/0016765    0       271
 ```
-where `test-query.xml` is a query file (you should create it) specifying a single query keyword `dog`:
+where `test-query.xml` is a query file (you should create it) which in here it specifies a single query keyword *dog*:
 ```
 <parameters>
         <query>dog</query>
@@ -97,10 +97,10 @@ CFLAGS = -DPACKAGE_NAME=\"Indri\" ... (omitted many here) .... -fno-tree-vectori
 CXXFLAGS = -DPACKAGE_NAME=\"Indri\" ... (omitted many here) .... -fno-tree-vectorize
 ...
 ```
-then issue `make clean` and `make` again. Do not forget to also re-build Approach0 afterwards.
+then issue `make clean` and `make` again. Do not forget to also re-build Approach Zero afterwards.
 
 ### Install LaTeXML
-If `TEX_PARSER_USE_LATEXML` is defined in `tex-parser/config.h`, you are required to install LaTeXML. LaTeXML helps Approach0 parser to handle LaTeX markups that are either ambiguous or unrecognized by built-in parser.
+If `TEX_PARSER_USE_LATEXML` is defined in `tex-parser/config.h`, you are required to install LaTeXML. LaTeXML helps Approach Zero parser to handle LaTeX markups that are either ambiguous or unrecognized by built-in parser.
 
 You may observe the following warning if LaTeXML is needed
 > I/O warning : failed to load external entity "math.xml.tmp"
@@ -136,6 +136,8 @@ ed 0xcd00080)
 ```
 
 ### MPI mechanism
+Here is a short note on the mechanism behind MPI which Approach Zero uses to scale out search instances.
+
 > Unless you are running under a (supported) resource manager (such as Slurm, PBS or other), the plm/rsh component will be used to start the MPI app.
 > Long story short, Open MPI uses a distributed virtual machine (DVM) to launch the MPI tasks. The first step is to have one daemon per node. The initial "daemon" is mpirun, and then one orted daemon have to be remotely spawned on each other node, and this is where plm/rsh uses SSH.
 > By default, if you are running on less than 64 nodes, then mpirun will SSH to all the other nodes. But if you are running on a larger number of nodes, then mpirun will use a tree spawn algorithm, in which other nodes might ssh to other nodes. Bottom line, if you are using ssh with Open MPI, and unless you are running on a small cluster with default settings, all nodes should be able to ssh passwordless to all nodes.

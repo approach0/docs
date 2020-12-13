@@ -10,6 +10,7 @@ methods are. You may find useful to read these resources first:
 6. [ECIR20 Paper - Formula query efficiency](https://drive.google.com/open?id=1QjKVpgsTAIMLqrIDhdDOHvDa7sLvoxq7)
 
 ### Math posting list structure
+Here is the pseudo C code showing our inverted list item structure
 ```c
 /* math inverted list items */
 struct math_invlist_item {

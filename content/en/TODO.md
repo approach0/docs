@@ -2,10 +2,12 @@
 Listed are todo items of this project.
 
 ### Demanding
+* try other UI themes (less colorful maybe?)
 * initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
-* **boolean** query language support (must, should, must-not).
-* **Field search** (e.g., search MSE tag).
-* phrase search (specified by quotes)
+* **Field search** (e.g., show/search MSE post tags) with **boolean** query language support (must, should, must-not)
+* support to solve/simplify simple equations/expressions
+* monetize this project to survive in this cruel world...
+
 * <del>v3 wildcards support?</del>
 * <del>Show informative msg on query TeX parse error.</del>
 * [✓] initial threshold, update documentation.
@@ -31,13 +33,15 @@ Listed are todo items of this project.
 * [✓] Path **operators hashing** to distinguish operator symbols.
 
 ### Misc
-* picture input UI interface on mobile platform, picture input.
+* [✓] A new mobile-friendly interface
+* phrase search (specified by quotes)
+* photo recognition tool
 * faster Chinese tokenizer
 * QAC, spelling correction, search suggestion.
 * Semantics
   * math equivalence awareness, e.g. 1+1/n = (1+n)/n.
   * **Text synonym** awareness, e.g. horse = pony.
-  * Embedding of both text and math, e.g. pythagorean == x^2 + y^2 = z^2
+  * good embedding for both text and math, e.g. pythagorean == x^2 + y^2 = z^2
 
 ### Consider additional indexing sources
 * [✓] Math StackExchange
