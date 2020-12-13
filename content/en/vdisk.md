@@ -1,13 +1,7 @@
 ## Indices in a File Image
 Since our math indexer creates a large amount of directories and
-files on disk proportionally to the number of expressions you are
-going to index.
-If you are using a typical file system on Linux, e.g. EXT4, you are
-limited to create so many directories/files by the number of inodes
-on your file system.
-
-To overcome this problem, as well as improve efficiency of math index,
-it is better to create a disk image as a loopback device to be
+files on disk.
+You are suggested to create a disk image as a loopback device to be
 partitioned by some file systems which do not put restriction on inodes.
 The file system should be efficient in crucial aspects of benchmarks that
 have great impact on search performance. Later, we can simply mount this
@@ -23,7 +17,7 @@ and
 
 To create, mount and unmount a ReiserFS disk image, we provide a few simple
 scripts located under `$PROJECT/indexer/scripts`. Creating and mounting a
-disk image are simple as follows:
+disk image just needs:
 
 ```sh
 $ cd $PROJECT/indexer
@@ -34,19 +28,19 @@ A `vdisk.img` is created as our ReiserFS disk image, and is mounted to
 `./tmp` so we can just use indexer and searcher on `./tmp` like a
 normal directory.
 
-After you are done, unmount `./tmp`:
+Remember to unmount after you finish using this image,
 ```sh
 $ sudo ./scripts/vdisk-umount.sh
 ```
 
-### Some notices
+## Some notices
 
 ### 1. Lacking kernel support for ReiserFS support
 If you are running on kernel without ReiserFS support, modify scripts 
 argument above and change file system to `btrfs` for similar performance.
 
-For server distributions support ReiserFS, Debian 8.5 is recommended one.
-On Debian, install `reiserfsprogs` for userland ReiserFS supports (e.g. mkfs).
+For server distributions support ReiserFS, install `reiserfsprogs` for
+userland ReiserFS supports.
 ```sh
 $ apt-get install reiserfsprogs
 ```
@@ -77,7 +71,7 @@ Or, by periodically run `fstrim` command:
 ```sh
 $ sudo fstrim -v ./nvme0n1/
 ```
-alternatively, The util‑linux package provides `fstrim.service` and `fstrim.timer` systemd unit files. Enabling the timer will activate the service weekly:
+alternatively, the util‑linux package provides `fstrim.service` and `fstrim.timer` systemd unit files. Enabling the timer will activate the service weekly:
 ```sh
 $ sudo systemctl enable fstrim.timer
 $ sudo systemctl start fstrim.timer
