@@ -124,9 +124,17 @@ and there is one sector tree rooted at node#6 with width=3:
 [  6] prefix/VAR/BASE/HANGER/SIGN/ADD/GTLS (2 duplicates: r6~l1 r6~l2 r6~l5 )
          qnode#6/3-3552{ normal`a'/2 0x3 normal`d'/1 0x10 } 
 ```
-where `3552` is fingerprint of that sector tree, and it contains two splits:
+where `3552` is fingerprint (or `ophash`) of that sector tree, and it contains two splits:
 Those have leaf `a` with width=2, and a path with leaf `d` has width=1.
 Here `0x3` and `0x10` are 64-bit mask to represent corresponding leaf/leaves.
+
+A sector tree is the primary index item in math inverted list (they are mapped by their
+token sequences), it contains minimal information to test structure differences between
+two operator trees in a efficient way.
+
+And the splits from a sector tree is indexed in a separate list called *symbinfo* list in
+which symbol information are stored to test symbolic similarity between math formulas to
+break tie similarity scores if their structures are not dramatically different.
 
 Here is the C code snippet defining the math inverted list item
 ```c
