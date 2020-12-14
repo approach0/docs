@@ -8,10 +8,10 @@ TeX parser converts TeX to Operator Tree (or OPT) and leaf-root paths. There are
 * A subtree Hash is generated for each subtree
 * A pathID and a leafID (starting from 1) are generated for each path, initially they are the same
 * Max pathID/leafID is also the maximum number of leaf-root paths here, they are no greater than MAX_SUBPATH_ID = 64
-* Any nil node will be pruned
-* Each *meaningful* internal node (non-meaningful are tokens like `T_BASE`, `T_SUBSCRIPT`, `T_SUPSCRIPT` or `T_NIL`) gets assigned a pathID which is the pathID from one of its descendant leaf child. Also, we do not count non-meaningful nodes when generating fingerprint.
+* Any *nil* node will be pruned
+* Each *meaningful* internal node (non-meaningful are tokens like `T_BASE`, `T_SUBSCRIPT`, `T_SUPSCRIPT` or `T_NIL`) gets assigned a pathID which is the pathID from one of its descendant leaf child. Also, non-meaningful nodes are not counted when generating fingerprint.
 
-The following is an example output for expression `$a+b/c= $` (notice the RHS has nothing so it will reduce into nil)
+The following is an example output for expression `$a+b/c= $` (notice the RHS has nothing so it will reduce into *nil*)
 ```
 Operator tree:
      └──(equal) #4, token=GTLS, subtr_hash=`38088', pos=[0, 5].
