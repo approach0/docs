@@ -136,7 +136,7 @@ And the splits from a sector tree is indexed in a separate list called *symbinfo
 which symbol information are stored to test symbolic similarity between math formulas to
 break tie similarity scores if their structures are not dramatically different.
 
-Here is the C code snippet defining the math inverted list item
+Here is the C code snippet defining the math inverted list structure and its corresponding symbinfo list:
 ```c
 /* math inverted list items */
 struct math_invlist_item {
@@ -172,10 +172,8 @@ struct symbinfo {
 };
 ```
 
-(more to be written here...)
 
-
-### Papers
+### Further Details
 Some academic papers/posters describe in detail what our search
 methods are. You may find useful to read these resources:
 
