@@ -74,6 +74,8 @@ they must have identical length and the same token sequence.
 However, the leaf symbols in a sector tree may vary, alternatively, we say they may contain different *splits*.
 The size of a sector tree or a split is referred as *width*.
 
+Math indexer will ensure that the number of generated sector trees is no greater than `MAX_SUBPATHS`.
+
 An example subpath set generated from above example leaf-root paths:
 ```
 subpath set (size=13)
@@ -174,7 +176,7 @@ struct symbinfo {
 
 [1]: Note the huge number of prefix paths can be a great overhead, so they are usually statically pruned in practice
 (if search does not require to be *rank-safe*). The criteria is to test if a path root-end has a width less than
-root_width x MATH_INDEX_STATIC_PRUNING_FACTOR.
+"root_width times `MATH_INDEX_STATIC_PRUNING_FACTOR`".
 
 ### Further Details
 Some academic papers/posters describe in detail what our search
