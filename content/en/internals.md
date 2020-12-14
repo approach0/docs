@@ -54,8 +54,45 @@ The `math_index_add()` interface at `math-index-v3/math-index.h`
 ```c
 size_t math_index_add(math_index_t, doc_id_t docID, exp_id_t expID, struct subpaths);
 ```
-will take docID, expID and parser generated leaf-root paths and generate a *subpath set* which
-consists partial bottom-up leaf-to-internal-node paths (or *prefix paths*).
+will take a specified docID, expID and parser generated leaf-root paths from a math formula,
+to generate a *subpath set* which consists of all possible leaf-to-internal-node subpaths (or *prefix paths*)
+from that subpath set, and group them by their path token sequence.
+A multiple prefix paths falling into same group are called to contain *duplicates*.
+
+An example subpath set generated from above example leaf-root paths:
+```
+subpath set (size=13)
+[  0] prefix/VAR/BASE (2 duplicates: r8~l1 r12~l2 r14~l3 )
+         qnode#8/1-0003{ normal`a'/1 0x1 } 
+         qnode#12/1-0003{ normal`b'/1 0x2 } 
+         qnode#14/1-0003{ normal`c'/1 0x4 } 
+[  1] prefix/VAR/BASE/HANGER (2 duplicates: r7~l1 r11~l2 r13~l3 )
+         qnode#7/1-0035{ normal`a'/1 0x1 } 
+         qnode#11/1-0030{ normal`b'/1 0x2 } 
+         qnode#13/1-0030{ normal`c'/1 0x4 } 
+[  2] prefix/VAR/BASE/HANGER/SIGN (0 duplicates: r6~l1 )
+         qnode#6/1-0355{ normal`a'/1 0x1 } 
+[  3] prefix/VAR/BASE/HANGER/SIGN/ADD (0 duplicates: r5~l1 )
+         qnode#5/1-3552{ normal`a'/1 0x1 } 
+[  4] prefix/VAR/BASE/HANGER/rank1/FRAC (0 duplicates: r10~l2 )
+         qnode#10/1-3055{ normal`b'/1 0x2 } 
+[  5] prefix/VAR/BASE/HANGER/rank2/FRAC (0 duplicates: r10~l3 )
+         qnode#10/1-3055{ normal`c'/1 0x4 } 
+[  6] prefix/VAR/BASE/HANGER/SIGN/ADD/GTLS (0 duplicates: r4~l1 )
+         qnode#4/1-3552{ normal`a'/1 0x1 } 
+[  7] prefix/VAR/BASE/HANGER/rank1/FRAC/SIGN (0 duplicates: r9~l2 )
+         qnode#9/1-0552{ normal`b'/1 0x2 } 
+[  8] prefix/VAR/BASE/HANGER/rank2/FRAC/SIGN (0 duplicates: r9~l3 )
+         qnode#9/1-0552{ normal`c'/1 0x4 } 
+[  9] prefix/VAR/BASE/HANGER/rank1/FRAC/SIGN/ADD (0 duplicates: r5~l2 )
+         qnode#5/1-0552{ normal`b'/1 0x2 } 
+[ 10] prefix/VAR/BASE/HANGER/rank2/FRAC/SIGN/ADD (0 duplicates: r5~l3 )
+         qnode#5/1-0552{ normal`c'/1 0x4 } 
+[ 11] prefix/VAR/BASE/HANGER/rank1/FRAC/SIGN/ADD/GTLS (0 duplicates: r4~l2 )
+         qnode#4/1-0552{ normal`b'/1 0x2 } 
+[ 12] prefix/VAR/BASE/HANGER/rank2/FRAC/SIGN/ADD/GTLS (0 duplicates: r4~l3 )
+         qnode#4/1-0552{ normal`c'/1 0x4 } 
+```
 
 Here is the pseudo C code showing our inverted list item structure
 ```c
