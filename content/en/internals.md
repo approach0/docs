@@ -29,7 +29,9 @@ TeX parser converts TeX to Operator Tree (or OPT) and leaf-root paths. There are
 * Each *meaningful* internal node (non-meaningful are tokens like `T_BASE`, `T_SUBSCRIPT`, `T_SUPSCRIPT` or `T_NIL`) gets assigned a pathID which is the pathID from one of its descendant leaf child. Also, non-meaningful nodes are not counted when generating fingerprint.
 * A rank number will be assigned to its children if a node is non-communitive node (such as fraction operator)
 
-The following is an example output for expression `$a + a + b/c=$` (notice the RHS has nothing so it will reduce into *nil*)
+The following is an example output for expression `$a + a + b/c=$`
+
+(notice the RHS has nothing so it will reduce into *nil*)
 ```
 Operator tree:
      └──(equal) #6, token=GTLS, subtr_hash=`28392', pos=[0, 15].                                                               
