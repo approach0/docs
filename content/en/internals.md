@@ -15,30 +15,35 @@ TeX parser converts TeX to Operator Tree (or OPT) and leaf-root paths. There are
 The following is an example output for expression `$a + a + b/c=$` (notice the RHS has nothing so it will reduce into *nil*)
 ```
 Operator tree:
-     └──(equal) #5, token=GTLS, subtr_hash=`34760', pos=[0, 11].
-           └──(plus) #6, token=ADD, subtr_hash=`10348', pos=[0, 11].
-                 │──(pos) #7, token=SIGN, subtr_hash=`26696', pos=[0, 1].
-                 │     └──(hanger) #8, token=HANGER, subtr_hash=`4808', pos=[0, 1].
-                 │           └──(base) #9, token=BASE, subtr_hash=`1160', pos=[0, 1].
-                 │                 └──[normal`a'] #1, token=VAR, subtr_hash=`a', pos=[0, 1].
-                 │──(pos) #10, token=SIGN, subtr_hash=`26696', pos=[4, 5].
-                 │     └──(hanger) #11, token=HANGER, subtr_hash=`4808', pos=[4, 5].
-                 │           └──(base) #12, token=BASE, subtr_hash=`1160', pos=[4, 5].
-                 │                 └──[normal`a'] #2, token=VAR, subtr_hash=`a', pos=[4, 5].
-                 └──(pos) #13, token=SIGN, subtr_hash=`25732', pos=[8, 11].
-                       └──(frac) #14, token=FRAC, subtr_hash=`57044', pos=[8, 11].
-                             │──#1(hanger) #15, token=HANGER, subtr_hash=`4820', pos=[8, 9].
-                             │     └──(base) #16, token=BASE, subtr_hash=`1164', pos=[8, 9].
-                             │           └──[normal`b'] #3, token=VAR, subtr_hash=`b', pos=[8, 9].
-                             └──#2(hanger) #17, token=HANGER, subtr_hash=`4832', pos=[10, 11].
-                                   └──(base) #18, token=BASE, subtr_hash=`1168', pos=[10, 11].
-                                         └──[normal`c'] #4, token=VAR, subtr_hash=`c', pos=[10, 11].
+     └──(equal) #6, token=GTLS, subtr_hash=`28392', pos=[0, 15].                                                               
+           └──(plus) #7, token=ADD, subtr_hash=`23672', pos=[0, 15].                                                           
+                 │──(pos) #8, token=SIGN, subtr_hash=`26696', pos=[0, 1].                                                      
+                 │     └──(hanger) #9, token=HANGER, subtr_hash=`4808', pos=[0, 1].                                            
+                 │           └──(base) #10, token=BASE, subtr_hash=`1160', pos=[0, 1].                                         
+                 │                 └──[normal`a'] #1, token=VAR, subtr_hash=`a', pos=[0, 1].                                   
+                 │──(pos) #11, token=SIGN, subtr_hash=`26696', pos=[4, 5].                                                     
+                 │     └──(hanger) #12, token=HANGER, subtr_hash=`4808', pos=[4, 5].                                           
+                 │           └──(base) #13, token=BASE, subtr_hash=`1160', pos=[4, 5].                                         
+                 │                 └──[normal`a'] #2, token=VAR, subtr_hash=`a', pos=[4, 5].                                   
+                 │──(pos) #14, token=SIGN, subtr_hash=`25732', pos=[8, 11].                                                    
+                 │     └──(frac) #15, token=FRAC, subtr_hash=`57044', pos=[8, 11].                                             
+                 │           │──#1(hanger) #16, token=HANGER, subtr_hash=`4820', pos=[8, 9].                                   
+                 │           │     └──(base) #17, token=BASE, subtr_hash=`1164', pos=[8, 9].                                   
+                 │           │           └──[normal`b'] #3, token=VAR, subtr_hash=`b', pos=[8, 9].                             
+                 │           └──#2(hanger) #18, token=HANGER, subtr_hash=`4832', pos=[10, 11].                                 
+                 │                 └──(base) #19, token=BASE, subtr_hash=`1168', pos=[10, 11].                                 
+                 │                       └──[normal`c'] #4, token=VAR, subtr_hash=`c', pos=[10, 11].                           
+                 └──(pos) #20, token=SIGN, subtr_hash=`26876', pos=[14, 15].                                                   
+                       └──(hanger) #21, token=HANGER, subtr_hash=`4844', pos=[14, 15].                                         
+                             └──(base) #22, token=BASE, subtr_hash=`1172', pos=[14, 15].                                       
+                                   └──[normal`d'] #5, token=VAR, subtr_hash=`d', pos=[14, 15].
 
-4 leaf-root paths
-- [path#1, leaf#1] normal`a': VAR(#1)/BASE(#9)/HANGER(#8)/SIGN(#7)/ADD(#6)/GTLS(#5) (fp 3552)
-- [path#2, leaf#2] normal`a': VAR(#2)/BASE(#12)/HANGER(#11)/SIGN(#10)/ADD(#6)/GTLS(#5) (fp 3552)
-- [path#3, leaf#3] normal`b': VAR(#3)/BASE(#16)/HANGER(#15)/rank1(#0)/FRAC(#14)/SIGN(#13)/ADD(#6)/GTLS(#5) (fp 0552)
-- [path#4, leaf#4] normal`c': VAR(#4)/BASE(#18)/HANGER(#17)/rank2(#0)/FRAC(#14)/SIGN(#13)/ADD(#6)/GTLS(#5) (fp 0552)
+4 leaf-root paths:
+- [path#1, leaf#1] normal`a': VAR(#1)/BASE(#10)/HANGER(#9)/SIGN(#8)/ADD(#7)/GTLS(#6) (fp 3552)                                 
+- [path#2, leaf#2] normal`a': VAR(#2)/BASE(#13)/HANGER(#12)/SIGN(#11)/ADD(#7)/GTLS(#6) (fp 3552)                               
+- [path#3, leaf#3] normal`b': VAR(#3)/BASE(#17)/HANGER(#16)/rank1(#0)/FRAC(#15)/SIGN(#14)/ADD(#7)/GTLS(#6) (fp 0552)           
+- [path#4, leaf#4] normal`c': VAR(#4)/BASE(#19)/HANGER(#18)/rank2(#0)/FRAC(#15)/SIGN(#14)/ADD(#7)/GTLS(#6) (fp 0552)           
+- [path#5, leaf#5] normal`d': VAR(#5)/BASE(#22)/HANGER(#21)/SIGN(#20)/ADD(#7)/GTLS(#6) (fp 3552) 
 ```
 
 You can find the interface `tex_parse()` at `tex-parser/tex-parser.h`
@@ -64,42 +69,56 @@ to generate a *subpath set* which consists of all possible leaf-to-internal-node
 from that subpath set, and group them by their path token sequence.
 A multiple prefix paths falling into same group are called to contain *duplicates*.
 
+Within each group, if a subgroup of paths have the same root-end nodeID, they are called a *sector tree* because
+they must have identical length and the same token sequence (the size of the set is called the *width* of a sector tree).
+However, the leaf symbols in a sector tree may vary, we say they may contain different *splits*.
+
 An example subpath set generated from above example leaf-root paths:
 ```
 subpath set (size=13)
-[  0] prefix/VAR/BASE (3 duplicates: r9~l1 r12~l2 r16~l3 r18~l4 )
-         qnode#9/1-0003{ normal`a'/1 0x1 } 
-         qnode#12/1-0003{ normal`a'/1 0x2 } 
-         qnode#16/1-0003{ normal`b'/1 0x4 } 
-         qnode#18/1-0003{ normal`c'/1 0x8 } 
-[  1] prefix/VAR/BASE/HANGER (3 duplicates: r8~l1 r11~l2 r15~l3 r17~l4 )
-         qnode#8/1-0035{ normal`a'/1 0x1 } 
-         qnode#11/1-0035{ normal`a'/1 0x2 } 
-         qnode#15/1-0030{ normal`b'/1 0x4 } 
-         qnode#17/1-0030{ normal`c'/1 0x8 } 
-[  2] prefix/VAR/BASE/HANGER/SIGN (1 duplicates: r7~l1 r10~l2 )
-         qnode#7/1-0355{ normal`a'/1 0x1 } 
-         qnode#10/1-0355{ normal`a'/1 0x2 } 
-[  3] prefix/VAR/BASE/HANGER/SIGN/ADD (1 duplicates: r6~l1 r6~l2 )
-         qnode#6/2-3552{ normal`a'/2 0x3 } 
-[  4] prefix/VAR/BASE/HANGER/rank1/FRAC (0 duplicates: r14~l3 )
-         qnode#14/1-3055{ normal`b'/1 0x4 } 
-[  5] prefix/VAR/BASE/HANGER/rank2/FRAC (0 duplicates: r14~l4 )
-         qnode#14/1-3055{ normal`c'/1 0x8 } 
-[  6] prefix/VAR/BASE/HANGER/SIGN/ADD/GTLS (1 duplicates: r5~l1 r5~l2 )
-         qnode#5/2-3552{ normal`a'/2 0x3 } 
-[  7] prefix/VAR/BASE/HANGER/rank1/FRAC/SIGN (0 duplicates: r13~l3 )
-         qnode#13/1-0552{ normal`b'/1 0x4 } 
-[  8] prefix/VAR/BASE/HANGER/rank2/FRAC/SIGN (0 duplicates: r13~l4 )
-         qnode#13/1-0552{ normal`c'/1 0x8 } 
-[  9] prefix/VAR/BASE/HANGER/rank1/FRAC/SIGN/ADD (0 duplicates: r6~l3 )
+[  0] prefix/VAR/BASE (4 duplicates: r10~l1 r13~l2 r17~l3 r19~l4 r22~l5 )
+         qnode#10/1-0003{ normal`a'/1 0x1 } 
+         qnode#13/1-0003{ normal`a'/1 0x2 } 
+         qnode#17/1-0003{ normal`b'/1 0x4 } 
+         qnode#19/1-0003{ normal`c'/1 0x8 } 
+         qnode#22/1-0003{ normal`d'/1 0x10 } 
+[  1] prefix/VAR/BASE/HANGER (4 duplicates: r9~l1 r12~l2 r16~l3 r18~l4 r21~l5 )
+         qnode#9/1-0035{ normal`a'/1 0x1 } 
+         qnode#12/1-0035{ normal`a'/1 0x2 } 
+         qnode#16/1-0030{ normal`b'/1 0x4 } 
+         qnode#18/1-0030{ normal`c'/1 0x8 } 
+         qnode#21/1-0035{ normal`d'/1 0x10 } 
+[  2] prefix/VAR/BASE/HANGER/SIGN (2 duplicates: r8~l1 r11~l2 r20~l5 )
+         qnode#8/1-0355{ normal`a'/1 0x1 } 
+         qnode#11/1-0355{ normal`a'/1 0x2 } 
+         qnode#20/1-0355{ normal`d'/1 0x10 } 
+[  3] prefix/VAR/BASE/HANGER/SIGN/ADD (2 duplicates: r7~l1 r7~l2 r7~l5 )
+         qnode#7/3-3552{ normal`a'/2 0x3 normal`d'/1 0x10 } 
+[  4] prefix/VAR/BASE/HANGER/rank1/FRAC (0 duplicates: r15~l3 )
+         qnode#15/1-3055{ normal`b'/1 0x4 } 
+[  5] prefix/VAR/BASE/HANGER/rank2/FRAC (0 duplicates: r15~l4 )
+         qnode#15/1-3055{ normal`c'/1 0x8 } 
+[  6] prefix/VAR/BASE/HANGER/SIGN/ADD/GTLS (2 duplicates: r6~l1 r6~l2 r6~l5 )
+         qnode#6/3-3552{ normal`a'/2 0x3 normal`d'/1 0x10 } 
+[  7] prefix/VAR/BASE/HANGER/rank1/FRAC/SIGN (0 duplicates: r14~l3 )
+         qnode#14/1-0552{ normal`b'/1 0x4 } 
+[  8] prefix/VAR/BASE/HANGER/rank2/FRAC/SIGN (0 duplicates: r14~l4 )
+         qnode#14/1-0552{ normal`c'/1 0x8 } 
+[  9] prefix/VAR/BASE/HANGER/rank1/FRAC/SIGN/ADD (0 duplicates: r7~l3 )
+         qnode#7/1-0552{ normal`b'/1 0x4 } 
+[ 10] prefix/VAR/BASE/HANGER/rank2/FRAC/SIGN/ADD (0 duplicates: r7~l4 )
+         qnode#7/1-0552{ normal`c'/1 0x8 } 
+[ 11] prefix/VAR/BASE/HANGER/rank1/FRAC/SIGN/ADD/GTLS (0 duplicates: r6~l3 )
          qnode#6/1-0552{ normal`b'/1 0x4 } 
-[ 10] prefix/VAR/BASE/HANGER/rank2/FRAC/SIGN/ADD (0 duplicates: r6~l4 )
-         qnode#6/1-0552{ normal`c'/1 0x8 } 
-[ 11] prefix/VAR/BASE/HANGER/rank1/FRAC/SIGN/ADD/GTLS (0 duplicates: r5~l3 )
-         qnode#5/1-0552{ normal`b'/1 0x4 } 
-[ 12] prefix/VAR/BASE/HANGER/rank2/FRAC/SIGN/ADD/GTLS (0 duplicates: r5~l4 )
-         qnode#5/1-0552{ normal`c'/1 0x8 } 
+[ 12] prefix/VAR/BASE/HANGER/rank2/FRAC/SIGN/ADD/GTLS (0 duplicates: r6~l4 )
+         qnode#6/1-0552{ normal`c'/1 0x8 }
+```
+
+For instance, the sixth item of subpath set has 3 prefix paths of token `/VAR/BASE/HANGER/SIGN/ADD/GTLS`,
+and there is one sector tree rooted at node#6 with width=3:
+```
+[  6] prefix/VAR/BASE/HANGER/SIGN/ADD/GTLS (2 duplicates: r6~l1 r6~l2 r6~l5 )
+         qnode#6/3-3552{ normal`a'/2 0x3 normal`d'/1 0x10 } 
 ```
 
 Here is the C code snippet defining the math inverted list item
