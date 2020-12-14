@@ -10,6 +10,7 @@ TeX parser converts TeX to Operator Tree (or OPT) and leaf-root paths. There are
 * Max pathID/leafID is also the maximum number of leaf-root paths here, they are no greater than MAX_SUBPATH_ID = 64
 * Any *nil* node will be pruned
 * Each *meaningful* internal node (non-meaningful are tokens like `T_BASE`, `T_SUBSCRIPT`, `T_SUPSCRIPT` or `T_NIL`) gets assigned a pathID which is the pathID from one of its descendant leaf child. Also, non-meaningful nodes are not counted when generating fingerprint.
+* A rank number will be assigned to its children if a node is non-communitive node (such as fraction operator)
 
 The following is an example output for expression `$a+b/c= $` (notice the RHS has nothing so it will reduce into *nil*)
 ```
