@@ -74,7 +74,8 @@ they must have identical length and the same token sequence.
 However, the leaf symbols in a sector tree may vary, alternatively, we say they may contain different *splits*.
 The size of a sector tree or a split is referred as *width*.
 
-Math indexer will ensure that the number of generated sector trees is no greater than `MAX_SUBPATHS`.
+Math indexer will ensure that the number of generated sector trees is no greater than `MAX_SUBPATHS` and it will
+remove those excessive paths starting from the longest.
 
 An example subpath set generated from above example leaf-root paths:
 ```
