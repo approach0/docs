@@ -66,7 +66,7 @@ size_t math_index_add(math_index_t, doc_id_t docID, exp_id_t expID, struct subpa
 ```
 will take a specified docID, expID and parser generated leaf-root paths from a math formula,
 to generate a *subpath set* which consists of all possible [1] leaf-to-internal-node subpaths (or *prefix paths*)
-from that subpath set, and group them by their path token sequence.
+from that subpath set (exclude those rooted at a RANK node), and group them by their path token sequence.
 Multiple prefix paths falling into same group are called to contain *duplicates*.
 
 Within each group, if a subgroup of paths have the same root-end nodeID, they are called a *sector tree* because
@@ -173,7 +173,8 @@ struct symbinfo {
 ```
 
 [1]: Note the huge number of prefix paths can be a great overhead, so they are usually statically pruned in practice
-(if search does not require to be *rank-safe*).
+(if search does not require to be *rank-safe*). The criteria is to test if a path root-end has a width less than
+root_width x MATH_INDEX_STATIC_PRUNING_FACTOR.
 
 ### Further Details
 Some academic papers/posters describe in detail what our search
