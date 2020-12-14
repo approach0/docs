@@ -3,7 +3,7 @@ Listed are todo items of this project.
 
 ### Demanding
 * try other UI themes (less colorful maybe?)
-* initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
+* [✓] initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
 * **Field search** (e.g., show/search MSE post tags) with **boolean** query language support (must, should, must-not)
 * support to solve/simplify simple equations/expressions
 * monetize this project to survive in this cruel world...
