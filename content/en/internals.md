@@ -67,11 +67,11 @@ size_t math_index_add(math_index_t, doc_id_t docID, exp_id_t expID, struct subpa
 will take a specified docID, expID and parser generated leaf-root paths from a math formula,
 to generate a *subpath set* which consists of all possible leaf-to-internal-node subpaths (or *prefix paths*)
 from that subpath set, and group them by their path token sequence.
-A multiple prefix paths falling into same group are called to contain *duplicates*.
+Multiple prefix paths falling into same group are called to contain *duplicates*.
 
 Within each group, if a subgroup of paths have the same root-end nodeID, they are called a *sector tree* because
 they must have identical length and the same token sequence.
-However, the leaf symbols in a sector tree may vary, we say they may contain different *splits*.
+However, the leaf symbols in a sector tree may vary, alternatively, we say they may contain different *splits*.
 The size of a sector tree or a split is referred as *width*.
 
 An example subpath set generated from above example leaf-root paths:
@@ -125,7 +125,7 @@ and there is one sector tree rooted at node#6 with width=3:
          qnode#6/3-3552{ normal`a'/2 0x3 normal`d'/1 0x10 } 
 ```
 where `3552` is fingerprint of that sector tree, and it contains two splits:
-Those have leaf `a` with width=2, and a path has leaf `d` with width=1 (single).
+Those have leaf `a` with width=2, and a path with leaf `d` has width=1.
 Here `0x3` and `0x10` are 64-bit mask to represent corresponding leaf/leaves.
 
 Here is the C code snippet defining the math inverted list item
