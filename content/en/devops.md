@@ -155,7 +155,7 @@ However, the order of the services to boot up is important. Here is a recommende
 
 
 To set a different config entry, one can run a job with injected variable. For example:
-```sh
+```
 swarm:service-create?service=indexer&service_indexer_mesh_sharding=5
 ```
 
