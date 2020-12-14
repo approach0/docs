@@ -70,8 +70,9 @@ from that subpath set, and group them by their path token sequence.
 A multiple prefix paths falling into same group are called to contain *duplicates*.
 
 Within each group, if a subgroup of paths have the same root-end nodeID, they are called a *sector tree* because
-they must have identical length and the same token sequence (the size of the set is called the *width* of a sector tree).
+they must have identical length and the same token sequence.
 However, the leaf symbols in a sector tree may vary, we say they may contain different *splits*.
+The size of a sector tree or a split is referred as *width*.
 
 An example subpath set generated from above example leaf-root paths:
 ```
@@ -114,12 +115,18 @@ subpath set (size=13)
          qnode#6/1-0552{ normal`c'/1 0x8 }
 ```
 
-For instance, the sixth item of subpath set has 3 prefix paths of token `/VAR/BASE/HANGER/SIGN/ADD/GTLS`,
+For instance, the sixth item of subpath set has 3 prefix paths of token
+
+`/VAR/BASE/HANGER/SIGN/ADD/GTLS`
+
 and there is one sector tree rooted at node#6 with width=3:
 ```
 [  6] prefix/VAR/BASE/HANGER/SIGN/ADD/GTLS (2 duplicates: r6~l1 r6~l2 r6~l5 )
          qnode#6/3-3552{ normal`a'/2 0x3 normal`d'/1 0x10 } 
 ```
+where `3552` is fingerprint of that sector tree, and it contains two splits:
+Those have leaf `a` with width=2, and a path has leaf `d` with width=1 (single).
+Here `0x3` and `0x10` are 64-bit mask to represent corresponding leaf/leaves.
 
 Here is the C code snippet defining the math inverted list item
 ```c
