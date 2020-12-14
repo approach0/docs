@@ -65,7 +65,7 @@ The `math_index_add()` interface at `math-index-v3/math-index.h`
 size_t math_index_add(math_index_t, doc_id_t docID, exp_id_t expID, struct subpaths);
 ```
 will take a specified docID, expID and parser generated leaf-root paths from a math formula,
-to generate a *subpath set* which consists of all possible leaf-to-internal-node subpaths (or *prefix paths*)
+to generate a *subpath set* which consists of all possible [1] leaf-to-internal-node subpaths (or *prefix paths*)
 from that subpath set, and group them by their path token sequence.
 Multiple prefix paths falling into same group are called to contain *duplicates*.
 
@@ -172,6 +172,8 @@ struct symbinfo {
 };
 ```
 
+[1]: Note the huge number of prefix paths can be a great overhead, so they are usually statically pruned in practice
+(if search does not require to be *rank-safe*).
 
 ### Further Details
 Some academic papers/posters describe in detail what our search
@@ -181,5 +183,5 @@ methods are. You may find useful to read these resources:
 2. [ECIR16 Poster](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/ECIR16-Wei-Poster-publish.pdf)
 3. [ECIR16 Demo](https://github.com/tkhost/tkhost.github.io/blob/master/opmes/ecir2016.pdf)
 4. [Master thesis](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/thesis-ref.pdf)
-5. [ECIR19 Paper - Structure search model](https://ecir2019.org/accepted-papers/)
-6. [ECIR20 Paper - Formula query efficiency](https://drive.google.com/open?id=1QjKVpgsTAIMLqrIDhdDOHvDa7sLvoxq7)
+5. [ECIR19 Paper on Structure search model](https://ecir2019.org/accepted-papers/)
+6. [ECIR20 Paper on Formula query efficiency](https://drive.google.com/open?id=1QjKVpgsTAIMLqrIDhdDOHvDa7sLvoxq7)
