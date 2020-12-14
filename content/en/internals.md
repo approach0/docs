@@ -1,13 +1,4 @@
 ## Internals
-Some old papers/posters describe in detail what our search
-methods are. You may find useful to read these resources first:
-
-1. [ECIR16 Slides](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/ECIR16-OPMES-slides-handouts.pdf)
-2. [ECIR16 Poster](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/ECIR16-Wei-Poster-publish.pdf)
-3. [ECIR16 Demo](https://github.com/tkhost/tkhost.github.io/blob/master/opmes/ecir2016.pdf)
-4. [Master thesis](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/thesis-ref.pdf)
-5. [ECIR19 Paper - Structure search model](https://ecir2019.org/accepted-papers/)
-6. [ECIR20 Paper - Formula query efficiency](https://drive.google.com/open?id=1QjKVpgsTAIMLqrIDhdDOHvDa7sLvoxq7)
 
 ### TeX Parser
 TeX parser converts TeX to Operator Tree (or OPT) and leaf-root paths. There are many details involved, among them
@@ -16,7 +7,7 @@ TeX parser converts TeX to Operator Tree (or OPT) and leaf-root paths. There are
 * Fingerprint (or `fp`) is generated for each leaf-root path
 * A subtree Hash is generated for each subtree
 * A pathID and a leafID (starting from 1) are generated for each path, initially they are the same
-* Max pathID/leafID is also the number of leaf-root paths here, they are no greater than MAX_SUBPATH_ID = 64
+* Max pathID/leafID is also the maximum number of leaf-root paths here, they are no greater than MAX_SUBPATH_ID = 64
 * Any nil node will be pruned
 
 The following is an example output for expression `$a+bc=$` (notice the RHS has nothing so it will reduce into nil)
@@ -84,3 +75,15 @@ struct symbinfo {
 ```
 
 (more to be written here...)
+
+
+### Papers
+Some academic papers/posters describe in detail what our search
+methods are. You may find useful to read these resources:
+
+1. [ECIR16 Slides](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/ECIR16-OPMES-slides-handouts.pdf)
+2. [ECIR16 Poster](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/ECIR16-Wei-Poster-publish.pdf)
+3. [ECIR16 Demo](https://github.com/tkhost/tkhost.github.io/blob/master/opmes/ecir2016.pdf)
+4. [Master thesis](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/thesis-ref.pdf)
+5. [ECIR19 Paper - Structure search model](https://ecir2019.org/accepted-papers/)
+6. [ECIR20 Paper - Formula query efficiency](https://drive.google.com/open?id=1QjKVpgsTAIMLqrIDhdDOHvDa7sLvoxq7)
