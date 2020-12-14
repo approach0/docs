@@ -1,6 +1,6 @@
 ## Internals
 
-To start describe our internals, let us make it clear our dependency structure:
+To start describing our internals, let us make it clear on our dependency structure:
 
 ![](../static/dep.png)
 
@@ -15,7 +15,7 @@ $ python3 proj-dep.py --dot > tmp/dep.dot
 $ dot -Tpng tmp/dep.dot > tmp/dep.png
 ```
 
-We will tell the story by walking through the key modules here.
+Now, we will tell the story by walking through the key modules here.
 
 ### TeX Parser
 TeX parser converts TeX to Operator Tree (or OPT) and leaf-root paths. There are many details involved, among them
