@@ -198,7 +198,7 @@ struct symbinfo {
 (if search does not require to be *rank-safe*). The criteria is to test if a path root-end has a width less than
 "root_width times `MATH_INDEX_STATIC_PRUNING_FACTOR`".
 
-### Further Details
+### Further Reading
 Some academic papers/posters describe in detail what our search
 methods are. You may find useful to read these resources:
 
