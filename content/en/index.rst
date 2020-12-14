@@ -3,7 +3,6 @@ Table of Content
 .. toctree::
    about
    features
-   dependency
    build
    usage
    vdisk
