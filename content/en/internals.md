@@ -47,13 +47,14 @@ struct tex_parse_ret {
 
 struct tex_parse_ret tex_parse(const char *); 
 ```
+(the word *subpath* refers to a full length leaf-root path or any paritial path)
 
 ### Math Index
 The `math_index_add()` interface at `math-index-v3/math-index.h`
 ```c
 size_t math_index_add(math_index_t, doc_id_t docID, exp_id_t expID, struct subpaths);
 ```
-will take docID, expID and parser generated leaf-root paths (a subset of subpaths) and generate a *subpath set* which
+will take docID, expID and parser generated leaf-root paths and generate a *subpath set* which
 consists partial bottom-up leaf-to-internal-node paths (or *prefix paths*).
 
 Here is the pseudo C code showing our inverted list item structure
