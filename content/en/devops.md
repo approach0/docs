@@ -198,7 +198,7 @@ $ ./entrypoint.sh clean_and_restore postgres-2020-12-07.dump
 to reset database content to the uploaded dump.
 
 #### Migrate data between hosts
-One can also use rsync to migrate data form one host to another, just to ensure the syncd services are first re-distributed to the new host.
+One can also use rsync to migrate data form one host to another, but please ensure the syncd services are first re-distributed to the new host.
 ```sh
 $ rsync -v /var/lib/docker/volumes/usersdb_vol/_data/*.dump rsync://rsyncclient@172.104.141.197:8873/data/
 $ rsync -ravz /var/lib/docker/volumes/corpus_vol/_data/tmp rsync://rsyncclient@172.104.141.197:873/data/
