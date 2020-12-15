@@ -192,10 +192,17 @@ To backup/restore database data, use port `8873`. For example
 $ rsync -v ./postgres-2020-12-07.dump rsync://rsyncclient@172.104.159.193:8873/data/
 ```
 and when restoring, you will also need to login to the server, `exec` into the `usersdb` container and run
-```
+```sh
 $ ./entrypoint.sh clean_and_restore postgres-2020-12-07.dump
 ```
 to reset database content to the uploaded dump.
+
+#### Migrate data between hosts
+One can also use rsync to migrate data form one host to another host, ensure the syncd services are first re-distributed to the new host.
+```sh
+$ rsync -v /var/lib/docker/volumes/usersdb_vol/_data/*.dump rsync://rsyncclient@172.104.141.197:8873/data/
+$ rsync -ravz /var/lib/docker/volumes/corpus_vol/_data/tmp rsync://rsyncclient@172.104.141.197:873/data/
+```
 
 #### Switch to a new domain name
 Before change the A record at your DNS provider, remove the data volumes related to gateway (e.g., `gateway_keys_vol`) and then replace `gateway` service.
