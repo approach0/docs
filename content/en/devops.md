@@ -208,6 +208,8 @@ $ rsync -v /var/lib/docker/volumes/usersdb_vol/_data/*.dump rsync://rsyncclient@
 $ rsync -ravz /var/lib/docker/volumes/corpus_vol/_data/tmp rsync://rsyncclient@172.104.141.197:873/data/
 ```
 
+After migration, run `swarm:bootstrap-refresh-id` job from local machine to enable ssh access to new remote node.
+
 #### Switch to a new domain name
 Before change the A record at your DNS provider, remove the data volumes related to gateway (e.g., `gateway_keys_vol`) and then replace `gateway` service.
 This will force gateway to install and setup certificates for the new domain name.
