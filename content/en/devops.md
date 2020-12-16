@@ -265,5 +265,5 @@ $ ssh-copy-id -p 8982 root@<IP>
 If for some reason a quorum lost leader and ends up with a even number of managers, one needs 
 to reset the quorum from one of its manager node:
 ```
-# docker swarm init --force-new-cluster
+$ docker swarm init --force-new-cluster
 ```
