@@ -153,11 +153,14 @@ However, the order of the services to boot up is important. Here is a recommende
 
     * (Optional) `ss` for HTTP(s) proxy service
 
+#### A few notes
 
 To set a different config entry, one can run a job with injected variable. For example:
 ```
 swarm:service-create?service=indexer&service_indexer_mesh_sharding=5
 ```
+
+Be careful of service dependency. Forexample if you want restart `usersdb` service, you need also to restart `lattice` and `stats` services afterwards.
 
 ### 4. Maintenance
 
