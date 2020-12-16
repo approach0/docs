@@ -186,17 +186,17 @@ $ rsync rsync://rsyncclient@<your_IP>:<rsync_port>/
 
 When restoring corpus data, be aware to add `--ignore-existing` to skip updating files that exist on receiver, for example:
 ```sh
-$ rsync --ignore-existing -ravz ./corpus-2020/ rsync://rsyncclient@172.104.159.193/data/tmp/
+$ rsync --ignore-existing -ravz ./corpus-2020/ rsync://rsyncclient@<IP>/data/tmp/
 ```
 
 To backup corpus data, add `--update` option:
 ```sh
-$ rsync --update -ravz rsync://rsyncclient@172.104.159.193/data/tmp/ ./corpus-2020/
+$ rsync --update -ravz rsync://rsyncclient@<IP>/data/tmp/ ./corpus-2020/
 ```
 
 To backup/restore database data, use port `8873`. For example
 ```sh
-$ rsync -v ./postgres-2020-12-07.dump rsync://rsyncclient@172.104.159.193:8873/data/
+$ rsync -v ./postgres-2020-12-07.dump rsync://rsyncclient@<IP>:8873/data/
 ```
 and when restoring, you will also need to login to the server, `exec` into the `usersdb` container and run
 ```sh
@@ -207,8 +207,8 @@ to reset database content to the uploaded dump.
 #### Migrate data between hosts
 One can also use rsync to migrate data form one host to another, but please ensure the syncd services are first re-distributed to the new host.
 ```sh
-$ rsync -v /var/lib/docker/volumes/usersdb_vol/_data/*.dump rsync://rsyncclient@172.104.141.197:8873/data/
-$ rsync -ravz /var/lib/docker/volumes/corpus_vol/_data/tmp rsync://rsyncclient@172.104.141.197:873/data/
+$ rsync -v /var/lib/docker/volumes/usersdb_vol/_data/*.dump rsync://rsyncclient@<IP>:8873/data/
+$ rsync -ravz /var/lib/docker/volumes/corpus_vol/_data/tmp rsync://rsyncclient@<IP>:873/data/
 ```
 Postgres database would not start successfully if you have a non-empty directory, so you will need to move database dump files to a temporal location
 and then move back after service restarted.
