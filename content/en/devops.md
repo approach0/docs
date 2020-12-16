@@ -242,7 +242,7 @@ dns2.registrar-servers.com.     1520    IN      AAAA    2610:a1:1025::200
 ;; MSG SIZE  rcvd: 194
 ```
 
-#### Shell Login
+#### Shell login
 At any time, you can login to the shell of a node using SSH or `mosh`:
 ```sh
 $ mosh -ssh 'ssh -p 8982' <IP>
@@ -252,4 +252,11 @@ mosh is using UDP over SSH protocol, it is sometimes essential for fast global r
 To ask ssh daemon remember your local host, use `ssh-copy-id`:
 ```sh
 $ ssh-copy-id -p 8982 root@<IP>
+```
+
+#### Quorum reset
+If for some reason a quorum lost leader and ends up with a even number of managers, one needs 
+to reset the quorum from one of its manager node:
+```
+# docker swarm init --force-new-cluster
 ```
