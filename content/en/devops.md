@@ -161,7 +161,10 @@ swarm:service-create?service=indexer&service_indexer_mesh_sharding=5
 ```
 
 Be careful of service dependency. For example, if you want restart `usersdb` service,
-you will also need to restart `lattice` and `stats` services afterwards.
+you will also need to restart `lattice` and `stats` services afterwards:
+```
+$ node cli/cli.js -j 'swarm:bootstrap-update?nodeIP=<IP>&port=8982&services=lattice,stats'
+```
 
 ### 4. Maintenance
 
@@ -207,6 +210,8 @@ One can also use rsync to migrate data form one host to another, but please ensu
 $ rsync -v /var/lib/docker/volumes/usersdb_vol/_data/*.dump rsync://rsyncclient@172.104.141.197:8873/data/
 $ rsync -ravz /var/lib/docker/volumes/corpus_vol/_data/tmp rsync://rsyncclient@172.104.141.197:873/data/
 ```
+Postgres database would not start successfully if you have a non-empty directory, so you will need to move database dump files to a temporal location
+and then move back after service restarted.
 
 After migration, run `swarm:bootstrap-refresh-id` job from local machine to enable ssh access to new remote node.
 
