@@ -1,6 +1,12 @@
 ## TODO
 Listed are todo items of this project.
 
+### Bugs
+* Search engine puts [this post](https://math.stackexchange.com/questions/2655281/find-all-positive-integral-soludions-of-fracabc-fracbac-fracc?noredirect=1) at 6th page when query keywords are exactly:
+```
+$\frac{a}{b+c} + \frac{b}{a+c} + \frac{c}{a+b} = 4$, gargantuan
+```
+
 ### Demanding
 * try other UI themes (less colorful maybe?)
 * [✓] initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
