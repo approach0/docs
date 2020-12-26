@@ -247,7 +247,7 @@ A math keyword upperbound is calculated based on "SF-IDF" (Significance-factor I
 and IDF here is inverted *path frequency* (`$ \log \frac N {\operatorname{PF}} $` or IPF).
 The upperbound score for a level-2 math keyword is based on math similarity scoring scheme:
 $$
-\operatorname{SF}(q, d) = \dfrac{1}{1+ (1- \operatorname{symSim})^2} ((1- \eta) + \eta(\dfrac{1}{\log(1 + \operatorname{formulaLen} )}))
+\operatorname{SF}(q, d) = \dfrac{1}{1+ (1- \operatorname{symSim})^2} ((1- \eta) + \eta  \dfrac{1}{\log(1 + \operatorname{formulaLen})})
 $$
 and
 $$
