@@ -208,10 +208,29 @@ typedef struct {
     uint32_t doc_freq[MAX_MERGE_SET_SZ];
 } indices_run_sync_t;
 
-priority_Q indices_run_query(struct indices* indices, struct query* qry, indices_run_sync_t *run_sync);
+priority_Q
+indices_run_query(struct indices* indices, struct query* qry, indices_run_sync_t *run_sync);
 ```
 where `priority_Q` is a minheap data structure for storing dynamic top-K search results, and `run_sync` is the index statistics
 possibly added up from sub-indexes.
+
+`indices_run_query()` function will initialize a `term_qry` structure for each text term and math keyword level-2 inverted lists.
+
+The `term_qry` structure looks like:
+```c
+struct term_qry {
+    char *kw_str;   
+    uint32_t term_id;
+    uint32_t df; /* document frequency */
+    float qf; /* query term frequency */
+    float idf; /* BM25 idf */
+    float upp; /* BM25 
+}; 
+```
+According to *Okapi BM25 scoring*,
+$$
+TF(q, d) = 
+$$
 
 ### Further Reading
 Some academic papers/posters describe in detail what our search
