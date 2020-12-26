@@ -228,7 +228,7 @@ struct term_qry {
     float upp; /* BM25 
 }; 
 ```
-According to *Okapi BM25 scoring* (parameters `$k_1, b > 0$` and `$b \le 1$`),
+According to *Okapi BM25 scoring* (free parameters `$k_1 \in [1.2, 2.0]$` and `$0 \le b \le 1$`),
 $$
 \newcommand{\tf}{\operatorname{TF}}
 \tf(q, d) = \dfrac{\tf \times (k_1 + 1)}{ \tf + k_1 (1 - b + b \cdot \operatorname{docLen} / \operatorname{avgDocLen} )}
