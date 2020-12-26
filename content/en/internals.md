@@ -243,7 +243,7 @@ $$
 On the other hand, math keyword will generate a level-2 inverted list in which path frequency and pathN (total number of paths)
 are also synchronized to `run_sync`.
 
-A math keyword upperbound is calculated based on "SF-IDF" (Significance-factor IDF), specifically, SF is *significance* score
+A math keyword upperbound is calculated based on "SF-IDF" (Significance-factor IDF), specifically, SF is *significance score*
 and IDF here is actually sum-of-logs from *inverted path frequency* (`$ \log \frac N {\operatorname{PF}} $` or IPF).
 The upperbound score for a level-2 math keyword is based on math similarity scoring scheme:
 $$
@@ -257,7 +257,7 @@ $$
 The math keyword with maximum upperbound score will associate a MATH_REWARD_WEIGHT and other math keyword will associate
 a MATH_PENALTY_WEIGHT weight.
 
-After preparing keywords, all inverted list iterators are generated and they are inserted to a *max-score* merger.
+After preparing keywords, all inverted list iterators are generated and they are inserted into a *max-score* merger.
 The order of merge lists are:
 ```
 [0] high upp term keyword
