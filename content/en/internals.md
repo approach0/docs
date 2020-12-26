@@ -214,7 +214,8 @@ indices_run_query(struct indices* indices, struct query* qry, indices_run_sync_t
 where `priority_Q` is a minheap data structure for storing dynamic top-K search results, and `run_sync` is the index statistics
 possibly added up from sub-indexes.
 
-`indices_run_query()` function will initialize a `term_qry` structure for each text term and math keyword level-2 inverted lists.
+`indices_run_query()` function will initialize a `term_qry` structure for each text term and a *level-2* inverted lists for each
+math keyword.
 
 The `term_qry` structure looks like:
 ```c
@@ -227,9 +228,12 @@ struct term_qry {
     float upp; /* BM25 
 }; 
 ```
-According to *Okapi BM25 scoring*,
+According to *Okapi BM25 scoring* (parameters `$k_1, b > 0$` and `$b \le 1$`),
 $$
-TF(q, d) = 
+\begin{aligned}
+\text{TF}(q, d) &= \dfrac{\text{tf}(k_1 + 1)}{ \text{tf} + k_1 (1 - b + b \text{docLen} / \text{avgDocLen} )} \\
+&\le \frac{k_1 + 1}{1 + }
+\end{aligned}
 $$
 
 ### Further Reading
