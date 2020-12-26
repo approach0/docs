@@ -198,6 +198,21 @@ struct symbinfo {
 (if search does not require to be *rank-safe*). The criteria is to test if a path root-end has a width less than
 "root_width times `MATH_INDEX_STATIC_PRUNING_FACTOR`".
 
+### Search
+The entrypoint for search functionality is `indices_run_query()` function at `search-v3/search.dt.c`:
+```c
+typedef struct {
+    uint32_t docN;
+    uint32_t avgDocLen;
+    uint32_t pathN;
+    uint32_t doc_freq[MAX_MERGE_SET_SZ];
+} indices_run_sync_t;
+
+priority_Q indices_run_query(struct indices* indices, struct query* qry, indices_run_sync_t *run_sync);
+```
+where `priority_Q` is a minheap data structure for storing dynamic top-K search results, and `run_sync` is the index statistics
+possibly added up from sub-indexes.
+
 ### Further Reading
 Some academic papers/posters describe in detail what our search
 methods are. You may find useful to read these resources:
