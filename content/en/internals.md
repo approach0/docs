@@ -243,8 +243,8 @@ $$
 On the other hand, math keyword will generate a level-2 inverted list in which path frequency and pathN (total number of paths)
 are also synchronized to `run_sync`.
 
-A math keyword upperbound is calculated based on "SF-IDF" (Significance-factor IDF), specifically, SF is symbolic score (1.0 at most)
-and IDF here is inverted *path frequency* (`$ \log \frac N {\operatorname{PF}} $` or IPF).
+A math keyword upperbound is calculated based on "SF-IDF" (Significance-factor IDF), specifically, SF is *significance* score
+and IDF here is actually sum-of-logs from *inverted path frequency* (`$ \log \frac N {\operatorname{PF}} $` or IPF).
 The upperbound score for a level-2 math keyword is based on math similarity scoring scheme:
 $$
 \operatorname{SF}(q, d) = \dfrac{1}{1+ (1- \operatorname{symSim})^2} ((1- \eta) + \eta  \dfrac{1}{\log(1 + \operatorname{formulaLen})})
