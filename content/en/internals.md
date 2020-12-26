@@ -217,18 +217,18 @@ possibly added up from sub-indexes.
 `indices_run_query()` function will initialize a `term_qry` structure for each text term and a *level-2* inverted lists for each
 math keyword.
 
-The `term_qry` structure looks like:
+The `term_qry` structure
 ```c
 struct term_qry {
     char *kw_str;   
     uint32_t term_id;
-    uint32_t df; /* document frequency */
+    uint32_t df; /* document frequency (set to doc_freq[i] under run_sync) */
     float qf; /* query term frequency */
     float idf; /* BM25 idf */
-    float upp; /* BM25 
+    float upp; /* BM25 tf-idf upperbound score */
 }; 
 ```
-According to *Okapi BM25 scoring* (free parameters `$k_1 \in [1.2, 2.0]$` and `$0 \le b \le 1$`),
+is initialized according to *Okapi BM25 scoring* (free parameters `$k_1 \in [1.2, 2.0]$` and `$0 \le b \le 1$`),
 $$
 \newcommand{\tf}{\operatorname{TF}}
 \tf(q, d) = \dfrac{\tf \times (k_1 + 1)}{ \tf + k_1 (1 - b + b \cdot \operatorname{docLen} / \operatorname{avgDocLen} )}
@@ -239,6 +239,26 @@ $$
 \newcommand{\df}{\operatorname{DF}}
 \operatorname{IDF}(q) =\log \dfrac{\operatorname{docN} - \df + 0.5}{\df + 0.5}
 $$
+
+On the other hand, math keyword will generate a level-2 inverted list in which path frequency and pathN (total number of paths)
+are also synchronized to `run_sync`.
+
+A math keyword upperbound is calculated based on "SF-IDF" (Significance-factor IDF), specifically, SF is symbolic score (1.0 at most)
+and IDF here is inverted *path frequency* (`$ \log \frac N \operatorname{PF}$`).
+
+The math keyword with maximum upperbound score will associate a MATH_REWARD_WEIGHT and other math keyword will associate
+a MATH_PENALTY_WEIGHT weight.
+
+After preparing keywords, all inverted list iterators are generated and they are inserted to a *max-score* merger.
+The order of merge lists are:
+```
+[0] high upp term keyword
+...
+[k] low upp term keyword
+[k+1] high upp math keyword
+...
+[n] low upp math keyword
+```
 
 ### Further Reading
 Some academic papers/posters describe in detail what our search
