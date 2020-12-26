@@ -231,8 +231,8 @@ struct term_qry {
 According to *Okapi BM25 scoring* (parameters `$k_1, b > 0$` and `$b \le 1$`),
 $$
 \newcommand{\tf}{\operatorname{TF}}
-\tf(q, d) &= \dfrac{\tf (k_1 + 1)}{ \tf + k_1 (1 - b + b \operatorname{docLen} / \operatorname{avgDocLen} )} 
-\le \frac{k_1 + 1}{1 + k_1 (b/\operatorname{avgDocLen})}
+\tf(q, d) = \dfrac{\tf \times (k_1 + 1)}{ \tf + k_1 (1 - b + b \cdot \operatorname{docLen} / \operatorname{avgDocLen} )}
+\le \dfrac{k_1 + 1}{1 + k_1 (b/\operatorname{avgDocLen})}
 $$
 and 
 $$
