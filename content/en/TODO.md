@@ -43,16 +43,17 @@ Listed are todo items of this project.
   * **Text synonym** awareness, e.g. horse = pony.
   * good embedding for both text and math, e.g. pythagorean == x^2 + y^2 = z^2
 
-### Consider additional indexing sources
-* [✓] Math StackExchange
+### Additional crawlers
+* [✓] StackExchange
+  * Math StackExchange
+  * MathOverflow
+  * CrossValidated
+  * physics stackexchange
+  * matheducators.stackexchange.com
 * [✓] artofproblemsolving.com
 * [Proof wiki](https://proofwiki.org/wiki/Main_Page)
 * https://brilliant.org/
-* MathOverflow
 * PlanetMath
-* CrossValidated
-* physics stackexchange
-* matheducators.stackexchange.com
 * Wolfram MathWorld
 * Wikipedia (English version)
 * Socratic
