@@ -34,6 +34,7 @@ Listed are todo items of this project.
 
 ### Misc
 * [✓] A new mobile-friendly interface
+* handle matrix in a better way
 * phrase search (specified by quotes)
 * photo recognition tool
 * faster Chinese tokenizer
