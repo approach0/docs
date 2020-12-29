@@ -52,14 +52,14 @@ Listed are todo items of this project.
   * physics stackexchange
   * matheducators.stackexchange.com
 * [✓] artofproblemsolving.com
-* [Proof wiki](https://proofwiki.org/wiki/Main_Page)
-* https://brilliant.org/
+* https://ncatlab.org/
 * PlanetMath
-* Wolfram MathWorld
-* Wikipedia (English version)
 * Socratic
-* NIST DLMF
 * https://www.physicsforums.com/
 * 悠闲数学娱乐论坛
 * 知乎
-* https://ncatlab.org/
+* <del> Wolfram MathWorld </del> 
+* <del> Wikipedia (English) </del> 
+* <del>[Proof wiki](https://proofwiki.org/wiki/Main_Page)</del>
+* <del> https://brilliant.org/ </del>
+* <del> NIST DLMF </del> 
