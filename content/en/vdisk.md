@@ -33,7 +33,7 @@ Remember to unmount after you finish using this image,
 $ sudo ./scripts/vdisk-umount.sh
 ```
 
-### Some notices
+### A few notes
 
 #### 1. Lacking kernel support for ReiserFS support
 If you are running on kernel without ReiserFS support, modify scripts 
