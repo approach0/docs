@@ -1,6 +1,5 @@
-## Contributors
+## Kudos Page
 
-Listed are some of contributors to this project:
 * [Richard Zanibbi](https://www.cs.rit.edu/~rlaz/) who is my PhD. advisor.
 * [Hui Fang](https://www.eecis.udel.edu/~hfang/) who is my MS. advisor.
 * [Li Xiaoming](https://www.eecis.udel.edu/~xli/) whose course inspired the current TeX parser front-end.
