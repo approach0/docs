@@ -33,9 +33,9 @@ Remember to unmount after you finish using this image,
 $ sudo ./scripts/vdisk-umount.sh
 ```
 
-## Some notices
+### Some notices
 
-### 1. Lacking kernel support for ReiserFS support
+#### 1. Lacking kernel support for ReiserFS support
 If you are running on kernel without ReiserFS support, modify scripts 
 argument above and change file system to `btrfs` for similar performance.
 
@@ -45,7 +45,7 @@ userland ReiserFS supports.
 $ apt-get install reiserfsprogs
 ```
 
-### 2. `dd` command reports exhausted memory
+#### 2. `dd` command reports exhausted memory
 When you experience `dd` command not being able to create certain size of image file:
 
 ```sh
@@ -58,7 +58,7 @@ mkswap /swapspace
 swapon /swapspace
 ```
 
-### 3. TRIM in SSD
+#### 3. TRIM in SSD
 If you are doing indexing on an SSD drive (which is recommended because it is often more than 4 times faster than hard disk in terms of random write performance), it is highly suggested to enable SSD TRIM whenever it is supported, due to SSD Write Amplification (WA) effect. Without TRIM, the intensive writing onto SSD drive can cause very slow indexing performance and reduce SSD life span.
 
 TRIM can be invoked either continuously by mounting your SSD drive with `discard` option
