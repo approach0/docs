@@ -10,5 +10,5 @@ Listed are some of contributors to this project:
 * [Kenny Davila](http://kdavila.com) who kindly encouraged my research and exchanged many good ideas with me.
 * [Antonio Mallia](https://github.com/amallia) whose research leads a direction for Approach Zero dynamic pruning strategy.
 * [0xbsec](https://github.com/0xbsec) who found and reported vulnerability when Approach Zero website is initially released.
-* [Martin R](https://stackoverflow.com/users/1187415/martin-r) who frequently sends in feedback.
+* [Martin R](https://stackoverflow.com/users/1187415/martin-r) who frequently sends in feedback and makes others aware of Approach Zero.
 * [Stupid Questions Inc](https://chat.stackexchange.com/users/386041) who helped to identify some important website availability issues.
