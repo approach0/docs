@@ -2,6 +2,7 @@
 Listed are todo items of this project.
 
 ### Demanding
+* `\ge` and `\geq` should have the same symbol IDs (there are other similar cases)
 * try other UI themes (less colorful maybe?)
 * **Field search** (e.g., show/search MSE post tags) with **boolean** query language support (must, should, must-not)
 * being able to specify which leaf nodes should avoid substitutions. Maybe a query language like `z = x + y \exact{i}`? 
