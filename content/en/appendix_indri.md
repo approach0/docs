@@ -113,6 +113,7 @@ $ /usr/bin/latexmlmath
 
 To install LaTeXML,
 ```bash
+$ sudo apt install libxslt-dev libxml-libxslt-perl # for Debian buster
 $ git clone --depth=1 https://github.com/brucemiller/LaTeXML
 $ cd LaTeXML
 $ perl Makefile.PL
