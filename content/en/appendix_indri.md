@@ -144,8 +144,11 @@ $ which docker || sh get-docker.sh
 $ docker pull approach0/latexml:22db863d7358d56e197a3845375775714577cc82
 $ docker tag approach0/latexml:22db863d7358d56e197a3845375775714577cc82 latexml:latest
 $ docker run latexml /usr/bin/latexmlmath --help
-$ echo '#!/bin/sh' > /usr/bin/latexmlmath
-$ echo 'docker run latexml /usr/bin/latexmlmath $@' >> /usr/bin/latexmlmath
+$ cat  <<-EOF > /usr/bin/latexmlmath
+#!/bin/sh
+OUTDIR=\$(pwd)
+docker run -v $OUTDIR:/tmp --workdir="/tmp" latexml /usr/bin/latexmlmath \$@
+EOF
 $ chmod +x /usr/bin/latexmlmath
 $ latexmlmath --VERSION
 latexmlmath (LaTeXML version 0.8.3; revision 22db863d)
