@@ -137,7 +137,7 @@ ed 0xcd00080)
 ```
 
 For convenience, we have made this particular version of MathML available on DockerHub, to start:
-```bash
+```
 # apt-get update
 # which docker || curl -fsSL https://get.docker.com -o get-docker.sh
 # which docker || sh get-docker.sh
