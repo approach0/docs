@@ -147,7 +147,7 @@ $ docker run latexml /usr/bin/latexmlmath --help
 $ cat  <<-EOF > /usr/bin/latexmlmath
 #!/bin/sh
 OUTDIR=\$(pwd)
-docker run -v $OUTDIR:/tmp --workdir="/tmp" latexml /usr/bin/latexmlmath \$@
+docker run -v \$OUTDIR:/tmp --workdir="/tmp" latexml /usr/bin/latexmlmath \$@
 EOF
 $ chmod +x /usr/bin/latexmlmath
 $ latexmlmath --VERSION
