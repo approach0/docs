@@ -6,6 +6,7 @@ Listed are todo items of this project.
 * try other UI themes (less colorful maybe?)
 * **Field search** (e.g., show/search MSE post tags) with **boolean** query language support (must, should, must-not)
 * being able to specify which leaf nodes should avoid substitutions. Maybe a query language like `z = x + y \exact{i}`? 
+* formula match subexpression highlight?
 * support to solve/simplify simple equations/expressions
 * monetize this project to survive in this cruel world...
 * [✓] initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
