@@ -1,77 +1,27 @@
 ## WEB Demo
-The source code contains a complete WEB demo and webpage interface that
-you can set up on your own machine.
+A [separate repository](https://github.com/approach0/ui-approach0) contains a WEB front end to interact with search engine.
+The front end uses a canonicalized string format to represent query, e.g., `NOT title:prove, AND body:$a^2+b^2=c^2$`.
+This string gets encoded as URI parameters and sent to a relay service which listens at port 8080, the relay service then
+parse the linear canonicalized string to structured JSON format that search engine daemon is easy to take as input.
 
-### Install and config Nginx/PHP
-Given Nginx on Ubuntu 16.04 LTS as example,
+### Local demo
+To setup relay service locally, the easiest way is to use `approach0/a0-relay` Docker image:
 ```sh
-$ sudo apt-get install nginx php-fpm
+$ docker run --network host -it approach0/a0-relay
 ```
 
-check if `.sock` file exists
+Ensure a search deamon is running locally, then to view a local WEB demo, you only need to serve the WEB front end page:
 ```
-$ ls /run/php/php7.0-fpm.sock
+$ git clone git@github.com:approach0/ui-approach0.git
+$ cd ui-approach0 
+$ npm run watch
 ```
+and visit `http://localhost:19985` in your browser.
 
-edit config file
-```
-$ sudo vi /etc/nginx/sites-enabled/default
-```
-
-and uncomment php related lines:
-```
- ...
-	location ~ \.php$ {
-		include snippets/fastcgi-php.conf;
-		fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-	}
- ...
-```
-
-Restart php-fpm and nginx:
-```
-$ sudo /etc/init.d/php7.0-fpm restart
-$ sudo systemctl restart nginx
-```
-
-Write a simple php file on `/var/www/html/test.php`
-```
-$ cat /var/www/html/test.php
-<?php
-echo 'hello world';
-?>
-```
-
-Visit `http://127.0.0.1/test.php` to see if `hello world` is
-printed. If it is not, a useful trick is to enable
-display\_errors in php.inf
-```
-$ vi /etc/php/7.0/fpm/php.ini
-```
-and set `display_errors = On`, then restart php-fpm and nginx
-to figure out what is going wrong.
-
-### Link or copy WEB files
-Now that php service is running, put our WEB source files to
-HTTP root directory.
-
-```sh
-$ cd /var/www/html/
-$ ln -s $PROJECT/demo/web ./demo
-```
-Make sure $PROJECT path is accessable by httpd (e.g. use `su www-data -s /bin/bash` to test permission), then
-you should be able to visit `http://127.0.0.1/demo` page.
-
-### Install php-curl
-The `search-relay.php` in web directory is using php-curl to relay
-search GET requests to searchd, the latter is running on port 8921 in
-default. So make sure php-curl is installed.
-```
-$ sudo apt-get install php-curl
-$ sudo systemctl restart nginx
-```
-
-### Run searchd in background
+### Remote demo
+There is not many differences to setup a demo remotely (e.g., from a VPS).
+But oftenly, you will need to run services remotely in a detached session so when you leave the SSH session,
+you do not interrupt your service.
 
 Install tmux for keeping searchd running in a detached session
 (so that searchd can keep running even if we exit the shell).
@@ -80,9 +30,6 @@ $ sudo apt-get install tmux
 $ cd $PROJECT/searchd
 $ tmux new -d -s searchd_session './run/searchd.out -i ~/index'
 ```
-
-At this point, you should be able to get search results back after
-entering queries in demo page.
 
 To attach this search daemon session:
 ```
@@ -97,6 +44,8 @@ $ tmux capture-pane -pt searchd_session
 
 ### Security
 Configurations below are mainly for security considerations.
+It disallow direct interaction with search engine, so user has to make request via relay service
+which is written in PHP and offers more robust interface when directly exposing to public.
 
 #### Drop external TCP traffic to searchd
 ```sh
@@ -104,4 +53,4 @@ iptables -A INPUT -i lo -j ACCEPT
 iptables -A INPUT -p tcp --dport 8921 -j DROP
 ```
 The first rules give full access to *localhost*, otherwise the second
-rule blocks any packet sent to searchd port.
+rule may block any packet sent to searchd port.
