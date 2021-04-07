@@ -9,6 +9,7 @@ Listed are todo items of this project.
 * formula match subexpression highlight?
 * support to solve/simplify simple equations/expressions
 * monetize this project to survive in this cruel world...
+* Show thread view and votes (as shown at index time), perhaps a good idea to show tags too.
 * [✓] initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
 * <del>v3 wildcards support?</del>
 * <del>Show informative msg on query TeX parse error.</del>
