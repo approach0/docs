@@ -166,7 +166,7 @@ reference: [https://stackoverflow.com/questions/48893146](https://stackoverflow.
 ### Anaconda Environment
 [Anaconda](https://www.anaconda.com/products/individual) is a favored way to install Python environment without system-wise permission, and you can have a convenient virtual environment that is easy to install and switch between different Python versions.
 
-Here is a short note on how to install Anaconda environment.
+Here is a short note on how to install Anaconda environment:
 ```sh
 $ wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
 $ chmod +x Anaconda3-2020.11-Linux-x86_64.sh && ./Anaconda3-2020.11-Linux-x86_64.sh
@@ -175,4 +175,8 @@ $ conda create --name py38 python=3.8
 $ conda activate py38
 $ python -V
 Python 3.8.8
+$ pip -V
+pip 21.0.1 from /home/w32zhong/anaconda3/envs/py38/lib/python3.8/site-packages/pip (python 3.8)
 ```
+
+When a `python setup.py install` is needed, you can instead issue `pip install .`.
