@@ -162,3 +162,17 @@ Here is a short note on the mechanism behind MPI which Approach Zero uses to sca
 > By default, if you are running on less than 64 nodes, then mpirun will SSH to all the other nodes. But if you are running on a larger number of nodes, then mpirun will use a tree spawn algorithm, in which other nodes might ssh to other nodes. Bottom line, if you are using ssh with Open MPI, and unless you are running on a small cluster with default settings, all nodes should be able to ssh passwordless to all nodes.
 
 reference: [https://stackoverflow.com/questions/48893146](https://stackoverflow.com/questions/48893146)
+
+### Anaconda Environment
+[Anaconda](https://www.anaconda.com/products/individual) is a favored way to install Python environment without system-wise permission, and you can have a convenient virtual environment that is easy to install and switch between different Python versions.
+
+Here is a short note on how to install Anaconda environment.
+```sh
+$ wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
+$ chmod +x Anaconda3-2020.11-Linux-x86_64.sh && ./Anaconda3-2020.11-Linux-x86_64.sh
+$ eval "$(/home/YOUR_USER_NAME_HERE/anaconda3/bin/conda shell.bash hook)"
+$ conda create --name py38 python=3.8
+$ conda activate py38
+$ python -V
+Python 3.8.8
+```
