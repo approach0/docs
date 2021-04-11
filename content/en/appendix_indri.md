@@ -170,7 +170,7 @@ Here is a short note on how to install Anaconda environment:
 ```sh
 $ wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
 $ chmod +x Anaconda3-2020.11-Linux-x86_64.sh && ./Anaconda3-2020.11-Linux-x86_64.sh
-$ eval "$(/home/YOUR_USER_NAME_HERE/anaconda3/bin/conda shell.bash hook)"
+$ eval "$(/home/`whoami`/anaconda3/bin/conda shell.bash hook)"
 $ conda create --name py38 python=3.8
 $ conda activate py38
 $ python -V
@@ -180,3 +180,12 @@ pip 21.0.1 from /home/w32zhong/anaconda3/envs/py38/lib/python3.8/site-packages/p
 ```
 
 When a `python setup.py install` is needed, you can instead issue `pip install .`.
+
+Anaconda can also be used to create a C/C++ build environment, to install gcc/g++:
+```sh
+$ conda install gcc_linux-64
+$ conda install gxx_linux-64
+$ echo $CC; echo $CXX
+/home/YOUR_USER_NAME_HERE/anaconda3/envs/py38/bin/x86_64-conda_cos6-linux-gnu-cc
+/home/YOUR_USER_NAME_HERE/anaconda3/envs/py38/bin/x86_64-conda_cos6-linux-gnu-c++
+```
