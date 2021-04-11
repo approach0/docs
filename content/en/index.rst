@@ -10,5 +10,5 @@ Table of Content
    devops
    internals
    contributors
-   appendix_indri
+   appendix
    TODO
