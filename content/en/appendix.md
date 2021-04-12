@@ -75,7 +75,10 @@ kstem_add_table_entry: Duplicate word emeritus will be ignored.
 where `test-query.xml` is a query file (you should create it) which in here it specifies a single query keyword *dog*:
 ```
 <parameters>
-        <query>dog</query>
+        <query>
+                <number>1</number>
+                <text>food imports</text>
+        </query>
 </parameters>
 ```
 
