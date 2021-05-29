@@ -2,18 +2,18 @@
 Listed are todo items of this project.
 
 ### Demanding
-* `\ge` and `\geq` should have the same symbol IDs (there are other similar cases)
-* try other UI themes (less colorful maybe?)
+
 * **Field search** (e.g., show/search MSE post tags) with **boolean** query language support (must, should, must-not)
 * being able to specify which leaf nodes should avoid substitutions. Maybe a query language like `z = x + y \exact{i}`? 
 * formula match subexpression highlight?
 * support to solve/simplify simple equations/expressions
-* monetize this project to survive in this cruel world...
 * Show thread view and votes (as shown at index time), perhaps a good idea to show tags too.
+* <del>try other UI themes (less colorful maybe?)</del>
+* [✓] `\ge` and `\geq` should have the same symbol IDs (there are other similar cases)
 * [✓] initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
 * <del>v3 wildcards support?</del>
 * <del>Show informative msg on query TeX parse error.</del>
-* [✓] initial threshold, update documentation.
+* Finitial threshold, update documentation.
 * [✓] recognize query string when no **comma separated**.
 * [✓] lower search granularity to sector tree.
 * [✓] merge CONST and VAR tokens.
