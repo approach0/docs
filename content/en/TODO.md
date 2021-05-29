@@ -35,11 +35,17 @@ Listed are todo items of this project.
 * [✓] Prefix model efficiency: MaxScore-like **pruning**.
 * [✓] Path **operators hashing** to distinguish operator symbols.
 
+### Research
+* dependency parsing for ambiguous or context parsing, e.g., abs bars, sin(x) vs sin x
+* level 1: bag-of-tokens; level 2: structure; level 3: **embedding**; level 4: **topic** ==> learning to rank
+* CV and training data generation
+* click-through data and upvote data
+* redo multi tree matching??
+
 ### Misc
 * [✓] A new mobile-friendly interface
 * handle matrix in a better way
 * phrase search (specified by quotes)
-* photo recognition tool
 * faster Chinese tokenizer
 * QAC, spelling correction, search suggestion.
 * Semantics
