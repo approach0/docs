@@ -12,7 +12,7 @@ Listed are todo items of this project.
 * [✓] initial threshold applied to indexing stage (so that x^2 wouldn't have such a long invlist).
 * <del>v3 wildcards support?</del>
 * <del>Show informative msg on query TeX parse error.</del>
-* Finitial threshold, update documentation.
+* [✓] initial threshold applied to dynamic pruning
 * [✓] recognize query string when no **comma separated**.
 * [✓] lower search granularity to sector tree.
 * [✓] merge CONST and VAR tokens.
