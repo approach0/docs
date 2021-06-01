@@ -2,10 +2,10 @@
 Listed are todo items of this project.
 
 ### Demanding
-* Show thread view and votes (as shown at index time), perhaps a good idea to show tags too.
-* being able to specify which leaf nodes should avoid substitutions. Maybe a query language like `z = x + y \exact{i}`? 
 * formula match subexpression highlight?
 * support to solve/simplify simple equations/expressions
+* [✓] <del>Show thread view and votes</del>, perhaps a good idea to show tags too.
+* [✓] being able to specify which leaf nodes should avoid substitutions. Maybe a query language like `z = x + y \exact{i}`? 
 * [✓] **Field search** (e.g., show/search MSE post tags) with **boolean** query language support (must, should, must-not)
 * <del>try other UI themes (less colorful maybe?)</del>
 * [✓] `\ge` and `\geq` should have the same symbol IDs (there are other similar cases)
