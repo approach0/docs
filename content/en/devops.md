@@ -66,7 +66,7 @@ $ node cli/cli.js -j 'swarm:bootstrap-update?nodeIP=<your_bootstrap_node_IP>&por
 #### Bootstrap login
 
 With Calabash panel, you can manipulate Docker Swarm easily and excute tasks written in shell scripts.
-Before one can run any calabash "job", one have to login to obtain a JWT token. You can do so by visiting `/auth/login` from `lattice` service test page to obtain an initial JWT token (with Long-live cookie radio box checked).
+Before one can run any calabash "job", one has to login to obtain a JWT token. You can do so by visiting `/auth/login` from `lattice` service test page to obtain an initial JWT token (with Long-live cookie radio box checked).
 
 #### Bootstrap HTTPS gateway
 In Calabash panel, label the node `dns_pin=true` and set your domain name DNS to point to this node IP address.
