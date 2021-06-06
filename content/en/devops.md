@@ -28,7 +28,7 @@ $ git clone git@github.com:approach0/calabash.git && cd calabash
 ```
 
 Copy `config.template.toml` to a new file `config.toml` in the directory, edit `config.toml` and fill in the blanks (indicated by `___`)
-with your own credentials/passwords and change the `domain_name` entry in `environment` to your own, then run job daemon
+with your own credentials/passwords (please also add a prefix `SECRET:` to these fields), then run job daemon
 ```sh
 $ node ./jobd/jobd.js --config ./config.toml --no-looptask
 ```
