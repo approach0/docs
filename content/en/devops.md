@@ -71,7 +71,10 @@ Before one can run any calabash "job", one has to login to obtain a JWT token. Y
 #### Bootstrap HTTPS gateway
 In Calabash panel, label the node `dns_pin=true` and set your domain name DNS to point to this node IP address.
 
-Once your DNS record is propagated (you can verify it using *ping* command), create service `gateway`.
+Once your DNS record is propagated (you can verify it using *ping* command), create service `gateway` with domain name argument:
+```
+swarm:service-create?service=gateway&domain_name=approach0.me
+```
 
 After `gateway` is deployed, you can test and visit `https://<your_domain_name>` to see if `gateway` service is working as expected.
 If it all looks good, you may want to remove `gateway_bootstrap` service because it is no longer necessary. `gateway` service will automatically update
