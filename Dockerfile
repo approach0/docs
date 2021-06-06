@@ -18,7 +18,7 @@ RUN apt-get install -y --no-install-recommends git
 ARG GITSRC
 RUN git clone --depth=1 $GITSRC /code
 WORKDIR /code
-RUN pip3 install --trusted-host=pypi.douban.com -i http://pypi.douban.com/simple/ -r requirements.txt
+RUN pip3 install -r requirements.txt
 RUN npm install
 RUN node main.js update
 
