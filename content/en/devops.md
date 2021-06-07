@@ -86,7 +86,7 @@ If you hit [the rate limit](https://letsencrypt.org/docs/rate-limits/) of Let's 
 The rest of it is just clicking buttons, create new nodes, label them and setup new services until
 Approach Zero cluster can automatically refresh its index and switch to new indices regularly.
 
-However, the order of the services to boot up is important. Here is a recommended order to set up other services:
+However, the order of the services to boot up is important. Here is a recommended order to set up other services (in the following we assume we need 4 shards for each searcher and indexer cluster):
 
 1. For the bootstrap node (namely `persistent` node), create:
 
@@ -112,7 +112,7 @@ However, the order of the services to boot up is important. Here is a recommende
 
     * `ui_search` for search page UI (scale it to match the number of search nodes to load-balance large traffic)
 
-2.  Create 4 "indexer" nodes for indexing and crawling, label each node a shard number from 1 to 4, then create:
+2.  Create 4 "indexer" nodes for indexing and crawling, label each node a `shard` number from 1 to 4, then create:
 
     * `indexer` for indexers
 
@@ -121,7 +121,7 @@ However, the order of the services to boot up is important. Here is a recommende
 
     * `feeder` service to start feeding current corpus files to indexers (if any)
 
-3. Create 4 "searchd" nodes for search daemons, label each node a shard number from 1 to 4, then create:
+3. Create 4 "searchd" nodes for search daemons, label each node a `shard` number from 1 to 4, then create:
 
     * `crawler_sync` for sending crawler coprus harvest to `corpus_syncd`.
 
