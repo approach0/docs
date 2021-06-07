@@ -119,7 +119,7 @@ However, the order of the services to boot up is important. Here is a recommende
     * and `index_syncd` for transmitting indices to new search nodes going to be created later.
        Watch `index_syncd` logs for the most recently created index image whose name contains its creation timestamp.
 
-    * `feeder` service to start feeding current corpus files to indexers (if any)
+    * `feeder` service to start feeding current corpus files to indexers (if any). At any point of time, you can create the one-time service `indexer_stopper` to stop indexers and the `feeder` server will then exit and stop.
 
 3. Create 4 "searchd" nodes for search daemons, label each node a `shard` number from 1 to 4, then create:
 
