@@ -171,8 +171,14 @@ $ node cli/cli.js -j 'swarm:bootstrap-update?nodeIP=<IP>&port=8982&services=latt
 
 ### 4. Maintenance
 
+#### Multi-shard logs inspection
+You can view tail logs of a multi-shard service using `swarm:service-multishards-logs` job, for example, to inspect the indexer progress:
+```
+swarm:service-multishards-logs?service=index_syncd&lines=15
+```
+
 #### Update a service
-A normal update has `--update-order=start-first` passed to Docker Swarm in Calabash, which means it will start a parallel service and switch to the new one (stop the old) once it is ready. Doing this also means an update on service will fail if existing old instance has already filled the only placement slot(s). In this case, you can choose to create a same service (instead of updating the service) because creating service in Calabash will also remove the old one.
+Some updates have `--update-order=start-first` passed to Docker Swarm in Calabash, which means it will start a parallel service and switch to the new one (stop the old) once it is ready. Doing this also means an update on service will fail if existing old instance has already filled the only placement slot(s). In this case, you can choose to create a same service (instead of updating the service) because creating service in Calabash will also remove the old one.
 
 #### Switch to a newer index
 Switching to a newer index (usually when indices are updated) is essentially to repeat step 3 in above section. Except that
@@ -265,8 +271,14 @@ $ ssh-copy-id -p 8982 root@<IP>
 ```
 
 #### Quorum reset
-If for some reason a quorum lost leader and ends up with a even number of managers, one needs 
-to reset the quorum from one of its manager node:
+If for some reason a quorum lost leader and ends up with a even number of managers,
+then one needs to reset the quorum from one of its manager node:
 ```
 $ docker swarm init --force-new-cluster
+```
+
+More often, some swarm nodes have issue with their overlay-network connections, in this case
+try to restart docker service on problematic nodes:
+```
+$ systemctl restart docker
 ```
