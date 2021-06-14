@@ -176,7 +176,7 @@ You can view tail logs of a multi-shard service using `swarm:service-multishards
 ```
 swarm:service-multishards-logs?service=index_syncd&lines=20
 ```
-(in this example, be careful to check modification time of `mnt` directory should match that of `nohup.out`, because `mnt` is created when index image producer obtains the lock)
+(in this example, when `indexer` service is not there, be careful to check modification time of `mnt` directory should match that of `nohup.out`, because `mnt` is created when index image producer has the lock)
 
 #### Update a service
 Some updates have `--update-order=start-first` passed to Docker Swarm in Calabash, which means it will start a parallel service and switch to the new one (stop the old) once it is ready. Doing this also means an update on service will fail if existing old instance has already filled the only placement slot(s). In this case, you can choose to create a same service (instead of updating the service) because creating service in Calabash will also remove the old one.
