@@ -5,12 +5,14 @@ This string gets encoded as URI parameters and sent to a relay service which lis
 parse the linear canonicalized string to structured JSON format that search engine daemon is easy to take as input.
 
 ### Local demo
-To setup relay service locally, the easiest way is to use `approach0/a0-relay` Docker image:
+To setup relay service locally, the easiest way is to utilize existing Docker images:
 ```sh
-$ docker run --network host -it approach0/a0-relay
+$ docker run -it --network host --mount type=volume,src=usersdb_vol,dst=/postgres/data -p 8081:80 -p 5432:5432 approach0/postgres13
+$ docker run -it --network host approach0/a0-stats
+$ docker run -it --network host -e A0_SEARCHD=localhost -p 8080:8080 approach0/a0-relay
 ```
 
-Ensure a search deamon is running locally, then to view a local WEB demo, you only need to serve the WEB front end page:
+Ensure a search daemon is running locally, then to view a local WEB demo, you only need to serve the WEB front end page:
 ```
 $ git clone git@github.com:approach0/ui-approach0.git
 $ cd ui-approach0 
