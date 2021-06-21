@@ -7,7 +7,7 @@ parse the linear canonicalized string to structured JSON format that search engi
 ### Local demo
 To setup relay service locally, the easiest way is to utilize existing Docker images:
 ```sh
-$ docker run -it --network host --mount type=volume,src=usersdb_vol,dst=/postgres/data -p 8081:80 -p 5432:5432 approach0/postgres13
+$ docker run -it --network bridge --mount type=volume,src=usersdb_vol,dst=/postgres/data -p 8081:80 -p 5432:5432 approach0/postgres13
 $ docker run -it --network host approach0/a0-stats
 $ docker run -it --network host -e A0_SEARCHD=localhost -p 8080:8080 approach0/a0-relay
 ```
@@ -19,6 +19,11 @@ $ cd ui-approach0
 $ npm run watch
 ```
 and visit `http://localhost:19985` in your browser.
+
+To quickly debug in a container, one trick is to bind mount the source file directly into container:
+```
+$ docker run -it --network host --mount type=bind,src=`pwd`,dst=/code a0-stats bash
+```
 
 ### Remote demo
 There is not many differences to setup a demo remotely (e.g., from a VPS).
