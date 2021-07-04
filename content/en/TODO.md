@@ -2,6 +2,7 @@
 Listed are todo items of this project.
 
 ### Demanding
+* show error msg `None of the sites that we index` when `site:` field does not match any.
 * formula match subexpression highlight?
 * support to solve/simplify simple equations/expressions
 * [✓] <del>Show thread view and votes</del>, perhaps a good idea to show tags too.
