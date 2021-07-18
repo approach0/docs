@@ -192,3 +192,8 @@ $ echo $CC; echo $CXX
 /home/YOUR_USER_NAME_HERE/anaconda3/envs/py38/bin/x86_64-conda_cos6-linux-gnu-cc
 /home/YOUR_USER_NAME_HERE/anaconda3/envs/py38/bin/x86_64-conda_cos6-linux-gnu-c++
 ```
+
+Some other required libraries:
+```sh
+conda install zlib icu libevent
+```
