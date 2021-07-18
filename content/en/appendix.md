@@ -195,5 +195,15 @@ $ echo $CC; echo $CXX
 
 Some other required libraries:
 ```sh
-conda install zlib icu libevent
+$ conda install zlib icu libevent
+```
+
+To switch compiling with system environment and Anaconda environment, use `conda deactivate` or `conda activate`
+```sh
+$ conda deactivate
+$ xml2-config --libs
+-lxml2 -lz -llzma -licui18n -licuuc -licudata -lm -ldl
+$ conda activate
+$ xml2-config --libs
+-L/home/tk/anaconda3/lib -lxml2 -L/home/tk/anaconda3/lib -lz -L/home/tk/anaconda3/lib -llzma -lpthread -L/home/tk/anaconda3/lib -L/home/tk/anaconda3/lib -licui18n -licuuc -licudata -lm -ldl
 ```
