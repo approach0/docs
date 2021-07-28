@@ -2,6 +2,7 @@
 Listed are todo items of this project.
 
 ### Demanding
+* `\frac d{dx} \int_0^1 f(x)dx` bug
 * show error msg `None of the sites that we index` when `site:` field does not match any.
 * formula match subexpression highlight?
 * support to solve/simplify simple equations/expressions
