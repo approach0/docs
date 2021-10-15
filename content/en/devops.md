@@ -191,7 +191,7 @@ Switching to a newer index (usually when indices are updated) is essentially to 
 When a node is rebooted, we will need to restart `vdisk_consume_loop` on rebooted node:
 ```sh
 $ source /var/tmp/vdisk/env.sh
-$ nohup bash -c "vdisk_producer_loop $DISKSIZE" &> /var/tmp/vdisk/nohup.out < /dev/null &
+$ nohup bash -c "vdisk_consume_loop" &> /var/tmp/vdisk/nohup.out < /dev/null &
 $ ps aux | grep vdisk
 root     19904  0.0  0.2   6644  2660 pts/0    S    17:09   0:00 bash -c vdisk_consume_loop
 root     24887  0.0  0.0   6076   896 pts/0    S+   17:18   0:00 grep vdisk
