@@ -193,9 +193,10 @@ $ echo $CC; echo $CXX
 /home/YOUR_USER_NAME_HERE/anaconda3/envs/py38/bin/x86_64-conda_cos6-linux-gnu-c++
 ```
 
-Some other required libraries:
+Some other required libraries and binaries:
 ```sh
 $ conda install zlib icu libevent
+$ conda install flex bison
 ```
 
 To switch compiling with system environment and Anaconda environment, use `conda deactivate` or `conda activate`
