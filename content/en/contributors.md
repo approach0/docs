@@ -10,3 +10,4 @@
 * [0xbsec](https://github.com/0xbsec), found and reported a vulnerability when Approach Zero website is initially released.
 * [Martin R](https://stackoverflow.com/users/1187415/martin-r), frequently sends in feedback and directs users on MSE to find this project.
 * [Stupid Questions Inc](https://chat.stackexchange.com/users/386041), helped to identify some important website availability issues.
+* [Pajoca](https://github.com/Pajoca), thanks for becoming a sponsor for me on Github! A surprise when I see that!
