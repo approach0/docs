@@ -16,13 +16,13 @@ As for now, all basic functionalities are already implemented (see [features](fe
 it is ready for using on a big dataset. However, this project is still considered a "hobby project", you may not use it for production for many reasons.
 
 ### A Little History...
-In 2014, the idea of searching math formulas takes off as a graducate level course project (at University of Delaware).
+In 2014, the idea of searching math formulas takes off as a graducate level course project (at the University of Delaware).
 
 Later, I am persuaded by my instructor to further do some research work on this, she then became my advisor at that time.
 
 In 2015 summer, [my thesis](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/thesis-ref.pdf) on this topic is submitted.
 
-In 2016, a [math-only search engine prototype](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/ecir2016.pdf) is published in ECIR 2016.
+In 2016, a [math-only search engine prototype](https://github.com/tkhost/tkhost.github.io/raw/master/opmes/ecir2016.pdf) is published in the ECIR 2016 conference.
 
 Shortly after, this Github project is created, the goal was to rewrite most of the code and develop a math-aware search engine that can combine both math formula and text keywords into one query.
 
@@ -33,8 +33,8 @@ In 2017, I go back to China and work at Huawei doing a STB (TV box) project, irr
 In 2017 Fall, with the feeling that a math-aware search engine would probably provide huge value, I gave up my job and continued working on this topic as a PhD student at [RIT](https://www.cs.rit.edu/~dprl/members.html).
 During the first two years of my PhD study, I kept improving the effectiveness and efficiency of the formula retrieval model.
 
-In 2019, the new model has brought me [my first research full paper](http://ecir2019.org/best-paper-awards/) at ECIR 2019 conference (and a best application paper award!).
+In 2019, the new model has brought me [my first research full paper](http://ecir2019.org/best-paper-awards/) at the ECIR 2019 conference (and a best application paper award!).
 
 In May 2019, the new model has been put online, it has indexed over 1 million posts and there are only 3 search instances running on two low-cost Linode servers.
 
-In early 2020, a paper focusing on efficiency has just been accepted at [ECIR 2020](https://link.springer.com/chapter/10.1007/978-3-030-45439-5_47) conference, this paper shows our system is the first one to produce very effective math search results with realtime query runtimes in a single thread.
+In early 2020, a paper focusing on efficiency has just been accepted at the [ECIR 2020](https://link.springer.com/chapter/10.1007/978-3-030-45439-5_47) conference, this paper shows our system is the first one to produce very effective math search results with realtime query runtimes in a single thread.
