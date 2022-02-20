@@ -1,5 +1,4 @@
 ## Kudos Page
-* [Jimmy Lin](https://cs.uwaterloo.ca/~jimmylin/) and [Richard Zanibbi](https://www.cs.rit.edu/~rlaz/), my Ph.D. advisors. This project could not go this far without their funding.
 * [Hui Fang](https://www.eecis.udel.edu/~hfang/), my Master of Science degree advisor. Thank you for letting me work on this subject when it is just a course project initially.
 * [Li Xiaoming](https://www.eecis.udel.edu/~xli/), whose course inspired the current TeX parser front-end.
 * [Zhang Yulin](https://github.com/yzhan018), for his initial FOR-delta implementation.
