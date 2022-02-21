@@ -10,3 +10,4 @@
 * [Martin R](https://stackoverflow.com/users/1187415/martin-r), frequently sends in feedback and directs users on MSE to find this project.
 * [Stupid Questions Inc](https://chat.stackexchange.com/users/386041), helped to identify some important website availability issues.
 * [Pajoca](https://github.com/Pajoca), thanks for becoming a sponsor for me on Github, and your nicely written blog article about this website! A surprise when I see that!
+* [Shaun](https://math.stackexchange.com/users/104041/shaun), thanks for keeping the chatroom unfrozen, and showing the practice of using approach0 before posting a question on MSE.
