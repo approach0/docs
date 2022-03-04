@@ -197,6 +197,8 @@ Some other required libraries and binaries:
 ```sh
 $ conda install zlib icu libevent
 $ conda install flex bison
+$ conda install -c conda-forge openmpi
+$ conda install -c anaconda libxml2
 ```
 
 To switch compiling with system environment and Anaconda environment, use `conda deactivate` or `conda activate`
