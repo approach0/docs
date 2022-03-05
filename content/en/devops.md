@@ -301,3 +301,15 @@ try to restart docker service on problematic nodes:
 ```
 $ systemctl restart docker
 ```
+
+#### Analyse Core Dump
+If a search deamon fails at certain node and there is a `core` file under `/var/tmp/vdisk`,
+we can inspect the core dump using `gdb`:
+```
+$ docker images
+REPOSITORY           TAG       IMAGE ID       CREATED        SIZE
+approach0/a0         <none>    459f2b93b1e2   7 months ago   630MB
+
+$ cd /var/tmp/vdisk
+$ docker run -it -v `pwd`:/mnt/tmp 459f2b93b1e2 gdb /usr/bin/searchd.out ./mnt/tmp/core
+```
