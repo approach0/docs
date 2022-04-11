@@ -6,6 +6,9 @@ on:
   push:
     branches: [ master ]
 
+  # Enable to run GitHub Actions manually
+  workflow_dispatch:
+
 jobs:
 
   trigger_hook:
