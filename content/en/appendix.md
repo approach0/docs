@@ -188,6 +188,7 @@ Anaconda can also be used to create a C/C++ build environment, to install gcc/g+
 ```sh
 $ conda install gcc_linux-64
 $ conda install gxx_linux-64
+$ conda upgrade -c conda-forge --all
 $ echo $CC; echo $CXX
 /home/YOUR_USER_NAME_HERE/anaconda3/envs/py38/bin/x86_64-conda_cos6-linux-gnu-cc
 /home/YOUR_USER_NAME_HERE/anaconda3/envs/py38/bin/x86_64-conda_cos6-linux-gnu-c++
