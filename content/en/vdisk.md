@@ -77,3 +77,23 @@ $ sudo systemctl enable fstrim.timer
 $ sudo systemctl start fstrim.timer
 $ journalctl ‑‑unit fstrim.timer # show logs
 ```
+
+#### 4. Permission
+For cases when you have to mount an disk image created by another user (i.e., using a different uid), create an new user and log into that user to access the mounted directory, instead of invoking `chmod` recursively.
+
+First, use `ls -l` in mounted directory to see the uid/gid. 
+```sh
+$ ls -l
+total 12
+drwxrwxrwx 7 34549 34549  216 Apr 11 22:04 ./
+...
+``
+Create a user with uid = 34549:
+```sh
+$ sudo useradd arqmath3 -u 34549 -g 34549 -m -s /bin/bash
+$ ls -l
+total 12
+drwxrwxrwx 7 arqmath3 arqmath3  216 Apr 11 22:04 ./
+...
+```
+Now, use the user `arqmath3` to access that directory.
