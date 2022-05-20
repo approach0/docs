@@ -87,7 +87,7 @@ $ ls -l
 total 12
 drwxrwxrwx 7 34549 34549  216 Apr 11 22:04 ./
 ...
-``
+```
 Create a user with uid = 34549:
 ```sh
 $ sudo useradd arqmath3 -u 34549 -g 34549 -m -s /bin/bash
