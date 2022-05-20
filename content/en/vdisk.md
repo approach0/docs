@@ -79,7 +79,7 @@ $ journalctl ‑‑unit fstrim.timer # show logs
 ```
 
 #### 4. Permission
-For cases when you have to mount an disk image created by another user (i.e., using a different uid), create an new user and log into that user to access the mounted directory, instead of invoking `chmod` recursively.
+For cases when you have to mount an disk image created by another user (i.e., using a different uid), create a new user and log in as that user to access the mounted directory, instead of invoking `chmod` recursively.
 
 First, use `ls -l` in mounted directory to see the uid/gid. 
 ```sh
