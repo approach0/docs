@@ -199,7 +199,7 @@ Some other required libraries and binaries:
 ```sh
 $ conda install zlib icu libevent
 $ conda install flex bison
-$ conda install -c conda-forge openmpi
+$ conda install -c conda-forge openmpi # use openmpi=4.1.2 if libmpi.so is not found (conda-forge package bug)
 $ conda install -c anaconda libxml2
 ```
 
