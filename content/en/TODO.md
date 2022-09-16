@@ -2,6 +2,7 @@
 Listed are todo items of this project.
 
 ### Demanding
+* filtering results per site should be doable for example through checkbox, or in other more user friendly way
 * show error msg `None of the sites that we index` when `site:` field does not match any.
 * formula match subexpression highlight?
 * support to solve/simplify simple equations/expressions
