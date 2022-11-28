@@ -79,7 +79,7 @@ $ ./configure --indri-path=~/indri --jieba-path=~/cppjieba
 This `configure` script also checks necessary libraries for building. If `configure` outputs any library that can not be located by the linker, you may need to install the missing dependency before build.
 
 ### 5. Build
-Type `make` at project top level (i.e. `$PROJECT`) will do the job.
+Issue `make` at project top level (i.e. `$PROJECT`) will do the job.
 
 ### 6. LaTeXML (optional)
 You may also need to install LaTeXML depending on your build configuration. Please refer to [Appendix](appendix_indri.html#install-latexml) for instructions.
