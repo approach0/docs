@@ -186,7 +186,7 @@ When a `python setup.py install` is needed, you can instead issue `pip install .
 
 Anaconda can also be used to create a C/C++ build environment:
 ```sh
-$ conda install gcc_linux-64
+$ conda install gcc_linux-64 # to specify gcc/g++ version, add channel e.g., -c "conda-forge/label/gcc7"
 $ conda install gxx_linux-64
 $ conda install -c anaconda make
 $ conda upgrade -c conda-forge --all
