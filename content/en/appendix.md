@@ -184,7 +184,7 @@ pip 21.0.1 from /home/w32zhong/anaconda3/envs/py38/lib/python3.8/site-packages/p
 
 When a `python setup.py install` is needed, you can instead issue `pip install .`.
 
-Anaconda can also be used to create a C/C++ build environment, to install gcc/g++:
+Anaconda can also be used to create a C/C++ build environment:
 ```sh
 $ conda install gcc_linux-64
 $ conda install gxx_linux-64
@@ -193,6 +193,7 @@ $ conda upgrade -c conda-forge --all
 $ echo $CC; echo $CXX
 /home/YOUR_USER_NAME_HERE/anaconda3/envs/py38/bin/x86_64-conda_cos6-linux-gnu-cc
 /home/YOUR_USER_NAME_HERE/anaconda3/envs/py38/bin/x86_64-conda_cos6-linux-gnu-c++
+$ export LD_LIBRARY_PATH=$(dirname $CXX)/../lib
 ```
 
 Some other required libraries and binaries:
