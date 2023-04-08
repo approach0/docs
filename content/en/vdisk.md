@@ -42,7 +42,7 @@ argument above and change file system to `btrfs` for similar performance.
 For server distributions support ReiserFS, install `reiserfsprogs` for
 userland ReiserFS supports.
 ```sh
-$ apt-get install reiserfsprogs
+$ apt-get install reiserfsprogs acl
 ```
 
 #### 2. `dd` command reports exhausted memory
