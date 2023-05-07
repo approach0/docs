@@ -4,7 +4,7 @@
 “Math-aware” means you can add math expression(s) as some of your keywords to have search engine help you find similar expressions and return those documents/topics that you may find relevant to your query. In short, a typical search engine plus math search.
 
 ### Use Case
-Math search can be helpful in Q&A websites: Assume that you are trying to solve a tough question in your homework, spending so much time on it without any clue. Yes, you do not simply want an answer, but all you need is some hints. However, spending a lot of time on it without any progress is absolutely a desperate experience, it would be very helpful if you can search for similar or identical questions that have been already answered somewhere.
+Utilizing math search can prove beneficial for Q&A websites. Imagine you're attempting to solve a challenging question in your homework, spending an extensive amount of time on it without any indication of progress. While you don't necessarily want a straightforward answer, you're seeking some helpful hints. However, continuing to invest a substantial amount of time without any headway can be a frustrating experience. Therefore, searching for similar or identical questions that have already been answered can prove to be an incredibly valuable resource.
 
 ### Online Demo
 Visit https://approach0.xyz
