@@ -90,9 +90,7 @@ index 098a268..d304e28 100644
 -using std::tr1::unordered_set;
 +#include <unordered_map>
 +#include <unordered_set>
- }
-
- #endif
+#endif
 ```
 
 
