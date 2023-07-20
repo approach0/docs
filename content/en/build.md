@@ -67,6 +67,35 @@ $ mkdir -p ~/cppjieba
 $ tar -xzf cppjieba.tar.gz -C ~/cppjieba --strip-components=1
 ```
 
+If you encounter this error:
+```
+cppjieba/deps/limonp/StdExtension.hpp:19:17: error: 'template<class _Key, class _Tp, class _Hash, class _Pred, class _Alloc> class std::tr1::unordered_map' conflicts with a previous declaration
+   19 | using std::tr1::unordered_map;
+      |                 ^~~~~~~~~~~~~
+```
+then edit `cppjieba/deps/limonp/StdExtension.hpp`:
+```diff
+diff --git a/deps/limonp/StdExtension.hpp b/deps/limonp/StdExtension.hpp
+index 098a268..d304e28 100644
+--- a/deps/limonp/StdExtension.hpp
++++ b/deps/limonp/StdExtension.hpp
+@@ -13,11 +13,8 @@
+ #include <unordered_map>
+ #include <unordered_set>
+ #else
+-#include <tr1/unordered_map>
+-#include <tr1/unordered_set>
+-namespace std {
+-using std::tr1::unordered_map;
+-using std::tr1::unordered_set;
++#include <unordered_map>
++#include <unordered_set>
+ }
+
+ #endif
+```
+
+
 ### 4. Configure dependency path
 Our project uses `dep-*.mk` files to configure most C/C++ dependency paths (such as CFLAGS and LDFLAGS). If you have installed above dependency libraries in your system environment, you can leave these `dep-*.mk` files untouched. Otherwise if you compile and build dependencies locally, please modify `dep-*.mk` files to point to your locally built library locations.
 
