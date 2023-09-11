@@ -2,6 +2,7 @@
 Listed are todo items of this project.
 
 ### Demanding
+* show the date of the last import (per site) 
 * timestamp field / filtering
 * filtering results per site should be doable for example through checkbox, or in other more user friendly way
 * show error msg `None of the sites that we index` when `site:` field does not match any.
