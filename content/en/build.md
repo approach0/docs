@@ -62,9 +62,7 @@ successfully build this project.
 However, there is no need to build CppJieba source code, only its C++ header files are required.
 ```sh
 $ cd ~
-$ wget 'https://github.com/yanyiwu/cppjieba/archive/v4.8.1.tar.gz' -O cppjieba.tar.gz
-$ mkdir -p ~/cppjieba
-$ tar -xzf cppjieba.tar.gz -C ~/cppjieba --strip-components=1
+$ git clone git@github.com:approach0/fork-cppjieba.git cppjieba
 ```
 
 If you encounter this error:
