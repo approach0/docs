@@ -302,6 +302,10 @@ try to restart docker service on problematic nodes:
 $ systemctl restart docker
 ```
 
+If restart docker results in a failure to restart services, there is a chance to have the [network sandbox join issue](https://github.com/moby/libnetwork/issues/562).
+In my case, I solved it with a server reboot. 😥 
+
+
 #### Analyse Core Dump
 If a search deamon fails at certain node and there is a `core` file under `/var/tmp/vdisk`,
 we can inspect the core dump using `gdb`:
